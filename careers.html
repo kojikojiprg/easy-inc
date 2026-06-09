@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers — EASY.INC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:     #0A0A0A;
+      --off-white: #F5F5F0;
+      --yellow:    #E8FF00;
+      --mid:       #3A3A3A;
+      --border:    #1E1E1E;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black); color: var(--off-white);
+      font-family: 'Inter', sans-serif; font-weight: 300;
+      line-height: 1.6; overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 3rem;
+      background: rgba(10,10,10,0.88); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.18em; color: var(--yellow); text-decoration: none; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--off-white); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.6; transition: opacity 0.2s, color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--yellow); }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 14rem 3rem 7rem; max-width: 1200px; margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end;
+    }
+    .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; }
+    .page-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.9; letter-spacing: -0.04em; }
+    .page-title em { font-style: normal; color: var(--yellow); }
+    .hero-right { padding-bottom: 0.5rem; }
+    .hero-right p { font-size: 0.95rem; opacity: 0.55; line-height: 1.9; }
+    .hero-right p + p { margin-top: 1.2rem; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+    .section-block { padding: 7rem 0; border-bottom: 1px solid var(--border); }
+    .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem; }
+    .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.1; margin-bottom: 3.5rem; }
+
+    /* CULTURE */
+    .culture-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .culture-card { background: var(--black); padding: 3rem 2.5rem; transition: background 0.25s; }
+    .culture-card:hover { background: #0f0f0f; }
+    .culture-icon { font-size: 2.2rem; margin-bottom: 1.5rem; }
+    .culture-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; }
+    .culture-desc { font-size: 0.86rem; opacity: 0.55; line-height: 1.8; }
+    .culture-quote { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-size: 0.78rem; font-style: italic; opacity: 0.35; line-height: 1.6; }
+
+    /* PERKS */
+    .perks-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    .perk-item { background: var(--black); padding: 2.5rem 2rem; transition: background 0.2s; }
+    .perk-item:hover { background: #0f0f0f; }
+    .perk-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .perk-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .perk-desc { font-size: 0.82rem; opacity: 0.5; line-height: 1.7; }
+
+    /* JOB LISTINGS */
+    .job-filter {
+      display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 3rem;
+    }
+    .filter-btn {
+      font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--border);
+      background: transparent; color: var(--off-white);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--yellow); color: var(--black); border-color: var(--yellow);
+    }
+
+    .job-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .job-item {
+      background: var(--black); padding: 2.5rem 3rem;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 2rem;
+      cursor: pointer; transition: background 0.2s;
+      text-decoration: none; color: var(--off-white);
+    }
+    .job-item:hover { background: #0f0f0f; }
+    .job-item:hover .job-arrow { color: var(--yellow); transform: translate(4px, -4px); }
+    .job-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 0.6rem; }
+    .job-dept {
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      border: 1px solid var(--border); padding: 0.18rem 0.65rem; opacity: 0.5;
+    }
+    .job-type {
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      background: var(--yellow); color: var(--black);
+      padding: 0.18rem 0.65rem; font-weight: 600;
+    }
+    .job-new {
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      background: #fff; color: var(--black);
+      padding: 0.18rem 0.65rem; font-weight: 700;
+    }
+    .job-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .job-meta { font-size: 0.8rem; opacity: 0.4; display: flex; gap: 1.5rem; }
+    .job-arrow { font-size: 1.2rem; transition: transform 0.25s, color 0.25s; opacity: 0.35; }
+
+    /* JOB DETAIL MODAL */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+      z-index: 200; backdrop-filter: blur(6px);
+      align-items: flex-start; justify-content: center; overflow-y: auto; padding: 3rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--black); border: 1px solid var(--border);
+      width: 100%; max-width: 720px; padding: 4rem;
+      position: relative; margin: auto;
+    }
+    .modal-close {
+      position: absolute; top: 2rem; right: 2rem;
+      font-size: 1.5rem; cursor: pointer; opacity: 0.4;
+      background: none; border: none; color: var(--off-white);
+      transition: opacity 0.2s;
+    }
+    .modal-close:hover { opacity: 1; }
+    .modal-dept { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem; }
+    .modal-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 2rem; margin-bottom: 2rem; line-height: 1.1; }
+    .modal-meta { display: flex; gap: 2rem; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .modal-meta-item label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.4; display: block; margin-bottom: 0.3rem; }
+    .modal-meta-item span { font-size: 0.9rem; }
+    .modal-section { margin-bottom: 2.5rem; }
+    .modal-section h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem; }
+    .modal-section p { font-size: 0.9rem; opacity: 0.7; line-height: 1.85; }
+    .modal-section ul { list-style: none; }
+    .modal-section ul li { font-size: 0.88rem; opacity: 0.65; padding: 0.5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.8rem; }
+    .modal-section ul li::before { content: '✦'; color: var(--yellow); flex-shrink: 0; font-size: 0.7rem; margin-top: 0.15rem; }
+    .modal-apply {
+      display: block; width: 100%; background: var(--yellow); color: var(--black);
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase;
+      border: none; padding: 1.2rem; cursor: pointer;
+      transition: background 0.2s; margin-top: 3rem;
+      text-align: center; text-decoration: none;
+    }
+    .modal-apply:hover { background: #fff; }
+
+    /* QUOTE BANNER */
+    .quote-banner {
+      background: var(--yellow); color: var(--black);
+      padding: 5rem 3rem; text-align: center;
+    }
+    .qb-text {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: clamp(1.5rem, 3.5vw, 2.8rem); line-height: 1.2;
+      max-width: 800px; margin: 0 auto 1rem;
+    }
+    .qb-attr { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.5; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { color: var(--off-white); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.35; transition: opacity 0.2s; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .culture-grid { grid-template-columns: 1fr; }
+      .page-hero { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .wrap { padding: 0 1.5rem; }
+      .page-hero { padding: 10rem 1.5rem 5rem; }
+      .job-item { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+      .modal { padding: 2.5rem 1.5rem; }
+      .modal-meta { flex-wrap: wrap; gap: 1.2rem; }
+      footer { flex-direction: column; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">EASY.INC</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="business.html">Business</a></li>
+    <li><a href="careers.html" class="active">Careers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div>
+    <p class="page-eyebrow fade-in">Careers at EASY.INC</p>
+    <h1 class="page-title fade-in">Join the<br><em>easy</em><br>side.</h1>
+  </div>
+  <div class="hero-right fade-in">
+    <p>
+      私たちは「難しいことを簡単にする」という使命に、本気で取り組む仲間を探しています。
+    </p>
+    <p>
+      スキルや経歴よりも、「なぜ難しいままにしておくのか」という問いを常に持ち続けられる人を求めています。
+    </p>
+    <p style="margin-top:2rem;font-style:italic;opacity:0.35;font-size:0.85rem;">
+      "If you think it's simple, then you have misunderstood the problem."<br>— Bjarne Stroustrup
+    </p>
+  </div>
+</div>
+
+<!-- CULTURE -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">Culture</p>
+    <h2 class="section-heading fade-in">EASY.INC で働くということ</h2>
+    <div class="culture-grid">
+      <div class="culture-card fade-in">
+        <div class="culture-icon">🎯</div>
+        <div class="culture-title">本質だけに集中する</div>
+        <div class="culture-desc">不必要な会議、不必要なプロセス、不必要な複雑さを徹底的に排除します。あなたの時間は、本当に大切なことだけに使われます。</div>
+        <div class="culture-quote">"The ability to simplify means to eliminate the unnecessary so that the necessary may speak." — Hans Hofmann</div>
+      </div>
+      <div class="culture-card fade-in">
+        <div class="culture-icon">🛠</div>
+        <div class="culture-title">作りながら考える</div>
+        <div class="culture-desc">議論より実行。プロトタイプより先に会議室で答えは出ません。動くものを作り、使う人に見せ、学び、改善する。そのサイクルを速く回します。</div>
+        <div class="culture-quote">"Talk doesn't cook rice." — Chinese Proverb</div>
+      </div>
+      <div class="culture-card fade-in">
+        <div class="culture-icon">🌱</div>
+        <div class="culture-title">全員が成長する環境</div>
+        <div class="culture-desc">EASY.INC は学習を義務化しません。ただ、学びたい人には惜しみなく機会とリソースを提供します。あなたの「もっと知りたい」を歓迎します。</div>
+        <div class="culture-quote">"An investment in knowledge pays the best interest." — Benjamin Franklin</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PERKS -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">Benefits &amp; Perks</p>
+    <h2 class="section-heading fade-in">働きやすさも、イージーに。</h2>
+    <div class="perks-grid">
+      <div class="perk-item fade-in">
+        <div class="perk-icon">🏠</div>
+        <div class="perk-name">フルリモート可</div>
+        <div class="perk-desc">日本全国どこからでも働けます。出社は月1回の全社MTGのみ。</div>
+      </div>
+      <div class="perk-item fade-in">
+        <div class="perk-icon">⏰</div>
+        <div class="perk-name">フレックスタイム</div>
+        <div class="perk-desc">コアタイムは11〜15時のみ。あとは自分のリズムで動いてください。</div>
+      </div>
+      <div class="perk-item fade-in">
+        <div class="perk-icon">📚</div>
+        <div class="perk-name">学習支援 月3万円</div>
+        <div class="perk-desc">書籍、オンライン講座、カンファレンス参加費を会社が全額負担します。</div>
+      </div>
+      <div class="perk-item fade-in">
+        <div class="perk-icon">💻</div>
+        <div class="perk-name">機材選択自由</div>
+        <div class="perk-desc">Mac/Windows/Linux、好きな開発環境を選べます。予算は30万円。</div>
+      </div>
+      <div class="perk-item fade-in">
+        <div class="perk-icon">🌴</div>
+        <div class="perk-name">無制限有休</div>
+        <div class="perk-desc">取得日数の制限なし。休むことも、仕事のうち。</div>
+      </div>
+      <div class="perk-item fade-in">
+        <div class="perk-icon">💰</div>
+        <div class="perk-name">ストックオプション</div>
+        <div class="perk-desc">全正社員にSOを付与。会社の成長を一緒に享受できます。</div>
+      </div>
+      <div class="perk-item fade-in">
+        <div class="perk-icon">🍱</div>
+        <div class="perk-name">ランチ補助 1,000円/日</div>
+        <div class="perk-desc">オフィス出社日はランチを会社が支援。チームとの食事を大切に。</div>
+      </div>
+      <div class="perk-item fade-in">
+        <div class="perk-icon">🧘</div>
+        <div class="perk-name">ウェルネス支援</div>
+        <div class="perk-desc">ジム・ヨガ・メンタルヘルスアプリの費用を月1万円まで補助。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JOBS -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">Open Positions</p>
+    <h2 class="section-heading fade-in">募集中のポジション</h2>
+
+    <div class="job-filter fade-in">
+      <button class="filter-btn active" onclick="filterJobs('all', this)">All</button>
+      <button class="filter-btn" onclick="filterJobs('engineering', this)">Engineering</button>
+      <button class="filter-btn" onclick="filterJobs('design', this)">Design</button>
+      <button class="filter-btn" onclick="filterJobs('strategy', this)">Strategy</button>
+      <button class="filter-btn" onclick="filterJobs('biz', this)">Business</button>
+    </div>
+
+    <div class="job-list" id="jobList">
+
+      <div class="job-item fade-in" data-dept="engineering" onclick="openModal('job1')">
+        <div>
+          <div class="job-top">
+            <span class="job-dept">Engineering</span>
+            <span class="job-type">正社員</span>
+            <span class="job-new">NEW</span>
+          </div>
+          <div class="job-title">フルスタックエンジニア</div>
+          <div class="job-meta">
+            <span>📍 フルリモート</span>
+            <span>💰 600〜1,000万円</span>
+            <span>🕐 即日〜</span>
+          </div>
+        </div>
+        <div class="job-arrow">↗</div>
+      </div>
+
+      <div class="job-item fade-in" data-dept="engineering" onclick="openModal('job2')">
+        <div>
+          <div class="job-top">
+            <span class="job-dept">Engineering</span>
+            <span class="job-type">正社員</span>
+          </div>
+          <div class="job-title">プロダクトエンジニア（モバイル）</div>
+          <div class="job-meta">
+            <span>📍 東京 / リモート</span>
+            <span>💰 550〜900万円</span>
+            <span>🕐 相談可</span>
+          </div>
+        </div>
+        <div class="job-arrow">↗</div>
+      </div>
+
+      <div class="job-item fade-in" data-dept="design" onclick="openModal('job3')">
+        <div>
+          <div class="job-top">
+            <span class="job-dept">Design</span>
+            <span class="job-type">正社員</span>
+            <span class="job-new">NEW</span>
+          </div>
+          <div class="job-title">プロダクトデザイナー（UX / UI）</div>
+          <div class="job-meta">
+            <span>📍 フルリモート</span>
+            <span>💰 550〜850万円</span>
+            <span>🕐 即日〜</span>
+          </div>
+        </div>
+        <div class="job-arrow">↗</div>
+      </div>
+
+      <div class="job-item fade-in" data-dept="strategy" onclick="openModal('job4')">
+        <div>
+          <div class="job-top">
+            <span class="job-dept">Strategy</span>
+            <span class="job-type">正社員</span>
+          </div>
+          <div class="job-title">ストラテジーコンサルタント</div>
+          <div class="job-meta">
+            <span>📍 東京 / リモート</span>
+            <span>💰 600〜1,000万円</span>
+            <span>🕐 相談可</span>
+          </div>
+        </div>
+        <div class="job-arrow">↗</div>
+      </div>
+
+      <div class="job-item fade-in" data-dept="biz" onclick="openModal('job5')">
+        <div>
+          <div class="job-top">
+            <span class="job-dept">Business</span>
+            <span class="job-type">正社員</span>
+          </div>
+          <div class="job-title">セールス / ビジネスデベロップメント</div>
+          <div class="job-meta">
+            <span>📍 東京</span>
+            <span>💰 500〜800万円</span>
+            <span>🕐 相談可</span>
+          </div>
+        </div>
+        <div class="job-arrow">↗</div>
+      </div>
+
+      <div class="job-item fade-in" data-dept="biz" onclick="openModal('job6')">
+        <div>
+          <div class="job-top">
+            <span class="job-dept">Business</span>
+            <span class="job-type">インターン</span>
+          </div>
+          <div class="job-title">ビジネスインターン（学生歓迎）</div>
+          <div class="job-meta">
+            <span>📍 フルリモート可</span>
+            <span>💰 時給1,500円〜</span>
+            <span>🕐 週15時間〜</span>
+          </div>
+        </div>
+        <div class="job-arrow">↗</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE BANNER -->
+<div class="quote-banner">
+  <div class="qb-text fade-in">"Choose a job you love, and you will never have to work a day in your life."</div>
+  <div class="qb-attr">Confucius</div>
+</div>
+
+<!-- SPONTANEOUS APPLICATION -->
+<div class="wrap">
+  <div class="section-block" style="text-align:center;">
+    <p class="section-label fade-in" style="text-align:center;">Open Application</p>
+    <h2 class="section-heading fade-in" style="text-align:center;margin-bottom:1.5rem;">ポジションが見当たらない？</h2>
+    <p class="fade-in" style="opacity:0.5;max-width:460px;margin:0 auto 3rem;font-size:0.95rem;line-height:1.85;">
+      「自分に合うポジションがない」と思った人こそ、ぜひ話しましょう。あなたが最高の仕事をできる場所を、一緒に作ります。
+    </p>
+    <a href="mailto:careers@easy-inc.jp" class="fade-in" style="display:inline-block;background:var(--yellow);color:var(--black);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.85rem;letter-spacing:0.14em;text-transform:uppercase;padding:1rem 2.5rem;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#fff'" onmouseout="this.style.background='var(--yellow)'">
+      カジュアル面談を申し込む →
+    </a>
+  </div>
+</div>
+
+<!-- JOB MODALS -->
+<div class="modal-overlay" id="modal-job1">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('job1')">✕</button>
+    <div class="modal-dept">Engineering</div>
+    <div class="modal-title">フルスタックエンジニア</div>
+    <div class="modal-meta">
+      <div class="modal-meta-item"><label>雇用形態</label><span>正社員</span></div>
+      <div class="modal-meta-item"><label>勤務地</label><span>フルリモート</span></div>
+      <div class="modal-meta-item"><label>年収</label><span>600〜1,000万円</span></div>
+      <div class="modal-meta-item"><label>入社時期</label><span>即日〜</span></div>
+    </div>
+    <div class="modal-section">
+      <h4>ポジション概要</h4>
+      <p>EASY.INCのプロダクト開発の中核を担うフルスタックエンジニアを募集します。ユーザーが「難しい」と感じる瞬間をゼロにするプロダクトを、設計から実装まで一気通貫で担当していただきます。</p>
+    </div>
+    <div class="modal-section">
+      <h4>主な業務</h4>
+      <ul>
+        <li>Webアプリケーションのフロントエンド・バックエンド開発</li>
+        <li>API設計と実装（REST / GraphQL）</li>
+        <li>パフォーマンス最適化とコードレビュー</li>
+        <li>プロダクトマネージャー・デザイナーとの協業</li>
+        <li>技術的負債の解消と開発プロセス改善</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <h4>求めるスキル</h4>
+      <ul>
+        <li>TypeScript / JavaScript 3年以上の実務経験</li>
+        <li>React または Vue.js でのフロントエンド開発経験</li>
+        <li>Node.js / Python などのバックエンド開発経験</li>
+        <li>RDBMSの設計・運用経験</li>
+        <li>「使いやすさ」への強いこだわり</li>
+      </ul>
+    </div>
+    <div class="modal-section">
+      <h4>歓迎スキル</h4>
+      <ul>
+        <li>スタートアップ環境での開発経験</li>
+        <li>AWS / GCPなどのクラウドサービス経験</li>
+        <li>0→1のプロダクト開発経験</li>
+      </ul>
+    </div>
+    <a href="mailto:careers@easy-inc.jp?subject=フルスタックエンジニア 応募" class="modal-apply">このポジションに応募する →</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-job2">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('job2')">✕</button>
+    <div class="modal-dept">Engineering</div>
+    <div class="modal-title">プロダクトエンジニア（モバイル）</div>
+    <div class="modal-meta">
+      <div class="modal-meta-item"><label>雇用形態</label><span>正社員</span></div>
+      <div class="modal-meta-item"><label>勤務地</label><span>東京 / リモート</span></div>
+      <div class="modal-meta-item"><label>年収</label><span>550〜900万円</span></div>
+      <div class="modal-meta-item"><label>入社時期</label><span>相談可</span></div>
+    </div>
+    <div class="modal-section">
+      <h4>ポジション概要</h4>
+      <p>iOS / Androidアプリの設計・開発を主導するエンジニアを求めます。「モバイルで使いやすい」を徹底的に追求し、ユーザーが思わず使い続けたくなるアプリを作ってください。</p>
+    </div>
+    <div class="modal-section">
+      <h4>求めるスキル</h4>
+      <ul>
+        <li>Swift / Kotlin または React Native / Flutter での開発経験 3年以上</li>
+        <li>App Store / Google Play リリース経験</li>
+        <li>UXへの高い関心と実践経験</li>
+        <li>パフォーマンス・メモリ最適化の知識</li>
+      </ul>
+    </div>
+    <a href="mailto:careers@easy-inc.jp?subject=プロダクトエンジニア（モバイル）応募" class="modal-apply">このポジションに応募する →</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-job3">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('job3')">✕</button>
+    <div class="modal-dept">Design</div>
+    <div class="modal-title">プロダクトデザイナー（UX / UI）</div>
+    <div class="modal-meta">
+      <div class="modal-meta-item"><label>雇用形態</label><span>正社員</span></div>
+      <div class="modal-meta-item"><label>勤務地</label><span>フルリモート</span></div>
+      <div class="modal-meta-item"><label>年収</label><span>550〜850万円</span></div>
+      <div class="modal-meta-item"><label>入社時期</label><span>即日〜</span></div>
+    </div>
+    <div class="modal-section">
+      <h4>ポジション概要</h4>
+      <p>「使う人が考えなくていい」体験を設計するプロダクトデザイナーを募集します。リサーチから情報設計、UI実装まで一気通貫で担当していただきます。</p>
+    </div>
+    <div class="modal-section">
+      <h4>求めるスキル</h4>
+      <ul>
+        <li>Figmaでのプロダクトデザイン 3年以上</li>
+        <li>ユーザーリサーチ・インタビューの実施経験</li>
+        <li>デザインシステム構築・運用経験</li>
+        <li>エンジニアとの密な協業経験</li>
+        <li>ポートフォリオ（URL または PDF）の提出</li>
+      </ul>
+    </div>
+    <a href="mailto:careers@easy-inc.jp?subject=プロダクトデザイナー 応募" class="modal-apply">このポジションに応募する →</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-job4">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('job4')">✕</button>
+    <div class="modal-dept">Strategy</div>
+    <div class="modal-title">ストラテジーコンサルタント</div>
+    <div class="modal-meta">
+      <div class="modal-meta-item"><label>雇用形態</label><span>正社員</span></div>
+      <div class="modal-meta-item"><label>勤務地</label><span>東京 / リモート</span></div>
+      <div class="modal-meta-item"><label>年収</label><span>600〜1,000万円</span></div>
+      <div class="modal-meta-item"><label>入社時期</label><span>相談可</span></div>
+    </div>
+    <div class="modal-section">
+      <h4>ポジション概要</h4>
+      <p>クライアント企業の戦略課題を「シンプルな答え」に変えるコンサルタントを求めます。複雑な情報を整理し、経営陣が即座に動ける戦略を共に設計する役割です。</p>
+    </div>
+    <div class="modal-section">
+      <h4>求めるスキル</h4>
+      <ul>
+        <li>戦略コンサルティング / 事業会社での戦略経験 3年以上</li>
+        <li>構造化思考・ロジカルシンキング</li>
+        <li>経営幹部へのプレゼンテーション経験</li>
+        <li>複数プロジェクトの並行管理能力</li>
+      </ul>
+    </div>
+    <a href="mailto:careers@easy-inc.jp?subject=ストラテジーコンサルタント 応募" class="modal-apply">このポジションに応募する →</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-job5">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('job5')">✕</button>
+    <div class="modal-dept">Business</div>
+    <div class="modal-title">セールス / ビジネスデベロップメント</div>
+    <div class="modal-meta">
+      <div class="modal-meta-item"><label>雇用形態</label><span>正社員</span></div>
+      <div class="modal-meta-item"><label>勤務地</label><span>東京</span></div>
+      <div class="modal-meta-item"><label>年収</label><span>500〜800万円</span></div>
+      <div class="modal-meta-item"><label>入社時期</label><span>相談可</span></div>
+    </div>
+    <div class="modal-section">
+      <h4>ポジション概要</h4>
+      <p>EASY.INCのサービスを必要としている企業に、最短距離で届ける営業担当を求めます。「難しい営業」はしません。ちゃんと価値を届けることだけを考えてください。</p>
+    </div>
+    <div class="modal-section">
+      <h4>求めるスキル</h4>
+      <ul>
+        <li>BtoBセールス 2年以上の実務経験</li>
+        <li>中小〜大企業向けの提案営業経験</li>
+        <li>CRMツール（Salesforce等）の利用経験</li>
+        <li>数字で考える習慣と達成意欲</li>
+      </ul>
+    </div>
+    <a href="mailto:careers@easy-inc.jp?subject=セールス応募" class="modal-apply">このポジションに応募する →</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-job6">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('job6')">✕</button>
+    <div class="modal-dept">Business</div>
+    <div class="modal-title">ビジネスインターン（学生歓迎）</div>
+    <div class="modal-meta">
+      <div class="modal-meta-item"><label>雇用形態</label><span>インターン</span></div>
+      <div class="modal-meta-item"><label>勤務地</label><span>フルリモート可</span></div>
+      <div class="modal-meta-item"><label>給与</label><span>時給1,500円〜</span></div>
+      <div class="modal-meta-item"><label>時間</label><span>週15時間〜</span></div>
+    </div>
+    <div class="modal-section">
+      <h4>ポジション概要</h4>
+      <p>「難しいことを簡単にする」という仕事の最前線を経験したい学生・第二新卒の方を歓迎します。マーケティング、リサーチ、事業開発など、あなたの関心と強みに合わせて業務を設計します。</p>
+    </div>
+    <div class="modal-section">
+      <h4>こんな方に向いています</h4>
+      <ul>
+        <li>スタートアップの現場を早く経験したい</li>
+        <li>「なぜこんなに難しいのか」と日常的に思う</li>
+        <li>自分で考え、自分で動ける</li>
+        <li>週15時間以上コミットできる</li>
+      </ul>
+    </div>
+    <a href="mailto:careers@easy-inc.jp?subject=インターン応募" class="modal-apply">応募する（まずはカジュアルに）→</a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">EASY.INC</span>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="business.html">Business</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2024 EASY.INC — All Rights Reserved</span>
+</footer>
+
+<script>
+  // Fade in
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Filter jobs
+  function filterJobs(dept, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.job-item').forEach(item => {
+      if (dept === 'all' || item.dataset.dept === dept) {
+        item.style.display = '';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // Modals
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Close on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+  // ESC key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+</script>
+</body>
+</html>

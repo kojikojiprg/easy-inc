@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — EASY.INC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:     #0A0A0A;
+      --off-white: #F5F5F0;
+      --yellow:    #E8FF00;
+      --mid:       #3A3A3A;
+      --border:    #1E1E1E;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--off-white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 3rem;
+      background: rgba(10,10,10,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: 1.1rem; letter-spacing: 0.18em;
+      color: var(--yellow); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--off-white); text-decoration: none;
+      font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
+      opacity: 0.6; transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--yellow); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 14rem 3rem 7rem;
+      max-width: 1200px; margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--yellow); margin-bottom: 1.2rem;
+    }
+    .page-title {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 0.9; letter-spacing: -0.04em;
+    }
+    .page-title em { font-style: normal; color: var(--yellow); }
+    .page-lead {
+      margin-top: 2.5rem; max-width: 520px;
+      font-size: 1rem; opacity: 0.5; line-height: 1.85;
+    }
+
+    /* ── SECTION ── */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+    .section-block { padding: 7rem 0; border-bottom: 1px solid var(--border); }
+    .section-label {
+      font-size: 0.68rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem;
+    }
+    .section-heading {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.1; margin-bottom: 3rem;
+    }
+
+    /* ── PRESIDENT MESSAGE ── */
+    .message-grid {
+      display: grid; grid-template-columns: 280px 1fr; gap: 6rem; align-items: start;
+    }
+    .president-card {
+      position: sticky; top: 8rem;
+      text-align: center;
+    }
+    .president-avatar {
+      width: 180px; height: 180px; border-radius: 50%;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      border: 2px solid var(--border);
+      margin: 0 auto 1.5rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+    }
+    .president-name {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 1.1rem; margin-bottom: 0.3rem;
+    }
+    .president-title { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.4; }
+
+    .message-body { font-size: 0.97rem; line-height: 2; opacity: 0.75; }
+    .message-body p + p { margin-top: 1.5rem; }
+    .message-body blockquote {
+      border-left: 2px solid var(--yellow);
+      padding-left: 1.5rem; margin: 2.5rem 0;
+      font-family: 'Space Grotesk', sans-serif; font-weight: 500;
+      font-size: 1.15rem; line-height: 1.55; opacity: 1;
+    }
+    .message-sig {
+      margin-top: 3rem; font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.3rem; color: var(--yellow);
+    }
+
+    /* ── HISTORY / TIMELINE ── */
+    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .tl-item {
+      position: relative; padding-bottom: 3.5rem;
+    }
+    .tl-item::before {
+      content: ''; position: absolute; left: -2.5rem;
+      top: 0.45rem; width: 8px; height: 8px;
+      background: var(--yellow); border-radius: 50%;
+      transform: translateX(-3.5px);
+    }
+    .tl-year {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 0.75rem; letter-spacing: 0.18em; color: var(--yellow);
+      text-transform: uppercase; margin-bottom: 0.6rem;
+    }
+    .tl-event {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+      font-size: 1.05rem; margin-bottom: 0.5rem;
+    }
+    .tl-desc { font-size: 0.88rem; opacity: 0.5; line-height: 1.7; max-width: 560px; }
+
+    /* ── COMPANY INFO TABLE ── */
+    .info-table { width: 100%; border-collapse: collapse; }
+    .info-table tr { border-bottom: 1px solid var(--border); }
+    .info-table th {
+      text-align: left; padding: 1.4rem 2rem 1.4rem 0;
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--yellow); font-weight: 400; width: 200px; vertical-align: top;
+    }
+    .info-table td {
+      padding: 1.4rem 0; font-size: 0.93rem; line-height: 1.75; opacity: 0.7;
+    }
+
+    /* ── BUSINESS DETAIL ── */
+    .biz-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+    }
+    .biz-card {
+      background: var(--black); padding: 3rem 2.5rem;
+      transition: background 0.25s;
+    }
+    .biz-card:hover { background: #0f0f0f; }
+    .biz-icon { font-size: 2rem; margin-bottom: 1.5rem; }
+    .biz-name {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 1.2rem; margin-bottom: 1rem;
+    }
+    .biz-desc { font-size: 0.88rem; opacity: 0.55; line-height: 1.8; }
+    .biz-quote {
+      margin-top: 1.5rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem; font-style: italic; opacity: 0.4; line-height: 1.6;
+    }
+
+    /* ── VALUES ── */
+    .values-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; border: 1px solid var(--border);
+    }
+    .value-item {
+      padding: 3rem 2.5rem; border-right: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .value-item:last-child { border-right: none; }
+    .value-item:hover { background: #0d0d0d; }
+    .value-num {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: 3.5rem; color: var(--yellow); opacity: 0.15;
+      line-height: 1; margin-bottom: 1rem;
+      transition: opacity 0.25s;
+    }
+    .value-item:hover .value-num { opacity: 0.6; }
+    .value-name {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 1.1rem; margin-bottom: 0.7rem;
+    }
+    .value-desc { font-size: 0.85rem; opacity: 0.5; line-height: 1.75; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+    }
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow);
+    }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a {
+      color: var(--off-white); text-decoration: none;
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      opacity: 0.35; transition: opacity 0.2s;
+    }
+    .footer-links a:hover { opacity: 1; }
+    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
+
+    /* ── FADE ── */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .wrap { padding: 0 1.5rem; }
+      .page-hero { padding: 10rem 1.5rem 5rem; }
+      .message-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .president-card { position: static; }
+      .values-row { grid-template-columns: 1fr; }
+      .value-item { border-right: none; border-bottom: 1px solid var(--border); }
+      footer { flex-direction: column; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">EASY.INC</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="business.html">Business</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="page-eyebrow fade-in">About EASY.INC</p>
+  <h1 class="page-title fade-in">We believe<br><em>easy</em><br>is everything.</h1>
+  <p class="page-lead fade-in">
+    イージー。その一言に、私たちの哲学のすべてが込められています。簡単であることは、手を抜くことではない。考え抜いた先にたどり着く、もっとも誠実な答えです。
+  </p>
+</div>
+
+<!-- PRESIDENT MESSAGE -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">代表挨拶</p>
+    <h2 class="section-heading fade-in">President's Message</h2>
+
+    <div class="message-grid">
+      <div class="president-card fade-in">
+        <div class="president-avatar">🙂</div>
+        <div class="president-name">山田 イージー</div>
+        <div class="president-title">Founder &amp; CEO</div>
+      </div>
+
+      <div class="message-body fade-in">
+        <p>
+          「イージー」という言葉を社名に選んだとき、多くの人に笑われました。「軽すぎる」「真剣さが伝わらない」と。でも私はむしろ、その反応こそが出発点だと思いました。
+        </p>
+        <p>
+          世の中には、わざと難しくしているものが溢れています。専門用語、複雑な手続き、読みにくい説明書。その多くは「作る側の都合」によるものです。使う人の立場から見れば、それは怠慢に他なりません。
+        </p>
+        <blockquote>
+          "Easy reading is damned hard writing."<br>
+          <span style="font-size:0.8rem;opacity:0.5;">— Nathaniel Hawthorne</span>
+        </blockquote>
+        <p>
+          Hawthorneが言うように、「簡単に読める文章」を書くには、途方もない努力が必要です。同じことがあらゆる仕事に言えます。簡単に使えるプロダクト、簡単に伝わるコミュニケーション、簡単に動ける組織——これらはすべて、深い思考と地道な実行の結果です。
+        </p>
+        <p>
+          私たちは「イージー」を掲げることで、常に問い続けます。「まだ難しい部分が残っていないか？」「本当にこれがベストか？」と。答えが出るまで、私たちの仕事は終わりません。
+        </p>
+        <p>
+          EASY.INCは、難しいことを簡単にする会社です。それ以上でも、それ以下でもありません。その一点に、全力を尽くします。
+        </p>
+        <div class="message-sig">山田 イージー</div>
+        <div style="font-size:0.78rem;opacity:0.35;margin-top:0.4rem;letter-spacing:0.1em;">Founder &amp; CEO, EASY.INC</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPANY INFO -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">会社概要</p>
+    <h2 class="section-heading fade-in">Company Overview</h2>
+    <table class="info-table fade-in">
+      <tr>
+        <th>会社名</th>
+        <td>イージー.inc（EASY.INC）</td>
+      </tr>
+      <tr>
+        <th>設立</th>
+        <td>2024年12月1日</td>
+      </tr>
+      <tr>
+        <th>代表者</th>
+        <td>代表取締役 山田 イージー</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>〒100-0001 東京都千代田区イージー通り1-2-3</td>
+      </tr>
+      <tr>
+        <th>資本金</th>
+        <td>1,000万円</td>
+      </tr>
+      <tr>
+        <th>事業内容</th>
+        <td>イージー事業全般（Easy Strategy / Easy Design / Easy Technology / Easy Growth）</td>
+      </tr>
+      <tr>
+        <th>取引銀行</th>
+        <td>イージー銀行 東京支店</td>
+      </tr>
+      <tr>
+        <th>コーポレートサイト</th>
+        <td>https://easy-inc.jp</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- HISTORY TIMELINE -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">沿革</p>
+    <h2 class="section-heading fade-in">Our History</h2>
+
+    <div class="timeline">
+      <div class="tl-item fade-in">
+        <div class="tl-year">2023 — Spring</div>
+        <div class="tl-event">構想の始まり</div>
+        <div class="tl-desc">創業者・山田が「なぜこんなに多くのことが難しいままなのか」という問いを持ち、EASY.INC の構想をスタート。最初のコンセプトノートを執筆。</div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-year">2024 — January</div>
+        <div class="tl-event">プロトタイプ開発開始</div>
+        <div class="tl-desc">第一弾サービス「Easy Strategy」のプロトタイプ開発を開始。10社のβテスターとともに検証を繰り返す。</div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-year">2024 — June</div>
+        <div class="tl-event">シードラウンド調達</div>
+        <div class="tl-desc">国内VCより初回シード資金を調達。チームを5名体制へ拡大し、プロダクト開発を本格化。</div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-year">2024 — December</div>
+        <div class="tl-event">イージー.inc 設立</div>
+        <div class="tl-desc">東京都千代田区にて正式に法人設立。「Make It Easy」をコーポレートミッションとして掲げる。</div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-year">2025 — January</div>
+        <div class="tl-event">Easy Strategy サービス開始</div>
+        <div class="tl-desc">第一弾サービスを正式リリース。ローンチ1ヶ月で導入企業20社を突破。</div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-year">2025 — March</div>
+        <div class="tl-event">Easy Design / Easy Technology ローンチ</div>
+        <div class="tl-desc">サービスラインナップを拡充。デザインとテクノロジー領域のコンサルティングを開始。</div>
+      </div>
+      <div class="tl-item fade-in">
+        <div class="tl-year">2025 — Present</div>
+        <div class="tl-event">プリシリーズA準備中</div>
+        <div class="tl-desc">さらなる事業拡大に向け、次のラウンドを準備中。採用も積極的に強化中。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">Our Values</p>
+    <h2 class="section-heading fade-in">3 つの信条</h2>
+    <div class="values-row">
+      <div class="value-item fade-in">
+        <div class="value-num">01</div>
+        <div class="value-name">Radical Simplicity</div>
+        <div class="value-desc">
+          難しさを恐れず、その先の「簡単」を追う。
+          <br><br>
+          <em style="opacity:0.4;font-size:0.82rem;">"Simplicity is the ultimate sophistication." — Leonardo da Vinci</em>
+        </div>
+      </div>
+      <div class="value-item fade-in">
+        <div class="value-num">02</div>
+        <div class="value-name">Honest Effort</div>
+        <div class="value-desc">
+          「簡単」は楽をすることではない。誠実な努力の結晶。
+          <br><br>
+          <em style="opacity:0.4;font-size:0.82rem;">"Nothing is easy to the unwilling." — Thomas Fuller</em>
+        </div>
+      </div>
+      <div class="value-item fade-in">
+        <div class="value-num">03</div>
+        <div class="value-name">Human First</div>
+        <div class="value-desc">
+          使う人の視点を、常に最優先に。
+          <br><br>
+          <em style="opacity:0.4;font-size:0.82rem;">"Easy is right." — Zhuangzi</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">EASY.INC</span>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="business.html">Business</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <span class="footer-copy">© 2024 EASY.INC — All Rights Reserved</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
