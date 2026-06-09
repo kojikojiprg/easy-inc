@@ -27,20 +27,22 @@
       overflow-x: hidden;
     }
 
-    /* ─── NAV ─── */
+    /* ─── NAV 2-ROW ─── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.4rem 3rem;
-      background: rgba(10,10,10,0.85);
+      background: rgba(10,10,10,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-
+    .nav-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
     .nav-logo {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 900;
@@ -49,18 +51,46 @@
       color: var(--yellow);
       text-decoration: none;
     }
-
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      color: var(--off-white);
-      text-decoration: none;
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
+    .nav-tagline {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      opacity: 0.7;
-      transition: opacity 0.2s;
+      opacity: 0.3;
     }
-    .nav-links a:hover { opacity: 1; color: var(--yellow); }
+    .nav-tabs {
+      display: flex;
+      list-style: none;
+      padding: 0 2rem;
+      overflow-x: auto;
+    }
+    .nav-tabs li a {
+      display: block;
+      padding: 0.85rem 1.4rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--off-white);
+      opacity: 0.45;
+      transition: opacity 0.2s, color 0.2s;
+      position: relative;
+      white-space: nowrap;
+    }
+    .nav-tabs li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--yellow);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .nav-tabs li a:hover { opacity: 0.85; }
+    .nav-tabs li a:hover::after { transform: scaleX(1); }
+    .nav-tabs li a.active { opacity: 1; color: var(--yellow); }
+    .nav-tabs li a.active::after { transform: scaleX(1); }
 
     /* ─── HERO ─── */
     #hero {
@@ -72,6 +102,7 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      padding-top: 7rem;
     }
 
     .hero-bg-text {
@@ -547,8 +578,12 @@
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="#">EASY.INC</a>
-    <ul class="nav-links">
+    <div class="nav-top">
+      <a class="nav-logo" href="index.html">EASY.INC</a>
+      <span class="nav-tagline">Make It Easy</span>
+    </div>
+    <ul class="nav-tabs">
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="business.html">Business</a></li>
       <li><a href="careers.html">Careers</a></li>
