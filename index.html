@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230A0A0A'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='18' fill='%23E8FF00'%3EE%3C/text%3E%3C/svg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EASY.INC — Make It Easy</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -278,6 +279,14 @@
     .quote-text::before { content: "\201C"; color: var(--yellow); }
     .quote-text::after  { content: "\201D"; color: var(--yellow); }
 
+    .quote-ja {
+      font-size: 0.82rem;
+      line-height: 1.75;
+      opacity: 0.45;
+      margin-top: 0.6rem;
+      font-style: normal;
+    }
+
     .quote-attr {
       font-size: 0.72rem;
       letter-spacing: 0.16em;
@@ -411,6 +420,7 @@
     .news-list { margin-top: 3.5rem; }
 
     .news-item {
+      cursor: pointer;
       display: grid;
       grid-template-columns: 120px 1fr auto;
       gap: 2.5rem;
@@ -587,9 +597,10 @@
       <li><a href="about.html">About</a></li>
       <li><a href="business.html">Business</a></li>
       <li><a href="careers.html">Careers</a></li>
-      <li><a href="results.html">実績</a></li>
-      <li><a href="interview.html">社員の声</a></li>
-      <li><a href="religion.html">イージー教</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="interview.html">Team</a></li>
+      <li><a href="religion.html">Religion</a></li>
+      <li><a href="news/index.html">News</a></li>
     </ul>
   </nav>
 
@@ -633,38 +644,47 @@
     <div class="quotes-grid">
       <div class="quote-card fade-in">
         <p class="quote-text">Easy does it.</p>
+        <p class="quote-ja">「焦らず、着実に。」</p>
         <p class="quote-attr">English Proverb</p>
       </div>
       <div class="quote-card fade-in">
         <p class="quote-text">Nothing is easy to the unwilling.</p>
+        <p class="quote-ja">「やる気のない者に、イージーなことなど何もない。」</p>
         <p class="quote-attr">Thomas Fuller</p>
       </div>
       <div class="quote-card fade-in">
         <p class="quote-text">Easy reading is damned hard writing.</p>
+        <p class="quote-ja">「読みやすい文章を書くのは、恐ろしく難しい。」</p>
         <p class="quote-attr">Nathaniel Hawthorne</p>
       </div>
       <div class="quote-card fade-in">
-        <p class="quote-text">Easy is right. Begin right and you are easy. Continue easy and you are right. The right way to go easy is to forget the right way and forget that the going is easy.</p>
-        <p class="quote-attr">Zhuangzi</p>
+        <p class="quote-text">Easy is right. Begin right and you are easy. Continue easy and you are right.</p>
+        <p class="quote-ja">「イージーこそが正しい。正しく始めれば自ずとイージーになる。イージーであり続ければ、それが正しいことになる。」</p>
+        <p class="quote-attr">Zhuangzi（荘子）</p>
       </div>
       <div class="quote-card fade-in">
         <p class="quote-text">If you make it easy for people to understand, they will love you for it.</p>
+        <p class="quote-ja">「人々が理解しやすくすれば、彼らはあなたを愛するだろう。」</p>
         <p class="quote-attr">Brian Tracy</p>
       </div>
       <div class="quote-card fade-in">
         <p class="quote-text">Great design is making something memorable and meaningful. Easy design is making something simple out of something complex.</p>
-        <p class="quote-attr">Dieter Rams (paraphrase)</p>
+        <p class="quote-ja">「優れたデザインとは記憶に残り意味のあるものを作ること。イージーなデザインとは、複雑なものをシンプルにすること。」</p>
+        <p class="quote-attr">Dieter Rams（ディーター・ラムス）</p>
       </div>
       <div class="quote-card fade-in">
         <p class="quote-text">Take it easy — but take it.</p>
+        <p class="quote-ja">「イージーに生きろ——でも、ちゃんと生きろ。」</p>
         <p class="quote-attr">Studs Terkel</p>
       </div>
       <div class="quote-card fade-in">
         <p class="quote-text">Simplicity is the ultimate sophistication. The ability to simplify means to eliminate the unnecessary so that the necessary may speak.</p>
+        <p class="quote-ja">「シンプルさは究極の洗練である。シンプルにする能力とは、不要なものを取り除き、必要なものを語らせることだ。」</p>
         <p class="quote-attr">Hans Hofmann</p>
       </div>
       <div class="quote-card fade-in">
         <p class="quote-text">Easy is not lazy. Easy is the result of discipline, clarity, and relentless refinement.</p>
+        <p class="quote-ja">「イージーは怠けることではない。それは規律と明確さと、たゆまぬ洗練の結果だ。」</p>
         <p class="quote-attr">EASY.INC</p>
       </div>
     </div>
@@ -745,7 +765,8 @@
     <p class="banner-quote fade-in">
       "If you can't explain it simply,<br>you don't understand it well enough."
     </p>
-    <p class="banner-attr">Albert Einstein</p>
+    <p class="banner-attr" style="margin-bottom:0.8rem;">Albert Einstein</p>
+    <p class="banner-attr" style="font-size:1rem;opacity:0.75;font-weight:normal;letter-spacing:0.05em;margin-top:0.5rem;">「シンプルに説明できないなら、あなたはまだ十分に理解していない。」</p>
   </div>
 
   <!-- NEWS -->
@@ -756,22 +777,22 @@
     <div class="news-list">
       <div class="news-item fade-in">
         <span class="news-date">2024.12.01</span>
-        <span class="news-title">EASY.INC、設立のお知らせ</span>
+        <a href="news/2024-12-01.html" style="color:inherit;text-decoration:none;" class="news-title">EASY.INC、設立のお知らせ</a>
         <span class="news-tag">Company</span>
       </div>
       <div class="news-item fade-in">
         <span class="news-date">2025.01.15</span>
-        <span class="news-title">第一弾サービス「Easy Strategy」の提供開始</span>
+        <a href="news/2025-01-15.html" style="color:inherit;text-decoration:none;" class="news-title">第一弾サービス「Easy Strategy」の提供開始</a>
         <span class="news-tag">Service</span>
       </div>
       <div class="news-item fade-in">
         <span class="news-date">2025.03.08</span>
-        <span class="news-title">「イージーとは何か」について — 代表メッセージ</span>
+        <a href="news/2025-03-08.html" style="color:inherit;text-decoration:none;" class="news-title">「イージーとは何か」について — 代表メッセージ</a>
         <span class="news-tag">Blog</span>
       </div>
       <div class="news-item fade-in">
         <span class="news-date">2025.06.01</span>
-        <span class="news-title">パートナー企業との協業プロジェクト始動</span>
+        <a href="news/2025-06-01.html" style="color:inherit;text-decoration:none;" class="news-title">パートナー企業との協業プロジェクト始動</a>
         <span class="news-tag">Press</span>
       </div>
     </div>

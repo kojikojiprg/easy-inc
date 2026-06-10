@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230A0A0A'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='18' fill='%23E8FF00'%3EE%3C/text%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「イージーとは何か」代表メッセージ — News — EASY.INC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black:#0A0A0A; --off-white:#F5F5F0; --yellow:#E8FF00; --border:#1E1E1E; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--off-white); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-top { display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.18em; color: var(--yellow); text-decoration: none; }
+    .nav-tagline { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.3; }
+    .nav-tabs { display: flex; list-style: none; padding: 0 2rem; overflow-x: auto; }
+    .nav-tabs li a { display: block; padding: 0.85rem 1.4rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--off-white); opacity: 0.45; transition: opacity 0.2s, color 0.2s; position: relative; white-space: nowrap; }
+    .nav-tabs li a::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--yellow); transform: scaleX(0); transition: transform 0.2s; }
+    .nav-tabs li a:hover { opacity: 0.85; }
+    .nav-tabs li a:hover::after, .nav-tabs li a.active::after { transform: scaleX(1); }
+    .nav-tabs li a.active { opacity: 1; color: var(--yellow); }
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 9rem 2rem 6rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--yellow); text-decoration: none; opacity: 0.7; margin-bottom: 3rem; transition: opacity 0.2s; }
+    .back-link:hover { opacity: 1; }
+    .article-meta { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 2rem; }
+    .article-tag { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid var(--yellow); color: var(--yellow); padding: 0.2rem 0.7rem; }
+    .article-date { font-size: 0.72rem; letter-spacing: 0.12em; opacity: 0.35; }
+    .article-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 2.5rem; }
+    .article-title em { font-style: normal; color: var(--yellow); }
+    .article-lead { font-size: 1.1rem; line-height: 1.85; opacity: 0.7; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
+    .article-body { font-size: 0.97rem; line-height: 2; opacity: 0.72; }
+    .article-body h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--off-white); opacity: 1; margin: 2.5rem 0 1rem; }
+    .article-body p + p { margin-top: 1.4rem; }
+    .article-body blockquote { border-left: 2px solid var(--yellow); padding: 1rem 1.5rem; margin: 2rem 0; font-size: 1.05rem; line-height: 1.75; }
+    .article-body blockquote .ja { display: block; font-size: 0.88rem; opacity: 0.6; margin-top: 0.5rem; }
+    .article-body blockquote cite { display: block; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--yellow); opacity: 0.7; margin-top: 0.8rem; font-style: normal; }
+    .president-sign { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 1.5rem; }
+    .president-avatar { width: 56px; height: 56px; border-radius: 50%; background: #1a1a2e; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+    .president-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; }
+    .president-title { font-size: 0.72rem; opacity: 0.4; margin-top: 0.2rem; }
+    .article-footer { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 3rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
+    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-top">
+    <a class="nav-logo" href="../index.html">EASY.INC</a>
+    <span class="nav-tagline">Make It Easy</span>
+  </div>
+  <ul class="nav-tabs">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../business.html">Business</a></li>
+    <li><a href="../careers.html">Careers</a></li>
+    <li><a href="../results.html">Results</a></li>
+    <li><a href="../interview.html">Team</a></li>
+    <li><a href="../religion.html">Religion</a></li>
+    <li><a href="index.html" class="active">News</a></li>
+  </ul>
+</nav>
+
+<div class="article-wrap">
+  <a href="index.html" class="back-link">← ニュース一覧に戻る</a>
+  <div class="article-meta">
+    <span class="article-tag">Blog</span>
+    <span class="article-date">2025.03.08</span>
+  </div>
+  <h1 class="article-title">「<em>イージー</em>とは何か」<br>— 代表メッセージ</h1>
+  <p class="article-lead">
+    よく聞かれます。「イージーって、どういう意味ですか？」と。簡単そうに見える質問ですが、これが意外と奥深い。今日はその答えを、イージーに書いてみます。
+  </p>
+
+  <div class="article-body">
+    <h2>イージーは、楽をすることではない</h2>
+    <p>まず誤解を解きたいのですが、「イージー」は「怠ける」とか「手を抜く」ということではありません。むしろ逆です。</p>
+    <p>本当にイージーな仕事をするためには、誰よりも深く考えなければなりません。複雑なものをシンプルにするのは、複雑にするよりずっと難しい。だから私たちは「イージーにする」ために、ものすごく頑張ります。</p>
+
+    <blockquote>
+      "Easy reading is damned hard writing."
+      <span class="ja">「読みやすい文章を書くのは、恐ろしく難しい。」</span>
+      <cite>— Nathaniel Hawthorne</cite>
+    </blockquote>
+
+    <h2>イージーは、誠実さである</h2>
+    <p>「わかりにくいもの」の多くは、作る側の怠慢か、あるいは意図的な複雑化です。専門用語で煙に巻く。複雑なフローで「すごそうに見せる」。本当に価値があるものは、シンプルに届けられるはずです。</p>
+    <p>イージーであることは、受け取る人への誠実さだと私は思っています。「あなたの時間を大切にします」という意志表明です。</p>
+
+    <blockquote>
+      "Simplicity is the ultimate sophistication."
+      <span class="ja">「シンプルさは、究極の洗練である。」</span>
+      <cite>— Leonardo da Vinci</cite>
+    </blockquote>
+
+    <h2>イージーは、問い続けることである</h2>
+    <p>私は毎日12回（平均）「これ、もっとイージーにできないか？」と自問しています。記録は41回です。その日はコードを一行も書きませんでしたが、非常に深く考えました。</p>
+    <p>「まだ難しい部分が残っていないか？」「本当にこれがベストか？」この問いをやめた瞬間、仕事は終わっていないと思っています。</p>
+
+    <blockquote>
+      "Easy is right. Begin right and you are easy. Continue easy and you are right."
+      <span class="ja">「イージーこそが正しい。正しく始めれば、自ずとイージーになる。イージーであり続ければ、それが正しいことになる。」</span>
+      <cite>— Zhuangzi（荘子）</cite>
+    </blockquote>
+
+    <h2>最後に</h2>
+    <p>「イージーとは何か」を一言で言うなら、「難しさを終わらせること」です。難しさは問題ではない。難しさを終わらせないことが問題です。</p>
+    <p>私たちは、これからもイージーであり続けます。難しいことから逃げるのではなく、難しいことに向き合い、イージーに変えていく。それが EASY.INC です。</p>
+
+    <div class="president-sign">
+      <div class="president-avatar">🙂</div>
+      <div>
+        <div class="president-name">山田 イージー</div>
+        <div class="president-title">代表取締役 / Founder & CEO</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-footer">
+    <span></span>
+    <a href="index.html" class="back-link" style="margin-bottom:0;">← ニュース一覧</a>
+  </div>
+</div>
+<footer>
+  <span class="footer-logo">EASY.INC</span>
+  <span class="footer-copy">© 2024 EASY.INC</span>
+</footer>
+</body>
+</html>

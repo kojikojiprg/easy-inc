@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230A0A0A'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='18' fill='%23E8FF00'%3EE%3C/text%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News — EASY.INC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black:#0A0A0A; --off-white:#F5F5F0; --yellow:#E8FF00; --border:#1E1E1E; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--off-white); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-top { display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.18em; color: var(--yellow); text-decoration: none; }
+    .nav-tagline { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.3; }
+    .nav-tabs { display: flex; list-style: none; padding: 0 2rem; overflow-x: auto; }
+    .nav-tabs li a { display: block; padding: 0.85rem 1.4rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--off-white); opacity: 0.45; transition: opacity 0.2s, color 0.2s; position: relative; white-space: nowrap; }
+    .nav-tabs li a::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--yellow); transform: scaleX(0); transition: transform 0.2s; }
+    .nav-tabs li a:hover { opacity: 0.85; }
+    .nav-tabs li a:hover::after, .nav-tabs li a.active::after { transform: scaleX(1); }
+    .nav-tabs li a.active { opacity: 1; color: var(--yellow); }
+
+    .page-hero { padding: 10rem 3rem 6rem; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+    .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; }
+    .page-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(3rem, 8vw, 7rem); line-height: 0.9; letter-spacing: -0.04em; }
+    .page-title em { font-style: normal; color: var(--yellow); }
+    .page-lead { margin-top: 2rem; max-width: 500px; font-size: 0.95rem; opacity: 0.5; line-height: 1.9; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+
+    /* FEATURED */
+    .featured { padding: 5rem 0 3rem; border-bottom: 1px solid var(--border); }
+    .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 2rem; }
+    .featured-card {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: var(--border); border: 1px solid var(--border);
+      text-decoration: none; color: var(--off-white);
+      transition: background 0.2s;
+    }
+    .featured-card:hover { background: #0d0d0d; }
+    .featured-card:hover .featured-title { color: var(--yellow); }
+    .featured-main { padding: 3.5rem; border-right: 1px solid var(--border); }
+    .featured-meta { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
+    .tag { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid var(--yellow); color: var(--yellow); padding: 0.2rem 0.7rem; }
+    .date { font-size: 0.72rem; opacity: 0.35; letter-spacing: 0.1em; }
+    .featured-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.1; margin-bottom: 1.2rem; transition: color 0.2s; }
+    .featured-excerpt { font-size: 0.9rem; opacity: 0.6; line-height: 1.85; }
+    .featured-side { padding: 3.5rem; display: flex; flex-direction: column; justify-content: flex-end; }
+    .featured-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); opacity: 0.6; margin-bottom: 1rem; }
+    .featured-quote { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem; line-height: 1.4; margin-bottom: 0.5rem; }
+    .featured-quote-ja { font-size: 0.82rem; opacity: 0.45; line-height: 1.7; margin-bottom: 1rem; }
+    .featured-quote-attr { font-size: 0.7rem; opacity: 0.35; letter-spacing: 0.12em; text-transform: uppercase; }
+    .read-more { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--yellow); margin-top: 2rem; opacity: 0.7; }
+
+    /* NEWS LIST */
+    .news-section { padding: 5rem 0; }
+    .news-list { display: flex; flex-direction: column; }
+    .news-item {
+      display: grid; grid-template-columns: 140px 1fr auto;
+      align-items: center; gap: 2.5rem;
+      padding: 2rem 0; border-bottom: 1px solid var(--border);
+      text-decoration: none; color: var(--off-white);
+      transition: background 0.15s;
+    }
+    .news-item:hover .news-title { color: var(--yellow); }
+    .news-date { font-size: 0.72rem; letter-spacing: 0.1em; opacity: 0.35; text-transform: uppercase; }
+    .news-title { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1rem; transition: color 0.2s; line-height: 1.4; }
+    .news-tag-badge { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--border); padding: 0.2rem 0.6rem; opacity: 0.45; white-space: nowrap; }
+    .news-arrow { opacity: 0.3; font-size: 1rem; transition: transform 0.2s, opacity 0.2s; }
+    .news-item:hover .news-arrow { opacity: 1; transform: translateX(4px); }
+
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 3rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
+    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
+
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media(max-width:768px){
+      .nav-top { padding: 1rem 1.5rem; }
+      .wrap { padding: 0 1.5rem; }
+      .page-hero { padding: 8rem 1.5rem 4rem; }
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-side { border-top: 1px solid var(--border); }
+      .featured-main, .featured-side { padding: 2rem; }
+      .news-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .news-tag-badge, .news-arrow { display: none; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-top">
+    <a class="nav-logo" href="../index.html">EASY.INC</a>
+    <span class="nav-tagline">Make It Easy</span>
+  </div>
+  <ul class="nav-tabs">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../business.html">Business</a></li>
+    <li><a href="../careers.html">Careers</a></li>
+    <li><a href="../results.html">Results</a></li>
+    <li><a href="../interview.html">Team</a></li>
+    <li><a href="../religion.html">Religion</a></li>
+    <li><a href="index.html" class="active">News</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="page-eyebrow fade-in">News & Updates</p>
+  <h1 class="page-title fade-in">Latest<br><em>Updates.</em></h1>
+  <p class="page-lead fade-in">EASY.INCの最新情報。イージーにお読みください。長い記事は書きません。なぜならイージーではないからです。</p>
+</div>
+
+<div class="wrap">
+  <!-- FEATURED -->
+  <div class="featured">
+    <p class="section-label fade-in">最新記事</p>
+    <a href="2025-06-01.html" class="featured-card fade-in">
+      <div class="featured-main">
+        <div class="featured-meta">
+          <span class="tag">Press</span>
+          <span class="date">2025.06.01</span>
+        </div>
+        <div class="featured-title">パートナー企業との協業プロジェクト始動</div>
+        <p class="featured-excerpt">2025年6月より、複数のパートナー企業とともに協業プロジェクトを本格始動。近所のカフェ（非公式）との協業内容も現在検討中。「イージーをもっと遠くへ届ける」ための新たな取り組みです。</p>
+        <span class="read-more">続きを読む →</span>
+      </div>
+      <div class="featured-side">
+        <div class="featured-eyebrow">今月の格言</div>
+        <div class="featured-quote">"Alone we can do so little; together we can do so much."</div>
+        <div class="featured-quote-ja">「一人でできることはほんのわずか。一緒なら、ずっと多くのことができる。」</div>
+        <div class="featured-quote-attr">— Helen Keller</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ALL NEWS -->
+  <div class="news-section">
+    <p class="section-label fade-in">すべての記事</p>
+    <div class="news-list">
+
+      <a href="2025-06-01.html" class="news-item fade-in">
+        <span class="news-date">2025.06.01</span>
+        <span class="news-title">パートナー企業との協業プロジェクト始動</span>
+        <span class="news-tag-badge">Press</span>
+        <span class="news-arrow">→</span>
+      </a>
+
+      <a href="2025-03-08.html" class="news-item fade-in">
+        <span class="news-date">2025.03.08</span>
+        <span class="news-title">「イージーとは何か」について — 代表メッセージ</span>
+        <span class="news-tag-badge">Blog</span>
+        <span class="news-arrow">→</span>
+      </a>
+
+      <a href="2025-01-15.html" class="news-item fade-in">
+        <span class="news-date">2025.01.15</span>
+        <span class="news-title">第一弾サービス「Easy Strategy」の提供開始</span>
+        <span class="news-tag-badge">Service</span>
+        <span class="news-arrow">→</span>
+      </a>
+
+      <a href="2024-12-01.html" class="news-item fade-in">
+        <span class="news-date">2024.12.01</span>
+        <span class="news-title">EASY.INC、設立のお知らせ</span>
+        <span class="news-tag-badge">Company</span>
+        <span class="news-arrow">→</span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">EASY.INC</span>
+  <span class="footer-copy">© 2024 EASY.INC — ニュースはイージーに更新されます（たぶん）</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); obs.unobserve(e.target); }});
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
