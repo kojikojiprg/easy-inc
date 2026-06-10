@@ -2,822 +2,551 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230A0A0A'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='18' fill='%23E8FF00'%3EE%3C/text%3E%3C/svg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SHISHA — EASY.INC</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%230A0A0A'/><text x='16' y='22' text-anchor='middle' font-size='18' font-family='Arial' font-weight='bold' fill='%23E8FF00'>E</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@300;400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --black:     #0A0A0A;
-      --off-white: #F5F5F0;
-      --yellow:    #E8FF00;
-      --mid:       #3A3A3A;
-      --border:    #1E1E1E;
-    }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0A0A0A; --off-white: #F5F5F0; --yellow: #E8FF00;
+      --border: #1E1E1E; --gold: #c9a84c; --parchment: #1a180f;
+    }
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--black);
-      color: var(--off-white);
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+    body { background: var(--black); color: var(--off-white); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
 
-    /* ===== NAV ===== */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--black);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
-    .nav-top {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1rem 0 0.5rem;
-    }
-    .nav-logo {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
-      font-size: 1.2rem; color: var(--yellow);
-      text-decoration: none; letter-spacing: 0.05em;
-    }
-    .nav-tagline { font-size: 0.75rem; color: var(--mid); letter-spacing: 0.1em; text-transform: uppercase; }
-    .nav-hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer; margin-left: auto; padding: 4px;
-    }
-    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--off-white); transition: all 0.3s; }
-    .nav-tabs { display: flex; gap: 0; list-style: none; overflow-x: auto; }
-    .nav-tabs a {
-      display: block; padding: 0.6rem 1rem;
-      color: var(--mid); text-decoration: none;
-      font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase;
-      font-family: 'Space Grotesk', sans-serif; font-weight: 500;
-      border-bottom: 2px solid transparent;
-      transition: color 0.2s, border-color 0.2s; white-space: nowrap;
-    }
-    .nav-tabs a:hover { color: var(--off-white); }
-    .nav-tabs a.active { color: var(--yellow); border-bottom-color: var(--yellow); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-top { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.18em; color: var(--yellow); text-decoration: none; }
+    .nav-tagline { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.3; }
+    .nav-tabs { display: flex; list-style: none; padding: 0 2rem; overflow-x: auto; }
+    .nav-tabs li a { display: block; padding: 0.85rem 1.4rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--off-white); opacity: 0.45; transition: opacity 0.2s, color 0.2s; position: relative; white-space: nowrap; }
+    .nav-tabs li a::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--yellow); transform: scaleX(0); transition: transform 0.2s; }
+    .nav-tabs li a:hover { opacity: 0.85; }
+    .nav-tabs li a:hover::after { transform: scaleX(1); }
+    .nav-tabs li a.active { opacity: 1; color: var(--yellow); }
+    .nav-tabs li a.active::after { transform: scaleX(1); }
 
-    /* ===== HERO ===== */
-    #hero {
-      min-height: 80vh;
-      display: flex; flex-direction: column;
+    /* ── HERO ── */
+    .reli-hero {
+      min-height: 100vh; display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 5rem;
+      text-align: center; padding: 8rem 2rem 6rem;
       position: relative; overflow: hidden;
     }
-    /* 煙のアニメーション背景 */
-    .smoke-bg {
-      position: absolute; inset: 0; z-index: 0;
-      pointer-events: none; overflow: hidden;
+    .reli-hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, #1a1500 0%, #0A0A0A 70%);
     }
-    .smoke-ring {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(232,255,0,0.06);
-      animation: smokeRise linear infinite;
+    .symbol {
+      font-size: 6rem; margin-bottom: 2rem; position: relative; z-index: 1;
+      animation: glow 3s ease-in-out infinite;
     }
-    .smoke-ring:nth-child(1) { width: 200px; height: 200px; bottom: -100px; left: 20%; animation-duration: 12s; animation-delay: 0s; }
-    .smoke-ring:nth-child(2) { width: 120px; height: 120px; bottom: -60px; left: 50%; animation-duration: 9s; animation-delay: 3s; }
-    .smoke-ring:nth-child(3) { width: 300px; height: 300px; bottom: -150px; left: 65%; animation-duration: 15s; animation-delay: 6s; }
-    .smoke-ring:nth-child(4) { width: 80px; height: 80px; bottom: -40px; left: 35%; animation-duration: 8s; animation-delay: 1.5s; }
-    @keyframes smokeRise {
-      0%   { transform: translateY(0) scale(1); opacity: 0.6; }
-      50%  { opacity: 0.3; }
-      100% { transform: translateY(-100vh) scale(3); opacity: 0; }
+    @keyframes glow {
+      0%,100% { filter: drop-shadow(0 0 8px rgba(201,168,76,0.3)); }
+      50%      { filter: drop-shadow(0 0 32px rgba(201,168,76,0.7)); }
     }
+    .reli-eyebrow { font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; position: relative; z-index: 1; }
+    .reli-title {
+      font-family: 'Noto Serif JP', serif; font-weight: 700;
+      font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1.1;
+      position: relative; z-index: 1; margin-bottom: 1.5rem;
+    }
+    .reli-title em { font-style: normal; color: var(--gold); }
+    .reli-sub { font-size: 1.05rem; opacity: 0.55; max-width: 500px; line-height: 1.9; position: relative; z-index: 1; }
+    .reli-scroll { position: absolute; bottom: 3rem; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.3; animation: bob 2s ease-in-out infinite; }
+    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
 
-    .hero-label {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--yellow); margin-bottom: 1.5rem; position: relative; z-index: 1;
-    }
-    #hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(4rem, 15vw, 12rem);
-      font-weight: 700; line-height: 0.9;
-      letter-spacing: -0.04em;
-      position: relative; z-index: 1;
-    }
-    #hero h1 .hero-main { display: block; color: var(--off-white); }
-    #hero h1 .hero-sub-word { display: block; color: var(--yellow); font-style: italic; }
-    .hero-tagline {
-      margin-top: 2rem; font-size: 1.1rem;
-      color: rgba(245,245,240,0.55); max-width: 520px;
-      position: relative; z-index: 1; line-height: 1.7;
-    }
-    .hero-scroll {
-      margin-top: 3.5rem; font-size: 0.78rem;
-      color: var(--mid); letter-spacing: 0.15em; text-transform: uppercase;
-      position: relative; z-index: 1;
-    }
+    /* ── WRAP ── */
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+    .section-block { padding: 7rem 0; border-bottom: 1px solid var(--border); }
+    .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .section-heading { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.2; margin-bottom: 3rem; }
 
-    /* ===== MARQUEE ===== */
-    .marquee-strip {
-      background: var(--yellow); overflow: hidden;
-      padding: 0.9rem 0; white-space: nowrap;
+    /* ── TENETS（魅力・理由リスト共用） ── */
+    .tenets { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .tenet {
+      background: var(--black); padding: 3rem 3.5rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; align-items: start;
+      transition: background 0.2s;
     }
-    .marquee-inner {
-      display: inline-flex; gap: 3rem;
-      animation: marquee 20s linear infinite;
+    .tenet:hover { background: #0d0d0d; }
+    .tenet-num {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: 3.5rem; color: var(--gold); opacity: 0.2;
+      line-height: 1; transition: opacity 0.25s;
     }
-    .marquee-inner span {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 0.85rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--black);
-    }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .tenet:hover .tenet-num { opacity: 0.6; }
+    .tenet-title { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.2rem; margin-bottom: 0.8rem; }
+    .tenet-body { font-size: 0.92rem; opacity: 0.65; line-height: 1.9; }
+    .tenet-verdict { margin-top: 0.8rem; font-size: 0.78rem; color: var(--gold); opacity: 0.7; font-style: italic; }
 
-    /* ===== SECTION BASE ===== */
-    section {
-      padding: 6rem 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
+    /* ── SCRIPTURE（引用・名言ブロック共用） ── */
+    .scripture-block {
+      background: var(--parchment); border: 1px solid rgba(201,168,76,0.2);
+      padding: 4rem; margin-top: 0;
     }
-    .section-label {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--yellow); margin-bottom: 1rem;
+    .scripture-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; opacity: 0.7; }
+    .scripture-text {
+      font-family: 'Noto Serif JP', serif; font-weight: 400;
+      font-size: 1.05rem; line-height: 2.2; opacity: 0.8;
     }
-    .section-heading {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700; letter-spacing: -0.02em;
-      line-height: 1.15; margin-bottom: 2rem;
-    }
-    .section-heading em { color: var(--yellow); font-style: italic; }
-    .section-lead {
-      font-size: 1.05rem; color: rgba(245,245,240,0.7);
-      line-height: 1.8; max-width: 680px;
-      margin-bottom: 3rem;
-    }
+    .scripture-text p + p { margin-top: 1.5rem; }
+    .scripture-verse { color: var(--gold); font-weight: 700; }
 
-    /* ===== SHISHA 概要 ===== */
-    #intro { border-bottom: 1px solid var(--border); }
-    .intro-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem; align-items: start;
+    /* ── HIERARCHY（カード列）共用 ── */
+    .hierarchy { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .rank-item {
+      background: var(--black); padding: 2.2rem 2rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) auto;
+      align-items: center; gap: 2rem; transition: background 0.2s;
     }
-    .intro-text p {
-      color: rgba(245,245,240,0.72); line-height: 1.85;
-      margin-bottom: 1.2rem; font-size: 0.97rem;
-    }
-    .shisha-stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .shisha-stat {
-      background: var(--black); padding: 1.5rem;
-      text-align: center;
-    }
-    .shisha-stat .stat-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem; font-weight: 700;
-      color: var(--yellow); display: block; margin-bottom: 0.3rem;
-    }
-    .shisha-stat .stat-label {
-      font-size: 0.75rem; color: var(--mid);
-      text-transform: uppercase; letter-spacing: 0.1em;
-      font-family: 'Space Grotesk', sans-serif;
-    }
+    .rank-item:hover { background: #0d0d0d; }
+    .rank-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; }
+    .rank-desc { font-size: 0.85rem; opacity: 0.55; line-height: 1.7; }
+    .rank-badge { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid var(--gold); color: var(--gold); padding: 0.25rem 0.8rem; white-space: nowrap; opacity: 0.7; }
 
-    /* ===== 魅力 ===== */
-    #charm { border-bottom: 1px solid var(--border); }
-    .charm-list { display: flex; flex-direction: column; gap: 0; }
-    .charm-item {
-      display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 0 2rem;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-    }
-    .charm-item:first-child { border-top: 1px solid var(--border); }
-    .charm-icon {
-      font-size: 2rem; line-height: 1;
-      padding-top: 0.2rem; text-align: center;
-    }
-    .charm-body h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.15rem; font-weight: 600;
-      margin-bottom: 0.7rem;
-      color: var(--off-white);
-    }
-    .charm-body p {
-      font-size: 0.93rem; color: rgba(245,245,240,0.68);
-      line-height: 1.8;
-    }
-    .charm-body .charm-note {
-      margin-top: 0.7rem;
-      font-size: 0.8rem; color: var(--yellow);
-      font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: 0.03em;
-    }
+    /* ── HOLYDAYS GRID（カードグリッド）共用 ── */
+    .holydays-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .holyday-item { background: var(--black); padding: 2.5rem 2rem; transition: background 0.2s; }
+    .holyday-item:hover { background: #0d0d0d; }
+    .holyday-date { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 0.6rem; }
+    .holyday-name { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; }
+    .holyday-desc { font-size: 0.85rem; opacity: 0.55; line-height: 1.8; }
+    .holyday-ritual { margin-top: 1rem; font-size: 0.78rem; color: var(--gold); opacity: 0.6; }
 
-    /* ===== QUOTE ===== */
-    .quote-full {
-      background: var(--border);
-      max-width: 100%;
-      padding: 5rem 2rem;
+    /* ── JOIN BANNER ── */
+    .join-banner {
+      background: var(--gold); color: var(--black);
+      padding: 6rem 2rem; text-align: center;
     }
-    .quote-full .inner {
-      max-width: 1000px; margin: 0 auto; text-align: center;
-    }
-    blockquote {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.3rem, 3vw, 2rem);
-      font-weight: 500; line-height: 1.5;
-      color: var(--off-white);
-      font-style: italic;
-    }
-    blockquote .ja {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9rem; font-style: normal;
-      color: rgba(245,245,240,0.5);
-      margin-top: 1rem;
-    }
-    blockquote cite {
-      display: block;
-      font-size: 0.8rem; font-style: normal;
-      color: var(--yellow);
-      margin-top: 1.2rem;
-      letter-spacing: 0.1em;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    /* ===== 効果 ===== */
-    #effects { border-bottom: 1px solid var(--border); }
-    .effects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .effect-card {
-      background: var(--black); padding: 2rem 1.5rem;
-    }
-    .effect-icon {
-      font-size: 1.8rem; margin-bottom: 1rem;
-    }
-    .effect-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.95rem; font-weight: 600;
-      margin-bottom: 0.6rem; color: var(--yellow);
-    }
-    .effect-desc {
-      font-size: 0.85rem; color: rgba(245,245,240,0.6);
-      line-height: 1.75;
-    }
-    .effect-note {
-      margin-top: 0.5rem; font-size: 0.72rem;
-      color: var(--mid); font-style: italic;
-    }
-
-    /* ===== なぜイージーか ===== */
-    #why { border-bottom: 1px solid var(--border); }
-    .why-hero-text {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-      font-weight: 700; line-height: 1.3;
-      color: var(--off-white);
-      border-left: 4px solid var(--yellow);
-      padding-left: 1.5rem;
-      margin-bottom: 3rem;
-    }
-    .why-points { display: flex; flex-direction: column; gap: 2rem; }
-    .why-point {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1.2rem; align-items: start;
-    }
-    .why-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.7rem; font-weight: 700;
-      color: var(--yellow); letter-spacing: 0.1em;
-      padding: 0.3rem 0.6rem;
-      border: 1px solid var(--yellow);
-      white-space: nowrap; line-height: 1.5;
-    }
-    .why-text h4 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1rem; font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-    .why-text p {
-      font-size: 0.9rem; color: rgba(245,245,240,0.65);
-      line-height: 1.75;
-    }
-
-    /* ===== フレーバー ===== */
-    #flavors { border-bottom: 1px solid var(--border); }
-    .flavor-intro {
-      font-size: 0.95rem; color: rgba(245,245,240,0.7);
-      line-height: 1.8; margin-bottom: 2.5rem; max-width: 620px;
-    }
-    .flavor-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
-    }
-    .flavor-card {
-      background: var(--black); padding: 1.5rem 1.2rem;
-      text-align: center;
-    }
-    .flavor-emoji { font-size: 2rem; margin-bottom: 0.7rem; display: block; }
-    .flavor-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.9rem; font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-    .flavor-tag {
-      font-size: 0.72rem; color: var(--mid);
-      text-transform: uppercase; letter-spacing: 0.08em;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    .flavor-tag.recommended { color: var(--yellow); }
-
-    /* ===== 歴史 ===== */
-    #history { border-bottom: 1px solid var(--border); }
-    .timeline { margin-top: 1rem; }
-    .tl-item {
-      display: grid; grid-template-columns: 120px 1fr;
-      gap: 0 2rem; padding: 1.8rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-    }
-    .tl-item:first-child { border-top: 1px solid var(--border); }
-    .tl-year {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.9rem; font-weight: 700;
-      color: var(--yellow); letter-spacing: 0.05em;
-      padding-top: 0.15rem;
-    }
-    .tl-desc {
-      font-size: 0.92rem; color: rgba(245,245,240,0.7);
-      line-height: 1.75;
-    }
-
-    /* ===== EASY VERDICT ===== */
-    #verdict {
-      text-align: center; padding: 7rem 2rem;
-      max-width: 1000px; margin: 0 auto;
-    }
-    .verdict-word {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(5rem, 20vw, 14rem);
-      font-weight: 700; color: var(--yellow);
-      line-height: 0.85; letter-spacing: -0.05em;
-      display: block; margin-bottom: 1.5rem;
-    }
-    #verdict p {
-      font-size: 1rem; color: rgba(245,245,240,0.55);
-      max-width: 500px; margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
-    .btn-primary {
-      display: inline-block; background: var(--yellow);
-      color: var(--black); padding: 0.9rem 2.5rem;
+    .join-title { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 1.5rem; }
+    .join-sub { font-size: 1rem; opacity: 0.65; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.9; }
+    .join-btn {
+      display: inline-block; background: var(--black); color: var(--gold);
       font-family: 'Space Grotesk', sans-serif; font-weight: 700;
-      font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;
-      text-decoration: none; transition: opacity 0.2s;
+      font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 1rem 2.5rem; text-decoration: none; transition: background 0.2s, color 0.2s;
     }
-    .btn-primary:hover { opacity: 0.85; }
+    .join-btn:hover { background: #111; }
+    .join-disclaimer { margin-top: 1.5rem; font-size: 0.68rem; opacity: 0.4; }
 
-    /* ===== FOOTER ===== */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem; display: flex;
-      justify-content: space-between; align-items: center;
-      max-width: 1000px; margin: 0 auto;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 1rem;
-      color: var(--yellow); letter-spacing: 0.05em;
-    }
-    .footer-copy { font-size: 0.78rem; color: var(--mid); }
+    footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
+    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
 
-    /* ===== FADE IN ===== */
-    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .fade-in.visible { opacity: 1; transform: none; }
-  </style>
-  <style id="layout-fix">
-    nav { max-width: 100%; }
-    nav .nav-inner { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
-    section { max-width: 1000px; margin-left: auto; margin-right: auto; }
-    .quote-full { max-width: 100%; }
-    footer { max-width: 1000px; margin-left: auto; margin-right: auto; }
+
     @media (max-width: 768px) {
-      section, footer { max-width: 100%; }
+      .wrap { padding: 0 1.5rem; }
+      .tenet { grid-template-columns: 1fr; gap: 1rem; }
+      .rank-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .join-banner { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; padding: 2rem 1.5rem; }
     }
-  </style>
-  <style id="mobile-fix">
+
+    /* ─── MOBILE NAV ─── */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 0.5rem; background: none; border: none; flex-shrink: 0;
+    }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--off-white); transition: transform 0.25s, opacity 0.25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     @media (max-width: 768px) {
-      html, body { overflow-x: hidden !important; }
-      section { display: block; padding: 3rem 1.2rem; }
-      .intro-grid, .effects-grid, .flavor-grid { display: block; }
-      .effect-card, .flavor-card { margin-bottom: 1px; }
-      .charm-item { grid-template-columns: 44px 1fr; gap: 0 1rem; }
-      .why-point { grid-template-columns: 1fr; }
-      .tl-item { grid-template-columns: 90px 1fr; gap: 0 1rem; }
-      .shisha-stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); }
-      nav .nav-inner { padding: 0 1.2rem; }
+      nav { position: fixed; }
+      .nav-top { padding: 1rem 1.5rem; position: relative; }
+      .nav-tagline { display: none; }
       .nav-hamburger { display: flex; }
-      .nav-tabs { display: none; flex-direction: column; padding-bottom: 0.5rem; }
-      .nav-tabs.open { display: flex; }
-      .nav-tabs a { padding: 0.7rem 0.5rem; }
-      #hero { padding: 4rem 1.2rem 3rem; min-height: 60vh; }
-      .quote-full { padding: 3rem 1.2rem; }
-      #verdict { padding: 4rem 1.2rem; }
-      .verdict-word { font-size: clamp(4rem, 25vw, 10rem); }
+      .nav-tabs {
+        display: none !important; flex-direction: column; padding: 0;
+        position: fixed; top: 57px; left: 0; right: 0;
+        background: rgba(10,10,10,0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border); z-index: 9999;
+        max-height: calc(100vh - 57px); overflow-y: auto;
+      }
+      .nav-tabs.open { display: flex !important; }
+      .nav-tabs li { width: 100%; }
+      .nav-tabs li a { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.88rem; white-space: normal; opacity: 0.7; }
+      .nav-tabs li a::after { display: none; }
+      .nav-tabs li a.active { opacity: 1; color: var(--yellow); background: rgba(232,255,0,0.05); border-left: 3px solid var(--yellow); padding-left: calc(1.5rem - 3px); }
     }
   </style>
+<style id="layout-fix">
+section, .wrap, .page-hero, .article-wrap {
+  max-width: 1000px !important; margin-left: auto !important; margin-right: auto !important; width: 100% !important;
+}
+#banner, .join-banner, .quote-banner {
+  max-width: 100% !important; padding-left: 2rem !important; padding-right: 2rem !important;
+}
+#banner > *, .join-banner > *, .quote-banner > * {
+  max-width: 1000px !important; margin-left: auto !important; margin-right: auto !important;
+}
+.nav-top, .nav-tabs {
+  max-width: 1000px !important; margin-left: auto !important; margin-right: auto !important; width: 100% !important;
+}
+footer { padding-left: 2rem !important; padding-right: 2rem !important; }
+footer > * { max-width: 1000px !important; margin-left: auto !important; margin-right: auto !important; }
+.nav-inner { max-width: 1000px !important; margin-left: auto !important; margin-right: auto !important; }
+section { padding-left: 2rem !important; padding-right: 2rem !important; }
+@media (max-width: 768px) {
+  section, .wrap, .page-hero, .article-wrap { max-width: 100% !important; padding-left: 1.2rem !important; padding-right: 1.2rem !important; }
+  nav .nav-top, nav .nav-tabs { max-width: 100% !important; }
+  footer { padding-left: 1.2rem !important; padding-right: 1.2rem !important; }
+  footer > * { max-width: 100% !important; }
+}
+</style>
+<style id="mobile-fix">
+html { overflow-x: hidden !important; }
+body { overflow-x: hidden !important; max-width: 100vw !important; }
+*, *::before, *::after { max-width: 100% !important; box-sizing: border-box !important; }
+@media screen and (max-width: 768px) {
+  nav { position: fixed !important; }
+  .nav-top { padding: 0.85rem 1.2rem !important; }
+  .nav-tagline { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+  .nav-tabs { display: none !important; flex-direction: column !important; position: fixed !important; top: 53px !important; left: 0 !important; right: 0 !important; width: 100vw !important; max-width: 100vw !important; background: rgba(10,10,10,0.98) !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important; border-bottom: 1px solid #1E1E1E !important; z-index: 9999 !important; padding: 0 !important; overflow-x: hidden !important; }
+  .nav-tabs.open { display: flex !important; }
+  .nav-tabs li { width: 100% !important; max-width: 100% !important; }
+  .nav-tabs li a { padding: 1rem 1.5rem !important; font-size: 0.88rem !important; border-bottom: 1px solid #1E1E1E !important; white-space: normal !important; opacity: 0.75 !important; width: 100% !important; }
+  .nav-tabs li a::after { display: none !important; }
+  .nav-tabs li a.active { opacity: 1 !important; color: #E8FF00 !important; background: rgba(232,255,0,0.05) !important; border-left: 3px solid #E8FF00 !important; }
+  section, .wrap, .page-hero, .section-block, .article-wrap, .reli-hero, .quote-banner, .join-banner, #banner, footer { padding-left: 1.2rem !important; padding-right: 1.2rem !important; width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; }
+  [style*="grid-template-columns"], .holydays-grid, .tenets, .kpi-grid, .values-grid { grid-template-columns: 1fr !important; display: block !important; }
+  .holydays-grid > *, .tenets > * { margin-bottom: 1px !important; }
+  .scripture-block { padding: 2rem 1.5rem !important; }
+  .rank-item, .tl-item { grid-template-columns: 1fr !important; gap: 0.3rem !important; }
+  .faq-q { font-size: 0.9rem !important; }
+  footer { flex-direction: column !important; gap: 1rem !important; }
+  .footer-logo { font-size: 0.9rem !important; }
+  .section-heading { font-size: clamp(1.5rem, 7vw, 2rem) !important; }
+}
+</style>
 </head>
 <body>
-
 <nav>
-  <div class="nav-inner">
-    <div class="nav-top">
-      <a class="nav-logo" href="index.html">EASY.INC</a>
-      <span class="nav-tagline">Make It Easy</span>
-      <button class="nav-hamburger" id="navHamburger" aria-label="メニュー">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <ul class="nav-tabs" id="navTabs">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="business.html">Business</a></li>
-      <li><a href="careers.html">Careers</a></li>
-      <li><a href="results.html">Results</a></li>
-      <li><a href="interview.html">Team</a></li>
-      <li><a href="news/index.html">News</a></li>
-      <li><a href="religion.html">Religion</a></li>
-      <li><a href="shisha.html" class="active">Shisha</a></li>
-    </ul>
+  <div class="nav-top">
+    <a class="nav-logo" href="index.html">EASY.INC</a>
+    <span class="nav-tagline">Make It Easy</span>
+    <button class="nav-hamburger" id="navHamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+  <ul class="nav-tabs">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="business.html">Business</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="results.html">Results</a></li>
+    <li><a href="interview.html">Team</a></li>
+    <li><a href="news/index.html">News</a></li>
+    <li><a href="religion.html">Religion</a></li>
+    <li><a href="shisha.html" class="active">Shisha</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
-<section id="hero">
-  <div class="smoke-bg">
-    <div class="smoke-ring"></div>
-    <div class="smoke-ring"></div>
-    <div class="smoke-ring"></div>
-    <div class="smoke-ring"></div>
-  </div>
-  <p class="hero-label">The Official Philosophy of EASY.INC</p>
-  <h1>
-    <span class="hero-main">SHISHA</span>
-    <span class="hero-sub-word">is Easy.</span>
-  </h1>
-  <p class="hero-tagline">私たちは長い議論の末に結論を出した。<br>シーシャこそが、イージーの最終形態である、と。</p>
-  <p class="hero-scroll">↓ 煙とともに悟れ</p>
-</section>
+<div class="reli-hero">
+  <div class="reli-hero-bg"></div>
+  <div class="symbol">💨</div>
+  <p class="reli-eyebrow">The Official Philosophy of EASY.INC</p>
+  <h1 class="reli-title">シーシャは<br><em>イージーだ。</em></h1>
+  <p class="reli-sub">私たちは長い議論の末に結論を出した。シーシャこそが、イージーの最終形態である、と。</p>
+  <span class="reli-scroll">↓ &nbsp; 煙とともに悟れ</span>
+</div>
 
-<!-- マーキー -->
-<div class="marquee-strip" aria-hidden="true">
-  <div class="marquee-inner">
-    <span>SHISHA IS EASY</span><span>💨</span>
-    <span>SLOW DOWN</span><span>✦</span>
-    <span>BREATHE DEEP</span><span>💨</span>
-    <span>TIME IS AN ILLUSION</span><span>✦</span>
-    <span>SHISHA IS EASY</span><span>💨</span>
-    <span>ONE SESSION = ONE ENLIGHTENMENT</span><span>✦</span>
-    <span>SHISHA IS EASY</span><span>💨</span>
-    <span>SLOW DOWN</span><span>✦</span>
-    <span>BREATHE DEEP</span><span>💨</span>
-    <span>TIME IS AN ILLUSION</span><span>✦</span>
-    <span>SHISHA IS EASY</span><span>💨</span>
-    <span>ONE SESSION = ONE ENLIGHTENMENT</span><span>✦</span>
+<!-- WHAT IS -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">What is Shisha</p>
+    <h2 class="section-heading fade-in">シーシャとは何か</h2>
+    <div style="display:grid;grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));gap:4rem;align-items:start;" class="fade-in">
+      <div style="font-size:0.95rem;line-height:2;opacity:0.7;">
+        <p>シーシャ（水タバコ）は、16世紀のインド・ペルシャ地方で生まれた喫煙文化だ。タバコの煙を一度水にくぐらせることで冷却・浄化し、まろやかなフレーバーとともに楽しむ。</p>
+        <p style="margin-top:1.2rem;">オスマン帝国の宮廷で洗練され、中東・北アフリカ・南アジアを経て、今や世界中のラウンジで愛されている。近年日本でもシーシャカフェが急増中だ。</p>
+        <p style="margin-top:1.2rem;">EASY.INCは、シーシャを単なる嗜好品として推奨しているのではない。シーシャを<em style="font-style:normal;color:var(--gold)">哲学として</em>推奨している。</p>
+      </div>
+      <div style="background:#0d0d0d;border:1px solid var(--border);padding:2.5rem;">
+        <div style="font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0.7;">基本データ</div>
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.8rem 0;opacity:0.45;width:110px;">発祥</td>
+            <td style="padding:0.8rem 0;">インド・ペルシャ地方（16世紀）</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.8rem 0;opacity:0.45;">歴史</td>
+            <td style="padding:0.8rem 0;">500年以上（やめた人類なし）</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.8rem 0;opacity:0.45;">フレーバー</td>
+            <td style="padding:0.8rem 0;">100種以上（まだ増えてる）</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.8rem 0;opacity:0.45;">平均時間</td>
+            <td style="padding:0.8rem 0;">60〜90分/セッション</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:0.8rem 0;opacity:0.45;">急げるか</td>
+            <td style="padding:0.8rem 0;">物理的に不可能</td>
+          </tr>
+          <tr>
+            <td style="padding:0.8rem 0;opacity:0.45;">イージー度</td>
+            <td style="padding:0.8rem 0;">∞（測定不能）</td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- INTRO -->
-<section id="intro">
-  <div class="fade-in">
-    <p class="section-label">What is Shisha</p>
-    <h2 class="section-heading">シーシャとは<em>何か</em></h2>
-    <p class="section-lead">水タバコ、フーカー、ナルギーレ——呼び名は国によって違う。しかし、本質はひとつ。<strong style="color:var(--yellow)">「ゆっくりする」</strong>という行為を、500年かけて完成させた人類の叡智である。</p>
-  </div>
-  <div class="intro-grid fade-in">
-    <div class="intro-text">
-      <p>シーシャ（水タバコ）は、16世紀のインド・ペルシャ地方で生まれた喫煙文化だ。タバコの煙を一度水にくぐらせることで冷却・浄化し、まろやかなフレーバーとともに楽しむ。オスマン帝国の宮廷で洗練され、中東・北アフリカ・南アジアを経て、今や世界中のラウンジで愛されている。</p>
-      <p>そして近年、日本でもシーシャカフェが急増中。なぜか。答えはシンプルだ。現代人は疲れている。シーシャは、その疲れをゆっくりと、おいしく、吐き出すことができる。</p>
-      <p>EASY.INCは、シーシャを単なる嗜好品として推奨しているのではない。シーシャを<em>哲学として</em>推奨している。</p>
-    </div>
-    <div>
-      <div class="shisha-stat-grid">
-        <div class="shisha-stat">
-          <span class="stat-num">500+</span>
-          <span class="stat-label">年の歴史</span>
-        </div>
-        <div class="shisha-stat">
-          <span class="stat-num">100+</span>
-          <span class="stat-label">フレーバー種</span>
-        </div>
-        <div class="shisha-stat">
-          <span class="stat-num">1h</span>
-          <span class="stat-label">平均セッション</span>
-        </div>
-        <div class="shisha-stat">
-          <span class="stat-num">∞</span>
-          <span class="stat-label">イージー度</span>
-        </div>
-      </div>
-      <p style="font-size:0.72rem;color:var(--mid);margin-top:0.7rem;">※ 当社調べ。イージー度については測定方法を現在開発中。</p>
-    </div>
-  </div>
-</section>
-
 <!-- 魅力 -->
-<section id="charm">
-  <div class="fade-in">
-    <p class="section-label">Why We Love It</p>
-    <h2 class="section-heading">シーシャの<em>魅力</em></h2>
-  </div>
-  <div class="charm-list">
-    <div class="charm-item fade-in">
-      <div class="charm-icon">💨</div>
-      <div class="charm-body">
-        <h3>煙が、時間を遅くする</h3>
-        <p>シーシャを吸う行為は、本質的に「急げない」。炭を熱し、煙が立ち上がるのを待ち、ゆっくりと吸い込み、静かに吐き出す。この一連のリズムが、現代人が失った「待つ能力」を自然に引き出す。シーシャをやっているとき、人は焦らない。なぜなら、焦ってもどうしようもないからだ。これをイージーと呼ばずして何と呼ぶ。</p>
-        <p class="charm-note">✦ 1セッション平均60〜90分。それだけ「急がない」が続く</p>
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">Why We Love It</p>
+    <h2 class="section-heading fade-in">シーシャの魅力</h2>
+    <div class="tenets">
+      <div class="tenet fade-in">
+        <div class="tenet-num">一</div>
+        <div>
+          <div class="tenet-title">煙が、時間を遅くする</div>
+          <div class="tenet-body">シーシャを吸う行為は、本質的に「急げない」。炭を熱し、煙が立ち上がるのを待ち、ゆっくりと吸い込み、静かに吐き出す。この一連のリズムが、現代人が失った「待つ能力」を自然に引き出す。シーシャをやっているとき、人は焦らない。なぜなら、焦ってもどうしようもないからだ。</div>
+          <div class="tenet-verdict">✦ 1セッション平均60〜90分。それだけ「急がない」が続く</div>
+        </div>
+      </div>
+      <div class="tenet fade-in">
+        <div class="tenet-num">二</div>
+        <div>
+          <div class="tenet-title">みんなで囲む、最高の会話装置</div>
+          <div class="tenet-body">シーシャは、本来ひとつの器を複数人でシェアする文化から生まれた。ひとつのホースを囲んで座る。それだけで、不思議と会話が始まる。画面を見なくなる。沈黙も苦にならない。これが現代最強のコミュニケーションツールである。</div>
+          <div class="tenet-verdict">✦「シーシャしながら話す」は、世界どこでも通じる万国共通の社交スタイル</div>
+        </div>
+      </div>
+      <div class="tenet fade-in">
+        <div class="tenet-num">三</div>
+        <div>
+          <div class="tenet-title">フレーバーという名の、感情の翻訳</div>
+          <div class="tenet-body">ミント、ダブルアップル、マンゴー、グレープ、ローズ、ラベンダー——シーシャのフレーバーは100種を超える。今日の気分に合わせてフレーバーを選ぶ行為は、自分の感情をおいしく言語化することだ。「今日はなんかフレッシュな気分」と言うより、「今日はミントで」と言う方が、はるかにイージーである。</div>
+          <div class="tenet-verdict">✦ フレーバーで今日の感情を表現する新習慣を、EASY.INCは推奨する</div>
+        </div>
+      </div>
+      <div class="tenet fade-in">
+        <div class="tenet-num">四</div>
+        <div>
+          <div class="tenet-title">美しすぎる、存在そのもの</div>
+          <div class="tenet-body">シーシャの器具は、それ自体がアート作品だ。ガラスのフラスコ、金属の装飾、彩り豊かなホース。卓上に置くだけで場の雰囲気が変わる。煙の立ち上る様は、見ているだけで瞑想に近い状態を生む。「美しいものに囲まれると、人は急がなくなる」——これはおそらく真実である。</div>
+          <div class="tenet-verdict">✦ 煙の形を眺めていた時間は、無駄ではない。それが最も豊かな時間だ</div>
+        </div>
+      </div>
+      <div class="tenet fade-in">
+        <div class="tenet-num">五</div>
+        <div>
+          <div class="tenet-title">500年続く文化の、重力</div>
+          <div class="tenet-body">インドで生まれ、ペルシャで洗練され、オスマン帝国で社交の中心となり、エジプトで民衆に広まり、今や東京・渋谷のシーシャカフェでも楽しめる。500年以上、人類がやめなかった習慣には理由がある。「気持ちいい」からだ。500年間、ずっと気持ちいいものをイージーと呼ばずして何と呼ぶ。</div>
+          <div class="tenet-verdict">✦ トルコ語で「ナルギーレ」、アラビア語で「شيشة」。名前は違えど、気持ちいいは共通</div>
+        </div>
       </div>
     </div>
-    <div class="charm-item fade-in">
-      <div class="charm-icon">🤝</div>
-      <div class="charm-body">
-        <h3>みんなで囲む、最高の会話装置</h3>
-        <p>シーシャは、本来ひとつの器を複数人でシェアする文化から生まれた。ひとつのホースを囲んで座る。それだけで、不思議と会話が始まる。画面を見なくなる。沈黙も苦にならない。シーシャカフェにはスマホを置く文化がある（当社調べ）。これが現代最強のコミュニケーションツールである。</p>
-        <p class="charm-note">✦ 「シーシャしながら話す」は、世界どこでも通じる万国共通の社交スタイル</p>
-      </div>
-    </div>
-    <div class="charm-item fade-in">
-      <div class="charm-icon">🌿</div>
-      <div class="charm-body">
-        <h3>フレーバーという名の、感情の翻訳</h3>
-        <p>ミント、ダブルアップル、マンゴー、グレープ、ローズ、ラベンダー——シーシャのフレーバーは100種を超える。今日の気分に合わせてフレーバーを選ぶ行為は、自分の感情をおいしく言語化することだ。「今日はなんかフレッシュな気分」と言うより、「今日はミントで」と言う方が、はるかにイージーである。</p>
-        <p class="charm-note">✦ フレーバーで今日の感情を表現する新習慣を、EASY.INCは推奨する</p>
-      </div>
-    </div>
-    <div class="charm-item fade-in">
-      <div class="charm-icon">🎭</div>
-      <div class="charm-body">
-        <h3>美しすぎる、存在そのもの</h3>
-        <p>シーシャの器具は、それ自体がアート作品だ。ガラスのフラスコ、金属の装飾、彩り豊かなホース。卓上に置くだけで場の雰囲気が変わる。煙の立ち上る様は、見ているだけで瞑想に近い状態を生む。「美しいものに囲まれると、人は急がなくなる」——これはイージー教典には書かれていないが、おそらく真実である。</p>
-        <p class="charm-note">✦ 煙の形を眺めていた時間は、無駄ではない。それが最も豊かな時間だ</p>
-      </div>
-    </div>
-    <div class="charm-item fade-in">
-      <div class="charm-icon">🌍</div>
-      <div class="charm-body">
-        <h3>500年続く文化の、重力</h3>
-        <p>インドで生まれ、ペルシャで洗練され、オスマン帝国で社交の中心となり、エジプトで民衆に広まり、今や東京・渋谷のシーシャカフェでも楽しめる。500年以上、人類がやめなかった習慣には理由がある。「気持ちいい」からだ。500年間、ずっと気持ちいいものをイージーと呼ばずして何と呼ぶ。</p>
-        <p class="charm-note">✦ トルコ語で「ナルギーレ」、アラビア語で「شيشة（シーシャ）」。名前は違えど、気持ちいいは共通</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- QUOTE 1 -->
-<div class="quote-full">
-  <div class="inner fade-in">
-    <blockquote>
-      "To smoke shisha is to understand that the present moment is enough."
-      <span class="ja">「シーシャを吸うとは、今この瞬間で十分だと理解することだ。」</span>
-      <cite>— EASY.INC 研究部（※ 研究部は存在しない）</cite>
-    </blockquote>
   </div>
 </div>
 
 <!-- 効果 -->
-<section id="effects">
-  <div class="fade-in">
-    <p class="section-label">The Science of Easy</p>
-    <h2 class="section-heading">シーシャの<em>効果</em></h2>
-    <p class="section-lead">科学的に証明されているかどうかはともかく、シーシャには確かな効果がある。少なくともEASY.INCはそう信じている。</p>
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">The Science of Easy</p>
+    <h2 class="section-heading fade-in">シーシャの効果</h2>
+    <div class="holydays-grid">
+      <div class="holyday-item fade-in">
+        <div class="holyday-date">Effect 01</div>
+        <div class="holyday-name">思考のリセット</div>
+        <div class="holyday-desc">ゆっくりとした呼吸リズムが、過集中した脳に「落ち着け」というシグナルを送る。瞑想に近い状態が自然と訪れる。</div>
+        <div class="holyday-ritual">※ 当社比。個人差あり。</div>
+      </div>
+      <div class="holyday-item fade-in">
+        <div class="holyday-date">Effect 02</div>
+        <div class="holyday-name">ストレス値の低下</div>
+        <div class="holyday-desc">薄暗い照明、くつろげるソファ、穏やかな音楽。この環境トリオが、コルチゾールを自動的に破壊する（たぶん）。</div>
+        <div class="holyday-ritual">※ コルチゾール破壊は比喩です。</div>
+      </div>
+      <div class="holyday-item fade-in">
+        <div class="holyday-date">Effect 03</div>
+        <div class="holyday-name">会話の質が上がる</div>
+        <div class="holyday-desc">シーシャを囲むと不思議と深い話になる。煙が口を開かせるのか、時間がそうさせるのか。いずれにせよ、良い会話が生まれる。</div>
+        <div class="holyday-ritual">※ 口論になった場合はシーシャのせいではありません。</div>
+      </div>
+      <div class="holyday-item fade-in">
+        <div class="holyday-date">Effect 04</div>
+        <div class="holyday-name">時間感覚の正常化</div>
+        <div class="holyday-desc">現代人はせっかちすぎる。シーシャの1セッションで、「1時間をかけてひとつのことをする」という人類本来の時間感覚を取り戻せる。</div>
+        <div class="holyday-ritual">※ 元の時間感覚が正常かどうかは各自に委ねます。</div>
+      </div>
+      <div class="holyday-item fade-in">
+        <div class="holyday-date">Effect 05</div>
+        <div class="holyday-name">人間関係のイージー化</div>
+        <div class="holyday-desc">「シーシャ行かない？」は最強の誘い文句だ。断られることが少なく、行けば必ず楽しく、帰りに「また行こう」と言える。</div>
+        <div class="holyday-ritual">※ 断られた場合も、イージーに受け流してください。</div>
+      </div>
+      <div class="holyday-item fade-in">
+        <div class="holyday-date">Effect 06</div>
+        <div class="holyday-name">アイデアの自然発生</div>
+        <div class="holyday-desc">シーシャを吸っているとき、脳はリラックスしながらも覚醒している。この状態が創造的思考を促す。偉大な発明の何割かはシーシャ中に生まれたと当社は考えている（根拠なし）。</div>
+        <div class="holyday-ritual">※ 根拠はありません。でも気がしています。</div>
+      </div>
+    </div>
   </div>
-  <div class="effects-grid fade-in">
-    <div class="effect-card">
-      <div class="effect-icon">🧠</div>
-      <p class="effect-title">思考のリセット</p>
-      <p class="effect-desc">ゆっくりとした呼吸リズムが、過集中した脳に「落ち着け」というシグナルを送る。瞑想に近い状態が自然と訪れる。</p>
-      <p class="effect-note">※ 当社比。個人差あり。</p>
-    </div>
-    <div class="effect-card">
-      <div class="effect-icon">😌</div>
-      <p class="effect-title">ストレス値の低下</p>
-      <p class="effect-desc">シーシャカフェの薄暗い照明、くつろげるソファ、穏やかな音楽。この環境トリオが、コルチゾールを自動的に破壊する（たぶん）。</p>
-      <p class="effect-note">※ コルチゾール破壊は比喩です。</p>
-    </div>
-    <div class="effect-card">
-      <div class="effect-icon">💬</div>
-      <p class="effect-title">会話の質が上がる</p>
-      <p class="effect-desc">シーシャを囲むと不思議と深い話になる。煙が口を開かせるのか、時間がそうさせるのか。いずれにせよ、良い会話が生まれる。</p>
-      <p class="effect-note">※ 口論になった場合はシーシャのせいではありません。</p>
-    </div>
-    <div class="effect-card">
-      <div class="effect-icon">⏱️</div>
-      <p class="effect-title">時間感覚の正常化</p>
-      <p class="effect-desc">現代人はせっかちすぎる。シーシャの1セッションで、「1時間をかけてひとつのことをする」という人類本来の時間感覚を取り戻せる。</p>
-      <p class="effect-note">※ 元の時間感覚が正常かどうかは各自に委ねます。</p>
-    </div>
-    <div class="effect-card">
-      <div class="effect-icon">🤝</div>
-      <p class="effect-title">人間関係のイージー化</p>
-      <p class="effect-desc">「シーシャ行かない？」は最強の誘い文句だ。断られることが少なく、行けば必ず楽しく、帰りに「また行こう」と言える。人間関係がイージーになる。</p>
-      <p class="effect-note">※ 断られた場合も、イージーに受け流してください。</p>
-    </div>
-    <div class="effect-card">
-      <div class="effect-icon">💡</div>
-      <p class="effect-title">アイデアの自然発生</p>
-      <p class="effect-desc">シーシャを吸っているとき、脳はリラックスしながらも覚醒している。この状態が創造的思考を促す。偉大な発明の何割かはシーシャ中に生まれたと当社は考えている（根拠なし）。</p>
-      <p class="effect-note">※ 根拠はありません。でも気がしています。</p>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- なぜイージーか -->
-<section id="why">
-  <div class="fade-in">
-    <p class="section-label">The EASY.INC Thesis</p>
-    <h2 class="section-heading">シーシャはなぜ<em>イージーか</em></h2>
-  </div>
-  <p class="why-hero-text fade-in">
-    「イージーとは何か」——この問いにEASY.INCが出した答えが、シーシャだった。
-  </p>
-  <div class="why-points">
-    <div class="why-point fade-in">
-      <span class="why-num">01</span>
-      <div class="why-text">
-        <h4>シーシャは「急ぐ」を物理的に不可能にする</h4>
-        <p>炭に火をつけ、煙が安定するまで待つ。煙を急いで吸い込んでも美味しくない。シーシャは、急ごうとする人間の本能を、設計の段階で潰してある。これ以上イージーな強制装置があるか。ない。</p>
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">The EASY.INC Thesis</p>
+    <h2 class="section-heading fade-in">シーシャはなぜイージーか</h2>
+    <div class="scripture-block fade-in">
+      <div class="scripture-label">EASY.INC 公式見解書 — 全5条</div>
+      <div class="scripture-text">
+        <p><span class="scripture-verse">第一条：</span>シーシャは「急ぐ」を物理的に不可能にする。炭に火をつけ、煙が安定するまで待つ。煙を急いで吸い込んでも美味しくない。シーシャは、急ごうとする人間の本能を、設計の段階で潰してある。これ以上イージーな強制装置があるか。ない。</p>
+        <p><span class="scripture-verse">第二条：</span>シーシャは「何もしない」を正当化してくれる。「何してたの？」「シーシャ」——これで全て説明がつく。現代最強の「何もしない」の免罪符である。</p>
+        <p><span class="scripture-verse">第三条：</span>準備も片付けも誰かがやってくれる。シーシャカフェに行けば、炭の準備も器具の設置も灰の処理も全部スタッフがやってくれる。自分がやることは座って吸うだけ。これを「アウトソーシング」と呼ばずに何と呼ぶ。</p>
+        <p><span class="scripture-verse">第四条：</span>シーシャに失敗はない。煙が少なくても、フレーバーが好みでなくても、それはそれで体験だ。「これはこれでアリかも」が必ず生まれる。人生のあらゆる場面でこれが言えたら、どれだけイージーか。</p>
+        <p><span class="scripture-verse">第五条：</span>500年間、誰も「もうやめよう」と言わなかった。これが最大の証拠だ。流行が来て、批判が来て、規制が来て、それでもやめなかった。イージーでないものは、人は500年続けない。シーシャはイージーだ。これ以上の論拠はない。</p>
       </div>
     </div>
-    <div class="why-point fade-in">
-      <span class="why-num">02</span>
-      <div class="why-text">
-        <h4>「何もしない」を正当化してくれる</h4>
-        <p>シーシャをやっているとき、人は何もしていないようで何かをしている。でも実際は何もしていない。この絶妙なポジションが素晴らしい。「何してたの？」「シーシャ」——これで全て説明がつく。現代最強の「何もしない」の免罪符である。</p>
-      </div>
-    </div>
-    <div class="why-point fade-in">
-      <span class="why-num">03</span>
-      <div class="why-text">
-        <h4>準備も片付けも誰かがやってくれる</h4>
-        <p>シーシャカフェに行けば、炭の準備も、器具の設置も、灰の処理も、全部スタッフがやってくれる。自分がやることは座って吸うだけ。これを「アウトソーシング」と呼ばずに何と呼ぶ。イージーの教科書第1章そのものだ。</p>
-      </div>
-    </div>
-    <div class="why-point fade-in">
-      <span class="why-num">04</span>
-      <div class="why-text">
-        <h4>失敗がない</h4>
-        <p>シーシャに失敗はない。煙が少なくても、フレーバーが好みでなくても、それはそれで体験だ。「これはこれでアリかも」が必ず生まれる。人生のあらゆる場面でこれが言えたら、どれだけイージーか。シーシャはその練習台でもある。</p>
-      </div>
-    </div>
-    <div class="why-point fade-in">
-      <span class="why-num">05</span>
-      <div class="why-text">
-        <h4>500年間、誰も「もうやめよう」と言わなかった</h4>
-        <p>これが最大の証拠だ。500年以上、世界中の人々がシーシャをやめなかった。流行が来て、批判が来て、規制が来て、それでもやめなかった。イージーでないものは、人は500年続けない。シーシャはイージーだ。これ以上の論拠はない。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- QUOTE 2 -->
-<div class="quote-full">
-  <div class="inner fade-in">
-    <blockquote>
-      "Easy is right. Begin right and you are easy. Continue easy and you are right."
-      <span class="ja">「イージーこそが正しい。正しく始めれば自ずとイージーになる。イージーであり続ければ、それが正しいことになる。」</span>
-      <cite>— 荘子（Zhuangzi）/ イージー教に勝手に引用される哲学者</cite>
-    </blockquote>
   </div>
 </div>
 
 <!-- フレーバーガイド -->
-<section id="flavors">
-  <div class="fade-in">
-    <p class="section-label">Flavor Guide</p>
-    <h2 class="section-heading">フレーバーで選ぶ、<em>今日のイージー</em></h2>
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">Flavor Guide</p>
+    <h2 class="section-heading fade-in">フレーバーで選ぶ、今日のイージー</h2>
+    <div class="holydays-grid fade-in">
+      <div class="holyday-item">
+        <div class="holyday-date">✦ EASY定番</div>
+        <div class="holyday-name">🍃 ミント</div>
+        <div class="holyday-desc">清涼感と爽やかさの王道。迷ったらこれ。どんな気分でも外さない、イージー教公認フレーバー。</div>
+      </div>
+      <div class="holyday-item">
+        <div class="holyday-date">✦ 中東の王道</div>
+        <div class="holyday-name">🍎 ダブルアップル</div>
+        <div class="holyday-desc">500年の歴史を持つ定番中の定番。甘さと酸味が絶妙で、初心者にも玄人にも愛される不滅の一品。</div>
+      </div>
+      <div class="holyday-item">
+        <div class="holyday-date">やる気を出したい日</div>
+        <div class="holyday-name">🍋 レモン＆ミント</div>
+        <div class="holyday-desc">爽快感と清涼感の合わせ技。頭をスッキリさせたいとき、気合いを入れたいときに最適。</div>
+      </div>
+      <div class="holyday-item">
+        <div class="holyday-date">甘えたい日</div>
+        <div class="holyday-name">🍇 グレープ</div>
+        <div class="holyday-desc">濃厚な甘みと果実感。誰かに甘えたいとき、自分を甘やかしたいとき。イージーに糖分補給。</div>
+      </div>
+      <div class="holyday-item">
+        <div class="holyday-date">南国に逃げたい日</div>
+        <div class="holyday-name">🥭 マンゴー</div>
+        <div class="holyday-desc">トロピカルな甘さで、一瞬で南の島へ。現実から逃げたいすべての人類へ贈るフレーバー。</div>
+      </div>
+      <div class="holyday-item">
+        <div class="holyday-date">自分を大事にしたい日</div>
+        <div class="holyday-name">🌹 ローズ</div>
+        <div class="holyday-desc">上品で華やかな花の香り。「今日は自分へのご褒美」と思いながら吸うと効果が2倍になる（当社比）。</div>
+      </div>
+    </div>
+    <p style="font-size:0.72rem;opacity:0.3;margin-top:1.5rem;">※ フレーバー対応表は完全に当社の主観です。あなたの好みが最優先です。それがイージーです。</p>
   </div>
-  <p class="flavor-intro fade-in">シーシャのフレーバーは、今日の自分の状態を最もイージーに表現する手段だ。以下は、EASY.INC公認のフレーバー対応表である（完全に主観）。</p>
-  <div class="flavor-grid fade-in">
-    <div class="flavor-card">
-      <span class="flavor-emoji">🍃</span>
-      <p class="flavor-name">ミント</p>
-      <p class="flavor-tag recommended">✦ EASY定番</p>
-    </div>
-    <div class="flavor-card">
-      <span class="flavor-emoji">🍎</span>
-      <p class="flavor-name">ダブルアップル</p>
-      <p class="flavor-tag recommended">✦ 中東の王道</p>
-    </div>
-    <div class="flavor-card">
-      <span class="flavor-emoji">🍋</span>
-      <p class="flavor-name">レモン＆ミント</p>
-      <p class="flavor-tag">やる気を出したい日</p>
-    </div>
-    <div class="flavor-card">
-      <span class="flavor-emoji">🍇</span>
-      <p class="flavor-name">グレープ</p>
-      <p class="flavor-tag">甘えたい日</p>
-    </div>
-    <div class="flavor-card">
-      <span class="flavor-emoji">🥭</span>
-      <p class="flavor-name">マンゴー</p>
-      <p class="flavor-tag">南国に逃げたい日</p>
-    </div>
-    <div class="flavor-card">
-      <span class="flavor-emoji">🌹</span>
-      <p class="flavor-name">ローズ</p>
-      <p class="flavor-tag">自分を大事にしたい日</p>
-    </div>
-    <div class="flavor-card">
-      <span class="flavor-emoji">🫐</span>
-      <p class="flavor-name">ブルーベリー</p>
-      <p class="flavor-tag">何も考えたくない日</p>
-    </div>
-    <div class="flavor-card">
-      <span class="flavor-emoji">🍑</span>
-      <p class="flavor-name">ピーチ</p>
-      <p class="flavor-tag">機嫌が良い日</p>
-    </div>
-  </div>
-  <p style="font-size:0.75rem;color:var(--mid);margin-top:1rem;">※ 対応表は完全に当社の主観です。あなたの好みが最優先です。それがイージーです。</p>
-</section>
+</div>
 
 <!-- 歴史 -->
-<section id="history">
-  <div class="fade-in">
-    <p class="section-label">History of Shisha</p>
-    <h2 class="section-heading">500年の<em>イージー史</em></h2>
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">History of Shisha</p>
+    <h2 class="section-heading fade-in">500年のイージー史</h2>
+    <div class="hierarchy fade-in">
+      <div class="rank-item">
+        <div class="rank-title">16世紀</div>
+        <div class="rank-desc">インド・ペルシャ地方で発祥。タバコの煙を水に通すことで喉への刺激を和らげる方法を、インドの医者たちが考案。イージーの原点はここにある。</div>
+        <div class="rank-badge">発祥</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-title">17世紀</div>
+        <div class="rank-desc">オスマン帝国で爆発的に普及。イスタンブールのカフェでは、上流階級から庶民まで、シーシャを囲んで語り合う文化が根付く。社交とシーシャが不可分になる。</div>
+        <div class="rank-badge">黄金期</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-title">18〜19世紀</div>
+        <div class="rank-desc">エジプト・レバント・北アフリカへ広がる。各地域独自のスタイルとフレーバーが生まれ、シーシャ文化が多様化。「ナルギーレ」「フーカー」など呼び名も多彩に。</div>
+        <div class="rank-badge">拡散</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-title">20世紀後半</div>
+        <div class="rank-desc">グローバル化とともに欧米へ上陸。ロンドン、ニューヨーク、パリにシーシャバーが登場。異文化体験として若者世代に支持される。</div>
+        <div class="rank-badge">西方進出</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-title">2010年代〜</div>
+        <div class="rank-desc">日本でシーシャカフェブーム到来。都市部を中心に専門店が急増。SNSでの拡散とともに「体験型コンテンツ」として若者文化に溶け込む。</div>
+        <div class="rank-badge">日本上陸</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-title">2024年</div>
+        <div class="rank-desc">EASY.INCが設立。シーシャを公式哲学として採択。「イージー教四戒：シーシャを吸うべし」が制定される。歴史はここで新たな章へ突入する。</div>
+        <div class="rank-badge">新章突入</div>
+      </div>
+    </div>
   </div>
-  <div class="timeline fade-in">
-    <div class="tl-item">
-      <p class="tl-year">16世紀</p>
-      <p class="tl-desc">インド・ペルシャ地方で発祥。タバコの煙を水に通すことで喉への刺激を和らげる方法を、インドの医者たちが考案。イージーの原点はここにある。</p>
-    </div>
-    <div class="tl-item">
-      <p class="tl-year">17世紀</p>
-      <p class="tl-desc">オスマン帝国で爆発的に普及。イスタンブールのカフェでは、上流階級から庶民まで、シーシャを囲んで語り合う文化が根付く。社交とシーシャが不可分になる。</p>
-    </div>
-    <div class="tl-item">
-      <p class="tl-year">18〜19世紀</p>
-      <p class="tl-desc">エジプト・レバント・北アフリカへ広がる。各地域独自のスタイルとフレーバーが生まれ、シーシャ文化が多様化。「ナルギーレ」「フーカー」など呼び名も多彩に。</p>
-    </div>
-    <div class="tl-item">
-      <p class="tl-year">20世紀後半</p>
-      <p class="tl-desc">グローバル化とともに欧米へ上陸。ロンドン、ニューヨーク、パリにシーシャバーが登場。異文化体験として若者世代に支持される。</p>
-    </div>
-    <div class="tl-item">
-      <p class="tl-year">2010年代〜</p>
-      <p class="tl-desc">日本でシーシャカフェブーム到来。都市部を中心に専門店が急増。SNSでの拡散とともに「インスタ映え」×「ゆったりした時間」として若者文化に溶け込む。</p>
-    </div>
-    <div class="tl-item">
-      <p class="tl-year">2024年</p>
-      <p class="tl-desc">EASY.INCが設立。シーシャを公式哲学として採択。「イージー教四戒：シーシャを吸うべし」が制定される。歴史はここで新たな章へ突入する。</p>
-    </div>
-  </div>
-</section>
+</div>
 
-<!-- VERDICT -->
-<section id="verdict">
-  <div class="fade-in">
-    <span class="verdict-word">EASY.</span>
-    <p>結論は出た。シーシャはイージーだ。<br>これ以上の議論は不要である。煙の向こうに、答えはある。</p>
-    <a href="religion.html" class="btn-primary">イージー教を信仰する →</a>
-  </div>
-</section>
+<!-- JOIN -->
+<div class="join-banner">
+  <h2 class="join-title fade-in">シーシャを吸え。<br>話はそれからだ。</h2>
+  <p class="join-sub fade-in">結論は出た。シーシャはイージーだ。これ以上の議論は不要である。煙の向こうに、答えはある。</p>
+  <a href="religion.html" class="join-btn fade-in">イージー教を信仰する →</a>
+  <p class="join-disclaimer">※ シーシャには健康リスクがあります。適度に、イージーに楽しんでください。当社は一切の責任を負いません（イージーに免責）。</p>
+</div>
 
 <footer>
   <span class="footer-logo">EASY.INC</span>
   <span class="footer-copy">© 2024 EASY.INC — Shisha is Easy. Always has been.</span>
 </footer>
 
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*70); obs.unobserve(e.target); }});
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
 <script id="hamburger-js">
-  const btn = document.getElementById('navHamburger');
-  const tabs = document.getElementById('navTabs');
-  if (btn && tabs) {
-    btn.addEventListener('click', () => tabs.classList.toggle('open'));
+(function(){
+  function init(){
+    var btn  = document.getElementById('navHamburger');
+    var menu = document.querySelector('.nav-tabs');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = menu.classList.contains('open');
+      menu.classList.toggle('open', !isOpen);
+      btn.classList.toggle('open', !isOpen);
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        btn.classList.remove('open');
+      });
+    });
+    document.addEventListener('click', function(e){
+      if(!btn.contains(e.target) && !menu.contains(e.target)){
+        menu.classList.remove('open');
+        btn.classList.remove('open');
+      }
+    });
   }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
 </script>
 </body>
 </html>
