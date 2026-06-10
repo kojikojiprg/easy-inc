@@ -46,6 +46,55 @@
     .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
     .footer-copy { font-size: 0.72rem; opacity: 0.25; }
     @media(max-width:600px){ .partner-box{grid-template-columns:1fr;} }
+  
+    /* ─── MOBILE NAV ─── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.4rem;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--off-white);
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .nav-hamburger { display: flex; }
+      .nav-tabs {
+        display: none;
+        flex-direction: column;
+        padding: 0;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: rgba(10,10,10,0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        z-index: 99;
+      }
+      .nav-tabs.open { display: flex; }
+      .nav-tabs li a {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.85rem;
+      }
+      .nav-tabs li a::after { display: none; }
+      .nav-tabs li a.active {
+        background: rgba(232,255,0,0.06);
+        border-left: 2px solid var(--yellow);
+        padding-left: calc(2rem - 2px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -53,6 +102,9 @@
   <div class="nav-top">
     <a class="nav-logo" href="../index.html">EASY.INC</a>
     <span class="nav-tagline">Make It Easy</span>
+      <button class="nav-hamburger" id="navHamburger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
   </div>
   <ul class="nav-tabs">
     <li><a href="../index.html">Home</a></li>
@@ -130,5 +182,24 @@
   <span class="footer-logo">EASY.INC</span>
   <span class="footer-copy">© 2024 EASY.INC</span>
 </footer>
+<script>
+  // Mobile hamburger
+  (function(){
+    var btn = document.getElementById('navHamburger');
+    var tabs = document.querySelector('.nav-tabs');
+    if(!btn || !tabs) return;
+    btn.addEventListener('click', function(){
+      btn.classList.toggle('open');
+      tabs.classList.toggle('open');
+    });
+    // Close on link click
+    tabs.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        btn.classList.remove('open');
+        tabs.classList.remove('open');
+      });
+    });
+  })();
+</script>
 </body>
 </html>
