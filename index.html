@@ -757,6 +757,10 @@ body {
   max-width: 100% !important;
   box-sizing: border-box !important;
 }
+/* マーキーは仕組み上「横に長い」必要があるため幅制限の対象外 */
+.marquee-inner, .marquee-inner span {
+  max-width: none !important;
+}
 
 @media screen and (max-width: 768px) {
 
@@ -908,9 +912,23 @@ body {
   .profile-card { position: static !important; width: 100% !important; }
   .president-avatar { width: 120px !important; height: 120px !important; }
 
-  /* ── マーキー ────────────────────── */
-  .marquee-inner { animation: none !important; white-space: normal !important; }
-  #quotes-strip { overflow: hidden !important; }
+  /* ── マーキー（モバイルでも流す） ── */
+  /* はみ出しは #quotes-strip 側でクリップするので横スクロールは発生しない */
+  #quotes-strip {
+    overflow: hidden !important;
+    max-width: 100vw !important;
+    white-space: nowrap !important;
+  }
+  .marquee-inner {
+    max-width: none !important;      /* 全要素max-width:100%ルールの解除 */
+    width: max-content !important;   /* コンテンツ幅いっぱい＝translateX(-50%)でシームレスにループ */
+    white-space: nowrap !important;
+    display: inline-block !important;
+  }
+  .marquee-inner span {
+    max-width: none !important;
+    white-space: nowrap !important;
+  }
 
   /* ── ヒーロー背景テキスト ─────────── */
   .hero-bg-text { font-size: 60vw !important; }
