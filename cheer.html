@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230A0A0A'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='18' fill='%23E8FF00'%3EE%3C/text%3E%3C/svg%3E">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>それでも、大丈夫。</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Space+Grotesk:wght@700;900&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:      #1a1a2e;
+      --paper:    #f7f4ef;
+      --dusk:     #2d2d4e;
+      --gold:     #c9a84c;
+      --rose:     #c0614a;
+      --sage:     #5a7a6a;
+      --sky:      #4a6fa5;
+      --warm:     #f0e8d8;
+      --muted:    #8a8a9a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── PROGRESS BAR ── */
+    #progress {
+      position: fixed; top: 0; left: 0; z-index: 200;
+      height: 3px; background: var(--gold);
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(247,244,239,0.92); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      padding-top: 3px;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 2.5rem;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: 0.95rem; letter-spacing: 0.1em; color: var(--ink); text-decoration: none;
+    }
+    .nav-tabs {
+      display: flex; list-style: none; gap: 0;
+    }
+    .nav-tabs li a {
+      display: block; padding: 0.5rem 1.1rem;
+      font-family: 'Inter', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      color: var(--muted); transition: color 0.2s; white-space: nowrap;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-tabs li a:hover { color: var(--ink); border-bottom-color: var(--gold); }
+    .nav-tabs li a.active { color: var(--ink); border-bottom-color: var(--gold); font-weight: 500; }
+
+    /* ── SECTIONS COMMON ── */
+    section {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 8rem 2rem 6rem;
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 760px; width: 100%; margin: 0 auto;
+    }
+
+    /* ─────────────────────────────
+       SECTION 1: 静かに寄り添う
+    ───────────────────────────── */
+    #gentle {
+      background: var(--paper);
+    }
+
+    .gentle-breath {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 2.5rem;
+    }
+
+    .breath-circle {
+      width: 120px; height: 120px; border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.4);
+      display: flex; align-items: center; justify-content: center;
+      animation: breathe 5s ease-in-out infinite;
+      cursor: default;
+    }
+    .breath-circle span {
+      font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); opacity: 0.7;
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(201,168,76,0.1); }
+      50%       { transform: scale(1.12); box-shadow: 0 0 0 24px rgba(201,168,76,0); }
+    }
+
+    .gentle-headline {
+      font-family: 'Noto Serif JP', serif; font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.6; letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+
+    .gentle-body {
+      font-size: 1.05rem; line-height: 2.2;
+      color: var(--dusk); opacity: 0.75; max-width: 560px; margin: 0 auto;
+    }
+
+    .gentle-quote {
+      border-left: 2px solid var(--gold);
+      padding: 1.2rem 2rem;
+      font-size: 1rem; line-height: 1.9;
+      color: var(--dusk); font-style: italic;
+      text-align: left; max-width: 500px; margin: 0 auto;
+    }
+    .gentle-quote cite {
+      display: block; margin-top: 0.8rem;
+      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-style: normal; color: var(--muted);
+    }
+
+    .gentle-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      width: 100%; margin-top: 1rem;
+    }
+    .gentle-card {
+      background: var(--warm); padding: 2rem 1.5rem;
+      border-radius: 2px; text-align: center;
+    }
+    .gentle-card .icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .gentle-card p { font-size: 0.88rem; line-height: 1.85; color: var(--dusk); opacity: 0.8; }
+
+    .scroll-down {
+      position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; animation: bobDown 2.5s ease-in-out infinite;
+    }
+    @keyframes bobDown { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+    /* ─────────────────────────────
+       SECTION 2: 力強く・前へ
+    ───────────────────────────── */
+    #strong {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .strong-inner { text-align: center; }
+
+    .strong-counter {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: clamp(5rem, 20vw, 14rem);
+      line-height: 0.85; letter-spacing: -0.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(201,168,76,0.35);
+      user-select: none; margin-bottom: 3rem;
+    }
+
+    .strong-headline {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: clamp(2rem, 6vw, 4.5rem);
+      line-height: 1; letter-spacing: -0.02em;
+      color: var(--paper); margin-bottom: 2rem;
+    }
+    .strong-headline em { font-style: normal; color: var(--gold); }
+
+    .strong-body {
+      font-family: 'Inter', sans-serif; font-weight: 300;
+      font-size: 1.05rem; line-height: 1.9;
+      color: rgba(247,244,239,0.6); max-width: 540px; margin: 0 auto 3.5rem;
+    }
+
+    .strong-quotes {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+      text-align: left; margin-top: 4rem;
+    }
+    .sq-item {
+      background: var(--ink); padding: 2.5rem 2rem;
+      transition: background 0.2s;
+    }
+    .sq-item:hover { background: #252540; }
+    .sq-text {
+      font-family: 'Noto Serif JP', serif; font-size: 1.05rem;
+      line-height: 1.8; color: rgba(247,244,239,0.85); margin-bottom: 1rem;
+    }
+    .sq-attr {
+      font-family: 'Inter', sans-serif; font-size: 0.7rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gold); opacity: 0.7;
+    }
+
+    /* ─────────────────────────────
+       SECTION 3: ユーモアで笑わせる
+    ───────────────────────────── */
+    #humor {
+      background: #fffbf0;
+    }
+
+    .humor-inner { text-align: center; }
+
+    .humor-headline {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: clamp(2rem, 6vw, 4rem);
+      line-height: 1.1; margin-bottom: 1rem; color: var(--ink);
+    }
+    .humor-sub {
+      font-size: 1rem; color: var(--muted); margin-bottom: 4rem; line-height: 1.7;
+    }
+
+    .humor-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; text-align: left;
+    }
+    .humor-card {
+      background: #fff; border: 1px solid rgba(0,0,0,0.06);
+      padding: 2rem 1.8rem; border-radius: 2px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .humor-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .humor-emoji { font-size: 2.2rem; margin-bottom: 1rem; }
+    .humor-card-title {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 1rem; margin-bottom: 0.6rem; color: var(--ink);
+    }
+    .humor-card-body { font-size: 0.88rem; line-height: 1.8; color: var(--muted); }
+    .humor-card-punch {
+      margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.06);
+      font-size: 0.85rem; color: var(--rose); font-weight: 400; line-height: 1.6;
+    }
+
+    .humor-big {
+      margin-top: 5rem; padding: 3.5rem 3rem;
+      background: var(--rose); color: #fff; border-radius: 2px; text-align: center;
+    }
+    .humor-big-text {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.2; margin-bottom: 0.8rem;
+    }
+    .humor-big-attr { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
+
+    /* ─────────────────────────────
+       SECTION 4: 名言で満たす
+    ───────────────────────────── */
+    #wisdom {
+      background: var(--dusk);
+      color: var(--paper);
+      min-height: auto; padding: 8rem 2rem;
+    }
+
+    .wisdom-intro {
+      text-align: center; margin-bottom: 6rem;
+    }
+    .wisdom-intro h2 {
+      font-family: 'Noto Serif JP', serif; font-weight: 400;
+      font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.5;
+      color: var(--paper); margin-bottom: 1rem;
+    }
+    .wisdom-intro p { font-size: 0.9rem; color: rgba(247,244,239,0.45); letter-spacing: 0.05em; }
+
+    .wisdom-masonry {
+      columns: 2; column-gap: 2rem;
+      max-width: 900px; margin: 0 auto;
+    }
+    .wq {
+      break-inside: avoid; margin-bottom: 2rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 2.2rem 2rem; transition: background 0.2s;
+    }
+    .wq:hover { background: rgba(255,255,255,0.07); }
+    .wq-text {
+      font-family: 'Noto Serif JP', serif; font-size: 1.05rem;
+      line-height: 1.9; color: rgba(247,244,239,0.88); margin-bottom: 1.2rem;
+    }
+    .wq-lang {
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 0.4rem; opacity: 0.7;
+    }
+    .wq-attr {
+      font-family: 'Inter', sans-serif; font-size: 0.72rem;
+      letter-spacing: 0.12em; color: rgba(247,244,239,0.35);
+    }
+
+    /* ─────────────────────────────
+       SECTION 5: 最後のメッセージ
+    ───────────────────────────── */
+    #closing {
+      background: var(--paper); min-height: 80vh;
+      text-align: center;
+    }
+
+    .closing-inner {
+      max-width: 640px; margin: 0 auto; display: flex;
+      flex-direction: column; align-items: center; gap: 2.5rem;
+    }
+
+    .closing-eyebrow {
+      font-family: 'Inter', sans-serif; font-size: 0.7rem;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+    }
+
+    .closing-headline {
+      font-family: 'Noto Serif JP', serif; font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.65; color: var(--ink);
+    }
+
+    .closing-body {
+      font-size: 1rem; line-height: 2.2; color: var(--dusk); opacity: 0.7;
+    }
+
+    .closing-share {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem;
+    }
+    .share-btn {
+      display: inline-block; padding: 0.8rem 1.8rem;
+      font-family: 'Inter', sans-serif; font-size: 0.78rem;
+      letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+      border: 1px solid var(--ink); color: var(--ink);
+      transition: background 0.2s, color 0.2s; cursor: pointer; background: transparent;
+    }
+    .share-btn:hover, .share-btn.primary { background: var(--ink); color: var(--paper); }
+    .share-btn.primary { border-color: var(--ink); }
+
+    .closing-sig {
+      margin-top: 3rem; font-size: 0.78rem;
+      color: var(--muted); letter-spacing: 0.1em; line-height: 1.9;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(247,244,239,0.35);
+      text-align: center; padding: 2.5rem;
+      font-family: 'Inter', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* ── FADE ── */
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+    .fade-in.delay-1 { transition-delay: 0.1s; }
+    .fade-in.delay-2 { transition-delay: 0.2s; }
+    .fade-in.delay-3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .nav-tabs li a { padding: 0.5rem 0.7rem; font-size: 0.68rem; }
+      .gentle-cards { grid-template-columns: 1fr; }
+      .strong-quotes { grid-template-columns: 1fr; }
+      .wisdom-masonry { columns: 1; }
+      .humor-big { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">それでも、大丈夫。</a>
+    <ul class="nav-tabs">
+      <li><a href="#gentle" class="active">寄り添う</a></li>
+      <li><a href="#strong">前へ</a></li>
+      <li><a href="#humor">笑う</a></li>
+      <li><a href="#wisdom">名言</a></li>
+      <li><a href="#closing">あなたへ</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════
+     SECTION 1: 静かに寄り添う
+══════════════════════════════════ -->
+<section id="gentle">
+  <div class="section-inner">
+    <div class="gentle-breath fade-in">
+
+      <div class="breath-circle"><span>息をして</span></div>
+
+      <h1 class="gentle-headline">
+        うまくいかなくて、<br>当然だ。
+      </h1>
+
+      <p class="gentle-body">
+        不採用。失敗。思い通りにいかない日々。<br>
+        それはあなたが弱いからじゃない。<br>
+        挑戦した証拠だ。
+      </p>
+
+      <blockquote class="gentle-quote fade-in delay-1">
+        "You are allowed to be both a masterpiece and a work in progress simultaneously."
+        <cite>— Sophia Bush</cite>
+      </blockquote>
+
+      <p class="gentle-body fade-in delay-2">
+        今日だけは、頑張らなくていい。<br>
+        ただここにいて、息をしていい。<br>
+        それだけで、十分すぎるくらい十分だ。
+      </p>
+
+      <div class="gentle-cards fade-in delay-3">
+        <div class="gentle-card">
+          <div class="icon">🌧</div>
+          <p>雨の日があるから、晴れの日がわかる。落ちた夜があるから、上がった朝が輝く。</p>
+        </div>
+        <div class="gentle-card">
+          <div class="icon">🌱</div>
+          <p>種は土の中で、誰にも見えない時間に、もっとも深く根を張っている。</p>
+        </div>
+        <div class="gentle-card">
+          <div class="icon">🕯</div>
+          <p>暗いほど、小さな火がよく見える。あなたの光は、消えていない。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <a href="#strong" class="scroll-down">↓ &nbsp; 次へ</a>
+</section>
+
+
+<!-- ══════════════════════════════════
+     SECTION 2: 力強く・前へ
+══════════════════════════════════ -->
+<section id="strong">
+  <div class="section-inner strong-inner">
+
+    <div class="strong-counter fade-in" id="rejectCounter">0</div>
+
+    <h2 class="strong-headline fade-in">
+      不採用は、<br><em>終わりじゃない。</em>
+    </h2>
+
+    <p class="strong-body fade-in delay-1">
+      スティーブ・ジョブズはアップルを追い出された。<br>
+      J.K.ローリングは12社に原稿を断られた。<br>
+      マイケル・ジョーダンは高校のバスケ部に落ちた。<br><br>
+      あなたが今感じている「落とされた」という感覚は、<br>
+      その後の物語の、まだ序章にすぎない。
+    </p>
+
+    <div class="strong-quotes fade-in delay-2">
+      <div class="sq-item">
+        <p class="sq-text">「成功とは、失敗から失敗へと、情熱を失わずに進み続けることだ。」</p>
+        <p class="sq-attr">Winston Churchill</p>
+      </div>
+      <div class="sq-item">
+        <p class="sq-text">"I have not failed. I've just found 10,000 ways that won't work."</p>
+        <p class="sq-attr">Thomas Edison</p>
+      </div>
+      <div class="sq-item">
+        <p class="sq-text">"It is impossible to live without failing at something, unless you live so cautiously that you might as well not have lived at all."</p>
+        <p class="sq-attr">J.K. Rowling</p>
+      </div>
+      <div class="sq-item">
+        <p class="sq-text">"Our greatest glory is not in never falling, but in rising every time we fall."</p>
+        <p class="sq-attr">Confucius</p>
+      </div>
+      <div class="sq-item">
+        <p class="sq-text">"The brick walls are there for a reason. They're not there to keep us out. They're there to give us a chance to show how badly we want something."</p>
+        <p class="sq-attr">Randy Pausch</p>
+      </div>
+      <div class="sq-item">
+        <p class="sq-text">"Rock bottom became the solid foundation on which I rebuilt my life."</p>
+        <p class="sq-attr">J.K. Rowling</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     SECTION 3: ユーモアで笑わせる
+══════════════════════════════════ -->
+<section id="humor">
+  <div class="section-inner humor-inner">
+
+    <h2 class="humor-headline fade-in">もう、笑うしかない。</h2>
+    <p class="humor-sub fade-in delay-1">
+      真剣に向き合ってきたからこそ、<br>ちょっとだけ笑い飛ばす権利がある。
+    </p>
+
+    <div class="humor-grid">
+      <div class="humor-card fade-in">
+        <div class="humor-emoji">📄</div>
+        <div class="humor-card-title">書類選考落ち</div>
+        <div class="humor-card-body">
+          AIがあなたのキャリアを0.3秒でスキャンして判断した。人間ですらない。
+        </div>
+        <div class="humor-card-punch">
+          つまり、あなたはAIに負けたのではなく、AIのバグに遭遇しただけかもしれない。
+        </div>
+      </div>
+      <div class="humor-card fade-in delay-1">
+        <div class="humor-emoji">🤝</div>
+        <div class="humor-card-title">最終面接落ち</div>
+        <div class="humor-card-body">
+          あそこまで行って落とすということは、「惜しかった」ということ。つまり実質合格みたいなもの。
+        </div>
+        <div class="humor-card-punch">
+          …という解釈で今夜は眠っていい。
+        </div>
+      </div>
+      <div class="humor-card fade-in delay-2">
+        <div class="humor-emoji">🔕</div>
+        <div class="humor-card-title">お見送りメールすら来ない</div>
+        <div class="humor-card-body">
+          連絡しないのは向こうの礼儀のなさ。あなたの価値とは1ミリも関係がない。
+        </div>
+        <div class="humor-card-punch">
+          "Silence is not rejection. It's just bad manners." — 世界の常識
+        </div>
+      </div>
+      <div class="humor-card fade-in">
+        <div class="humor-emoji">💭</div>
+        <div class="humor-card-title">「また考えておきます」</div>
+        <div class="humor-card-body">
+          この言葉の翻訳：「こちらから連絡することはありません」。でも丁寧に断ってくれた。
+        </div>
+        <div class="humor-card-punch">
+          少なくとも嘘はついていない。それはそれで誠実。
+        </div>
+      </div>
+      <div class="humor-card fade-in delay-1">
+        <div class="humor-emoji">📊</div>
+        <div class="humor-card-title">「弊社の求める人物像と…」</div>
+        <div class="humor-card-body">
+          世界中の不採用通知に使われるこの文言。あなたは「求める人物像」の型にはまらなかった。
+        </div>
+        <div class="humor-card-punch">
+          型にはまらない人間が、歴史を変えてきた。
+        </div>
+      </div>
+      <div class="humor-card fade-in delay-2">
+        <div class="humor-emoji">🌍</div>
+        <div class="humor-card-title">そもそも就職活動とは</div>
+        <div class="humor-card-body">
+          初対面の人に「私を採用してください」と言い続ける、人類が発明した最も奇妙なシステムのひとつ。
+        </div>
+        <div class="humor-card-punch">
+          あなたがうまくいかないのは、あなたのせいじゃなくてシステムが変なのかもしれない。
+        </div>
+      </div>
+    </div>
+
+    <div class="humor-big fade-in">
+      <div class="humor-big-text">"When life gives you lemons,<br>make lemonade."</div>
+      <div class="humor-big-attr">— Elbert Hubbard（そして飲め、全部）</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     SECTION 4: 名言で満たす
+══════════════════════════════════ -->
+<section id="wisdom">
+  <div style="max-width:900px;width:100%;margin:0 auto;">
+
+    <div class="wisdom-intro fade-in">
+      <h2>先を歩いた人たちの、言葉。</h2>
+      <p>あなたが今いる場所に、かつて彼らもいた。</p>
+    </div>
+
+    <div class="wisdom-masonry">
+
+      <div class="wq fade-in">
+        <div class="wq-lang">English</div>
+        <p class="wq-text">"You may encounter many defeats, but you must not be defeated. In fact, it may be necessary to encounter the defeats, so you can know who you are, what you can rise from, how you can still come out of it."</p>
+        <p class="wq-attr">— Maya Angelou</p>
+      </div>
+
+      <div class="wq fade-in delay-1">
+        <div class="wq-lang">日本語</div>
+        <p class="wq-text">「七転び八起き。」</p>
+        <p class="wq-attr">— 日本のことわざ</p>
+      </div>
+
+      <div class="wq fade-in">
+        <div class="wq-lang">English</div>
+        <p class="wq-text">"When everything seems to be going against you, remember that the airplane takes off against the wind, not with it."</p>
+        <p class="wq-attr">— Henry Ford</p>
+      </div>
+
+      <div class="wq fade-in delay-1">
+        <div class="wq-lang">English</div>
+        <p class="wq-text">"Failure is simply the opportunity to begin again, this time more intelligently."</p>
+        <p class="wq-attr">— Henry Ford</p>
+      </div>
+
+      <div class="wq fade-in">
+        <div class="wq-lang">English</div>
+        <p class="wq-text">"Believe you can and you're halfway there."</p>
+        <p class="wq-attr">— Theodore Roosevelt</p>
+      </div>
+
+      <div class="wq fade-in delay-1">
+        <div class="wq-lang">日本語</div>
+        <p class="wq-text">「雨の日に友人を持つことができれば、晴れの日に敵がいても怖くない。」</p>
+        <p class="wq-attr">— ことわざ</p>
+      </div>
+
+      <div class="wq fade-in">
+        <div class="wq-lang">English</div>
+        <p class="wq-text">"The most common form of despair is not being who you are."</p>
+        <p class="wq-attr">— Søren Kierkegaard</p>
+      </div>
+
+      <div class="wq fade-in delay-1">
+        <div class="wq-lang">English</div>
+        <p class="wq-text">"What lies behind us and what lies before us are tiny matters compared to what lies within us."</p>
+        <p class="wq-attr">— Ralph Waldo Emerson</p>
+      </div>
+
+      <div class="wq fade-in">
+        <div class="wq-lang">English</div>
+        <p class="wq-text">"In the middle of difficulty lies opportunity."</p>
+        <p class="wq-attr">— Albert Einstein</p>
+      </div>
+
+      <div class="wq fade-in delay-1">
+        <div class="wq-lang">English</div>
+        <p class="wq-text">"Hope is being able to see that there is light despite all of the darkness."</p>
+        <p class="wq-attr">— Desmond Tutu</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     SECTION 5: あなたへ
+══════════════════════════════════ -->
+<section id="closing">
+  <div class="closing-inner">
+
+    <p class="closing-eyebrow fade-in">あなたへ</p>
+
+    <h2 class="closing-headline fade-in delay-1">
+      落ちたことは、<br>あなたの全部じゃない。
+    </h2>
+
+    <p class="closing-body fade-in delay-2">
+      面接官はあなたの「一側面」しか見ていない。<br>
+      書類はあなたの「一部分」しか伝えていない。<br>
+      結果はあなたの「一時点」しか反映していない。<br><br>
+      あなたは、その全部よりずっと大きい。
+    </p>
+
+    <blockquote class="gentle-quote fade-in delay-3" style="text-align:center;border-left:none;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:1.5rem 1rem;">
+      "You are enough. You have always been enough."
+      <cite>— Unknown, but true</cite>
+    </blockquote>
+
+    <div class="closing-share fade-in">
+      <button class="share-btn primary" onclick="copyLink()">このページを誰かに送る</button>
+      <button class="share-btn" onclick="scrollToTop()">最初から読む</button>
+    </div>
+
+    <p class="closing-sig fade-in">
+      このページは、挫折したすべての人のために作られました。<br>
+      あなたが次の一歩を踏み出す日を、静かに信じています。
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <a href="index.html">← EASY.INC トップに戻る</a>
+  &nbsp;｜&nbsp; このページは挑戦したすべての人へ。
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (window.scrollY / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progress').style.width = pct + '%';
+  }, { passive: true });
+
+  // Fade in observer
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Active tab highlight on scroll
+  const sections = ['gentle','strong','humor','wisdom','closing'];
+  const tabLinks = document.querySelectorAll('.nav-tabs a');
+  window.addEventListener('scroll', () => {
+    let current = sections[0];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    tabLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }, { passive: true });
+
+  // Counter animation for "reject counter"
+  function animateCounter(el, target, duration) {
+    let start = null;
+    const step = ts => {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      el.textContent = Math.floor(progress * target).toLocaleString();
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  const counterObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target, 10000, 2000);
+        counterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  const counter = document.getElementById('rejectCounter');
+  if (counter) counterObs.observe(counter);
+
+  // Share
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = event.target;
+      const orig = btn.textContent;
+      btn.textContent = 'コピーしました ✓';
+      setTimeout(() => btn.textContent = orig, 2000);
+    });
+  }
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
