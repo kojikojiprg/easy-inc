@@ -46,7 +46,7 @@
       padding-top: 3px;
     }
     .nav-inner {
-      max-width: 1100px; margin: 0 auto;
+      max-width: 1000px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0.9rem 2.5rem;
     }
@@ -246,7 +246,7 @@
     }
 
     .humor-big {
-      margin-top: 5rem; padding: 3.5rem 3rem;
+      margin-top: 5rem; padding: 3.5rem 2rem;
       background: var(--rose); color: #fff; border-radius: 2px; text-align: center;
     }
     .humor-big-text {
@@ -431,6 +431,100 @@
       }
     }
   </style>
+<style id="layout-fix">
+/*
+  PC向けレイアウト修正
+  - コンテンツ最大幅: 1000px（読みやすい幅）
+  - 常に中央揃え
+  - 全幅背景（バナー等）の内側コンテンツも中央揃え
+*/
+
+/* ── コンテンツの最大幅を統一 ── */
+section,
+.wrap,
+.page-hero,
+.article-wrap {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+/* ── 全幅背景ブロックの内側を中央揃え ── */
+/* #banner, #quotes-strip, .join-banner, .quote-banner など
+   背景色が全幅で、内側テキストだけ中央揃えにする */
+#banner,
+.join-banner,
+.quote-banner {
+  max-width: 100% !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+#banner > *,
+.join-banner > *,
+.quote-banner > * {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ── nav内コンテンツ中央揃え ── */
+.nav-top,
+.nav-tabs {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+/* ── footer内コンテンツ中央揃え ── */
+footer {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+footer > * {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ── Cheer専用（別構造） ── */
+.nav-inner {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ── section padding の横を読みやすく ── */
+section {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+/* ── モバイルでは全幅に戻す ── */
+@media (max-width: 768px) {
+  section,
+  .wrap,
+  .page-hero,
+  .article-wrap {
+    max-width: 100% !important;
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+  nav .nav-top,
+  nav .nav-tabs {
+    max-width: 100% !important;
+  }
+  footer {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+  footer > * {
+    max-width: 100% !important;
+  }
+}
+</style>
+
 <style id="mobile-fix">
 /* =============================================
    MOBILE FIX v3 — iPhone対応 横スクロール禁止

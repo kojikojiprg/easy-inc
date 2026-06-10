@@ -16,7 +16,7 @@
     body { background: var(--black); color: var(--off-white); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
 
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .nav-top { display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; border-bottom: 1px solid var(--border); }
+    .nav-top { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.18em; color: var(--yellow); text-decoration: none; }
     .nav-tagline { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.3; }
     .nav-tabs { display: flex; list-style: none; padding: 0 2rem; overflow-x: auto; }
@@ -58,7 +58,7 @@
     @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
 
     /* ── WRAP ── */
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
     .section-block { padding: 7rem 0; border-bottom: 1px solid var(--border); }
     .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
     .section-heading { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.2; margin-bottom: 3rem; }
@@ -97,7 +97,7 @@
     /* ── HIERARCHY ── */
     .hierarchy { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
     .rank-item {
-      background: var(--black); padding: 2.2rem 3rem;
+      background: var(--black); padding: 2.2rem 2rem;
       display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) auto;
       align-items: center; gap: 2rem; transition: background 0.2s;
     }
@@ -132,7 +132,7 @@
     /* ── JOIN BANNER ── */
     .join-banner {
       background: var(--gold); color: var(--black);
-      padding: 6rem 3rem; text-align: center;
+      padding: 6rem 2rem; text-align: center;
     }
     .join-title { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 1.5rem; }
     .join-sub { font-size: 1rem; opacity: 0.65; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.9; }
@@ -145,7 +145,7 @@
     .join-btn:hover { background: #111; }
     .join-disclaimer { margin-top: 1.5rem; font-size: 0.68rem; opacity: 0.4; }
 
-    footer { border-top: 1px solid var(--border); padding: 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
     .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
     .footer-copy { font-size: 0.72rem; opacity: 0.25; }
 
@@ -223,6 +223,100 @@
       }
     }
   </style>
+<style id="layout-fix">
+/*
+  PC向けレイアウト修正
+  - コンテンツ最大幅: 1000px（読みやすい幅）
+  - 常に中央揃え
+  - 全幅背景（バナー等）の内側コンテンツも中央揃え
+*/
+
+/* ── コンテンツの最大幅を統一 ── */
+section,
+.wrap,
+.page-hero,
+.article-wrap {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+/* ── 全幅背景ブロックの内側を中央揃え ── */
+/* #banner, #quotes-strip, .join-banner, .quote-banner など
+   背景色が全幅で、内側テキストだけ中央揃えにする */
+#banner,
+.join-banner,
+.quote-banner {
+  max-width: 100% !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+#banner > *,
+.join-banner > *,
+.quote-banner > * {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ── nav内コンテンツ中央揃え ── */
+.nav-top,
+.nav-tabs {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+/* ── footer内コンテンツ中央揃え ── */
+footer {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+footer > * {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ── Cheer専用（別構造） ── */
+.nav-inner {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ── section padding の横を読みやすく ── */
+section {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+/* ── モバイルでは全幅に戻す ── */
+@media (max-width: 768px) {
+  section,
+  .wrap,
+  .page-hero,
+  .article-wrap {
+    max-width: 100% !important;
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+  nav .nav-top,
+  nav .nav-tabs {
+    max-width: 100% !important;
+  }
+  footer {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+  }
+  footer > * {
+    max-width: 100% !important;
+  }
+}
+</style>
+
 <style id="mobile-fix">
 /* =============================================
    MOBILE FIX v3 — iPhone対応 横スクロール禁止
