@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>社員インタビュー — EASY.INC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #0A0A0A; --off-white: #F5F5F0; --yellow: #E8FF00; --border: #1E1E1E; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--off-white); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-top { display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.18em; color: var(--yellow); text-decoration: none; }
+    .nav-tagline { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.3; }
+    .nav-tabs { display: flex; list-style: none; padding: 0 2rem; overflow-x: auto; }
+    .nav-tabs li a { display: block; padding: 0.85rem 1.4rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--off-white); opacity: 0.45; transition: opacity 0.2s, color 0.2s; position: relative; white-space: nowrap; }
+    .nav-tabs li a::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--yellow); transform: scaleX(0); transition: transform 0.2s; }
+    .nav-tabs li a:hover { opacity: 0.85; }
+    .nav-tabs li a:hover::after { transform: scaleX(1); }
+    .nav-tabs li a.active { opacity: 1; color: var(--yellow); }
+    .nav-tabs li a.active::after { transform: scaleX(1); }
+
+    .page-hero { padding: 10rem 3rem 6rem; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+    .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; }
+    .page-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(3rem, 8vw, 7rem); line-height: 0.9; letter-spacing: -0.04em; }
+    .page-title em { font-style: normal; color: var(--yellow); }
+    .page-lead { margin-top: 2rem; max-width: 540px; font-size: 0.95rem; opacity: 0.5; line-height: 1.9; }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
+
+    /* INTERVIEW CARD */
+    .interview { padding: 7rem 0; border-bottom: 1px solid var(--border); }
+    .interview-inner { display: grid; grid-template-columns: 280px 1fr; gap: 5rem; align-items: start; }
+    .interview:nth-child(even) .interview-inner { direction: rtl; }
+    .interview:nth-child(even) .interview-inner > * { direction: ltr; }
+
+    .profile-card { position: sticky; top: 8rem; text-align: center; }
+    .avatar {
+      width: 160px; height: 160px; border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4.5rem;
+      border: 1px solid var(--border);
+    }
+    .profile-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; margin-bottom: 0.3rem; }
+    .profile-dept { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--yellow); opacity: 0.8; margin-bottom: 0.2rem; }
+    .profile-join { font-size: 0.72rem; opacity: 0.35; }
+
+    .profile-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1.2rem; }
+    .tag { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--border); padding: 0.2rem 0.6rem; opacity: 0.5; }
+
+    .qa-list { display: flex; flex-direction: column; gap: 2.5rem; }
+    .qa-item {}
+    .question {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--yellow); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.7rem;
+    }
+    .question::before { content: 'Q.'; opacity: 0.5; }
+    .answer { font-size: 0.95rem; line-height: 1.95; opacity: 0.75; }
+    .answer strong { color: var(--off-white); opacity: 1; font-weight: 500; }
+
+    .interview-quote {
+      margin-top: 3rem; padding: 2.5rem;
+      border: 1px solid rgba(232,255,0,0.15);
+      background: rgba(232,255,0,0.03);
+    }
+    .iq-text { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.2rem; line-height: 1.55; color: var(--yellow); }
+    .iq-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.4; margin-top: 0.8rem; }
+
+    /* ALL EMPLOYEES SUMMARY */
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
+    .summary-item { background: var(--black); padding: 2rem 1.5rem; text-align: center; }
+    .summary-emoji { font-size: 2rem; margin-bottom: 0.8rem; }
+    .summary-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .summary-dept { font-size: 0.7rem; opacity: 0.4; letter-spacing: 0.1em; text-transform: uppercase; }
+    .summary-hobby { font-size: 0.78rem; opacity: 0.55; margin-top: 0.6rem; }
+
+    footer { border-top: 1px solid var(--border); padding: 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
+    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 800px) {
+      .interview-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .interview:nth-child(even) .interview-inner { direction: ltr; }
+      .profile-card { position: static; }
+      .wrap { padding: 0 1.5rem; }
+      .page-hero { padding: 8rem 1.5rem 4rem; }
+      footer { flex-direction: column; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-top">
+    <a class="nav-logo" href="index.html">EASY.INC</a>
+    <span class="nav-tagline">Make It Easy</span>
+  </div>
+  <ul class="nav-tabs">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="business.html">Business</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="results.html">実績</a></li>
+    <li><a href="interview.html" class="active">社員の声</a></li>
+    <li><a href="religion.html">イージー教</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="page-eyebrow fade-in">Employee Interviews</p>
+  <h1 class="page-title fade-in">社員全員に<br>聞いてみた。</h1>
+  <p class="page-lead fade-in">
+    EASY.INCで働く人たちに、仕事のこと、イージーのこと、そしてどうでもいいことを聞きました。全員が驚くほど似たようなことを言っています。
+  </p>
+</div>
+
+<div class="wrap">
+
+  <!-- INTERVIEW 1 -->
+  <div class="interview fade-in">
+    <div class="interview-inner">
+      <div class="profile-card">
+        <div class="avatar" style="background:linear-gradient(135deg,#1a1a2e,#2a2a4e)">🧑‍💻</div>
+        <div class="profile-name">イージー太郎</div>
+        <div class="profile-dept">Engineering</div>
+        <div class="profile-join">入社：2024年12月（創業メンバー）</div>
+        <div class="profile-tags">
+          <span class="tag">フルスタック</span>
+          <span class="tag">コーヒー</span>
+          <span class="tag">昼寝</span>
+        </div>
+      </div>
+      <div>
+        <div class="qa-list">
+          <div class="qa-item">
+            <div class="question">EASY.INCに入社した理由は？</div>
+            <div class="answer">社名が<strong>イージーだったから</strong>です。「これは入社もイージーかもしれない」と思って応募しました。実際、面接は「好きな食べ物は何ですか？」の1問でした。カレーと答えたら採用でした。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">仕事で大切にしていることは？</div>
+            <div class="answer">「これ、もっとイージーにできないか？」と毎日12回自問しています。12回というのは平均で、先週は41回自問した日がありました。その日はコードを一行も書きませんでしたが、代わりに<strong>非常に深く考えました</strong>。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">休日の過ごし方は？</div>
+            <div class="answer">イージーに過ごしています。具体的には、起きる→コーヒーを飲む→何もしない→昼寝する→コーヒーを飲む→寝る、のルーティンです。<strong>完成されたイージーな一日</strong>だと思っています。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">EASY.INCの好きなところは？</div>
+            <div class="answer">残業がないところです。あと、会議が少ないところ。あと、社名を言うと「え、イージー？」って聞き返されるので、<strong>会話のきっかけになる</strong>ところも好きです。</div>
+          </div>
+        </div>
+        <div class="interview-quote">
+          <div class="iq-text">「イージーに生きることは、怠けることじゃない。<br>…まあ、たまに怠けてるけど。」</div>
+          <div class="iq-label">イージー太郎 / Engineer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERVIEW 2 -->
+  <div class="interview fade-in">
+    <div class="interview-inner">
+      <div class="profile-card">
+        <div class="avatar" style="background:linear-gradient(135deg,#2e1a1a,#4e2a2a)">👩‍🎨</div>
+        <div class="profile-name">イージー花子</div>
+        <div class="profile-dept">Design</div>
+        <div class="profile-join">入社：2025年1月</div>
+        <div class="profile-tags">
+          <span class="tag">UX</span>
+          <span class="tag">紅茶</span>
+          <span class="tag">散歩</span>
+        </div>
+      </div>
+      <div>
+        <div class="qa-list">
+          <div class="qa-item">
+            <div class="question">デザイナーとしての信念は？</div>
+            <div class="answer">「<strong>ユーザーが考えなくていいデザイン</strong>が最高のデザイン」だと思っています。究極のゴールは、デザインが存在していることすら気づかれないこと。透明になることです。なので私の仕事は、存在を消すことです。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">入社前と後で変わったことは？</div>
+            <div class="answer">「難しそう」「複雑だな」と思っていたものが、全部<strong>「もっとイージーにできるじゃん」</strong>に見えるようになりました。呪いみたいなものです。コンビニのセルフレジを見てもイージーにできると思ってしまいます。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">チームの雰囲気は？</div>
+            <div class="answer">みんな名前に「イージー」が入っているので、最初は混乱しました。「イージーさん」と呼ぶと全員が振り返ります。でも全員いい人なので、<strong>それもまあイージーです</strong>。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">将来の目標は？</div>
+            <div class="answer">世界で一番イージーなUIを作ることです。ボタンが1個だけのアプリ。それだけで全部できる。ボタンの名前は「イージー」。押すだけで何かが解決する。<strong>何が解決するかはまだ考えていません</strong>。</div>
+          </div>
+        </div>
+        <div class="interview-quote">
+          <div class="iq-text">「最高のデザインは、デザインされていないように見える。<br>だから私の仕事は終わりがない。」</div>
+          <div class="iq-label">イージー花子 / Designer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERVIEW 3 -->
+  <div class="interview fade-in">
+    <div class="interview-inner">
+      <div class="profile-card">
+        <div class="avatar" style="background:linear-gradient(135deg,#1a2e1a,#2a4e2a)">🧔</div>
+        <div class="profile-name">イージー次郎</div>
+        <div class="profile-dept">Strategy</div>
+        <div class="profile-join">入社：2025年2月</div>
+        <div class="profile-tags">
+          <span class="tag">戦略</span>
+          <span class="tag">緑茶</span>
+          <span class="tag">読書（マンガ）</span>
+        </div>
+      </div>
+      <div>
+        <div class="qa-list">
+          <div class="qa-item">
+            <div class="question">前職からの転職理由は？</div>
+            <div class="answer">前職は戦略コンサルで、毎日200ページのパワポを作っていました。あるとき「<strong>これ、1枚にまとめられるのでは？</strong>」と気づきました。上司に言ったら怒られました。EASY.INCに転職しました。今は本当に1枚にまとめています。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">EASY.INCの戦略とは？</div>
+            <div class="answer">「イージーにする」です。以上です。毎年戦略会議をしますが、毎回この結論になります。会議は<strong>5分で終わります</strong>。残りの時間でコーヒーを飲みます。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">難しかった仕事はありますか？</div>
+            <div class="answer">「難しい仕事」という概念が、EASY.INCでは<strong>まだ発見されていません</strong>。「これは難しいのでは？」と思う瞬間はありますが、「いや、イージーにできる」と思い直すのがルーティンです。今のところ全部イージーでした。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">これから入社する人へのメッセージは？</div>
+            <div class="answer">イージーに来てください。難しく考えないでください。応募フォームも、面接も、入社後も、<strong>全部イージーです</strong>。心配しないでください。心配することが一番難しいことです。</div>
+          </div>
+        </div>
+        <div class="interview-quote">
+          <div class="iq-text">「200ページのパワポより、<br>1枚の真実の方が価値がある。」</div>
+          <div class="iq-label">イージー次郎 / Strategist</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERVIEW 4 -->
+  <div class="interview fade-in">
+    <div class="interview-inner">
+      <div class="profile-card">
+        <div class="avatar" style="background:linear-gradient(135deg,#2e2a1a,#4e3a2a)">👩‍💼</div>
+        <div class="profile-name">イージー三子</div>
+        <div class="profile-dept">Business Development</div>
+        <div class="profile-join">入社：2025年3月</div>
+        <div class="profile-tags">
+          <span class="tag">営業</span>
+          <span class="tag">ラテ</span>
+          <span class="tag">ヨガ</span>
+        </div>
+      </div>
+      <div>
+        <div class="qa-list">
+          <div class="qa-item">
+            <div class="question">営業職として心がけていることは？</div>
+            <div class="answer">「難しい営業」をしないことです。ゴリゴリ押したり、複雑なトークスクリプトを使ったりしません。代わりに「<strong>うちはイージーですよ</strong>」と言います。それだけで7割のお客様が興味を持ちます。残り3割も時間の問題です。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">一番印象に残っている商談は？</div>
+            <div class="answer">「御社の強みはなんですか？」と聞かれて「イージーです」と答えたら、「それだけですか？」と聞かれました。「はい」と答えたら、<strong>その場で契約</strong>してもらえました。シンプルな強みはシンプルに刺さります。</div>
+          </div>
+          <div class="qa-item">
+            <div class="question">仕事とプライベートのバランスは？</div>
+            <div class="answer">仕事がイージーすぎるので、プライベートとの境界がよくわかりません。<strong>常にイージーに生きています</strong>。それが仕事なのかプライベートなのか、もはやどちらでもいいと思っています。</div>
+          </div>
+        </div>
+        <div class="interview-quote">
+          <div class="iq-text">「営業とは、相手の人生を<br>イージーにしてあげる仕事だと思っています。」</div>
+          <div class="iq-label">イージー三子 / Business Development</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL MEMBERS -->
+  <div style="padding: 6rem 0; border-bottom: 1px solid var(--border);">
+    <p class="section-label fade-in" style="font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--yellow);margin-bottom:0.8rem;">Full Team</p>
+    <h2 class="fade-in" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:3rem;">社員全員の紹介</h2>
+    <div class="summary-grid">
+      <div class="summary-item fade-in">
+        <div class="summary-emoji">🧑‍💻</div>
+        <div class="summary-name">イージー太郎</div>
+        <div class="summary-dept">Engineering</div>
+        <div class="summary-hobby">趣味：イージーなこと</div>
+      </div>
+      <div class="summary-item fade-in">
+        <div class="summary-emoji">👩‍🎨</div>
+        <div class="summary-name">イージー花子</div>
+        <div class="summary-dept">Design</div>
+        <div class="summary-hobby">趣味：イージーなこと</div>
+      </div>
+      <div class="summary-item fade-in">
+        <div class="summary-emoji">🧔</div>
+        <div class="summary-name">イージー次郎</div>
+        <div class="summary-dept">Strategy</div>
+        <div class="summary-hobby">趣味：イージーなこと</div>
+      </div>
+      <div class="summary-item fade-in">
+        <div class="summary-emoji">👩‍💼</div>
+        <div class="summary-name">イージー三子</div>
+        <div class="summary-dept">Business Dev</div>
+        <div class="summary-hobby">趣味：イージーなこと</div>
+      </div>
+      <div class="summary-item fade-in">
+        <div class="summary-emoji">🧑‍🔬</div>
+        <div class="summary-name">イージー四郎</div>
+        <div class="summary-dept">Research</div>
+        <div class="summary-hobby">趣味：イージーなこと</div>
+      </div>
+      <div class="summary-item fade-in">
+        <div class="summary-emoji">👩‍🍳</div>
+        <div class="summary-name">イージー五子</div>
+        <div class="summary-dept">Operations</div>
+        <div class="summary-hobby">趣味：イージーなこと（料理）</div>
+      </div>
+      <div class="summary-item fade-in">
+        <div class="summary-emoji">🐈</div>
+        <div class="summary-name">イージーみけ</div>
+        <div class="summary-dept">社内マスコット / 猫</div>
+        <div class="summary-hobby">趣味：寝ること（全力でイージー）</div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;font-size:0.72rem;opacity:0.3;text-align:center;font-style:italic;">※ 社員の趣味欄に「イージーなこと」と書いてもらったところ、全員がそのまま提出しました。確認したところ「それがイージーだったので」とのことでした。</p>
+  </div>
+
+</div><!-- /.wrap -->
+
+<footer>
+  <span class="footer-logo">EASY.INC</span>
+  <span class="footer-copy">© 2024 EASY.INC — 社員の発言は本人の意志によるものです（本人もイージーな方々です）</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*70); obs.unobserve(e.target); }});
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

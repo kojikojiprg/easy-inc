@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会社の実績 — EASY.INC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0A0A0A; --off-white: #F5F5F0; --yellow: #E8FF00;
+      --border: #1E1E1E; --muted: #555;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--off-white); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-top { display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.18em; color: var(--yellow); text-decoration: none; }
+    .nav-tagline { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.3; }
+    .nav-tabs { display: flex; list-style: none; padding: 0 2rem; overflow-x: auto; }
+    .nav-tabs li a { display: block; padding: 0.85rem 1.4rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; color: var(--off-white); opacity: 0.45; transition: opacity 0.2s, color 0.2s; position: relative; white-space: nowrap; }
+    .nav-tabs li a::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--yellow); transform: scaleX(0); transition: transform 0.2s; }
+    .nav-tabs li a:hover { opacity: 0.85; }
+    .nav-tabs li a:hover::after { transform: scaleX(1); }
+    .nav-tabs li a.active { opacity: 1; color: var(--yellow); }
+    .nav-tabs li a.active::after { transform: scaleX(1); }
+
+    .page-hero { padding: 10rem 3rem 6rem; max-width: 1200px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+    .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; }
+    .page-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(3rem, 8vw, 7rem); line-height: 0.9; letter-spacing: -0.04em; }
+    .page-title em { font-style: normal; color: var(--yellow); }
+    .page-lead { margin-top: 2rem; max-width: 540px; font-size: 0.95rem; opacity: 0.5; line-height: 1.9; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+    .section-block { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+    .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem; }
+    .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.1; margin-bottom: 3rem; }
+
+    /* BIG NUMBERS */
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .kpi-item { background: var(--black); padding: 3rem 2rem; text-align: center; transition: background 0.2s; position: relative; overflow: hidden; }
+    .kpi-item:hover { background: #0f0f0f; }
+    .kpi-num { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--yellow); line-height: 1; margin-bottom: 0.8rem; }
+    .kpi-label { font-size: 0.82rem; opacity: 0.55; line-height: 1.6; }
+    .kpi-note { font-size: 0.65rem; opacity: 0.3; margin-top: 0.5rem; font-style: italic; }
+
+    /* AWARD */
+    .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .award-item { background: var(--black); padding: 3rem 2rem; transition: background 0.2s; }
+    .award-item:hover { background: #0f0f0f; }
+    .award-trophy { font-size: 3rem; margin-bottom: 1.2rem; }
+    .award-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .award-org { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); opacity: 0.7; margin-bottom: 0.8rem; }
+    .award-desc { font-size: 0.85rem; opacity: 0.5; line-height: 1.75; }
+
+    /* TESTIMONIALS */
+    .testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .testi-card { background: #0d0d0d; border: 1px solid var(--border); padding: 2.5rem; }
+    .testi-text { font-size: 1.05rem; line-height: 1.85; opacity: 0.8; margin-bottom: 1.5rem; font-style: italic; }
+    .testi-text::before { content: '\201C'; color: var(--yellow); }
+    .testi-text::after { content: '\201D'; color: var(--yellow); }
+    .testi-author { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.88rem; }
+    .testi-role { font-size: 0.72rem; opacity: 0.4; margin-top: 0.2rem; letter-spacing: 0.1em; }
+    .testi-stars { color: var(--yellow); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+
+    /* GRAPH */
+    .fake-graph { background: #0d0d0d; border: 1px solid var(--border); padding: 3rem; }
+    .graph-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 2.5rem; opacity: 0.8; }
+    .bar-row { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.2rem; }
+    .bar-label { font-size: 0.78rem; opacity: 0.5; width: 180px; flex-shrink: 0; text-align: right; }
+    .bar-track { flex: 1; height: 28px; background: #1a1a1a; position: relative; }
+    .bar-fill { height: 100%; background: var(--yellow); display: flex; align-items: center; padding-left: 0.8rem; transition: width 1.5s ease; }
+    .bar-fill span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.78rem; color: var(--black); white-space: nowrap; }
+
+    /* PRESS */
+    .press-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .press-item { background: var(--black); padding: 2.5rem 2rem; transition: background 0.2s; }
+    .press-item:hover { background: #0f0f0f; }
+    .press-outlet { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem; opacity: 0.7; }
+    .press-headline { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1rem; line-height: 1.4; margin-bottom: 0.5rem; }
+    .press-date { font-size: 0.72rem; opacity: 0.35; }
+
+    footer { border-top: 1px solid var(--border); padding: 3rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
+    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } .awards-grid { grid-template-columns: 1fr; } .testi-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .wrap { padding: 0 1.5rem; } .page-hero { padding: 8rem 1.5rem 4rem; } .bar-label { width: 100px; } footer { flex-direction: column; padding: 2rem 1.5rem; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-top">
+    <a class="nav-logo" href="index.html">EASY.INC</a>
+    <span class="nav-tagline">Make It Easy</span>
+  </div>
+  <ul class="nav-tabs">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="business.html">Business</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="results.html" class="active">実績</a></li>
+    <li><a href="interview.html">社員の声</a></li>
+    <li><a href="religion.html">イージー教</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="page-eyebrow fade-in">Our Achievements</p>
+  <h1 class="page-title fade-in">数字で見る<br><em>イージー。</em></h1>
+  <p class="page-lead fade-in">
+    私たちは嘘をつきません。ただし、何を実績と呼ぶかについては、かなり独自の解釈をしています。
+  </p>
+</div>
+
+<!-- KPI -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">Key Performance Indicators</p>
+    <h2 class="section-heading fade-in">私たちが誇る、主要KPI</h2>
+    <div class="kpi-grid">
+      <div class="kpi-item fade-in">
+        <div class="kpi-num" data-count="2847">0</div>
+        <div class="kpi-label">コーヒーを飲んだ回数</div>
+        <div class="kpi-note">※ 一部紅茶を含む</div>
+      </div>
+      <div class="kpi-item fade-in">
+        <div class="kpi-num" data-count="143">0</div>
+        <div class="kpi-label">会議をキャンセルした回数</div>
+        <div class="kpi-note">※ 代わりにSlackで解決</div>
+      </div>
+      <div class="kpi-item fade-in">
+        <div class="kpi-num">0</div>
+        <div class="kpi-label">残業した日数（累計）</div>
+        <div class="kpi-note">※ これは本当</div>
+      </div>
+      <div class="kpi-item fade-in">
+        <div class="kpi-num" data-count="100">0</div>
+        <div class="kpi-label">「イージーですね」と言われた回数</div>
+        <div class="kpi-note">※ 褒め言葉として受け取っています</div>
+      </div>
+      <div class="kpi-item fade-in">
+        <div class="kpi-num" data-count="99">0</div>
+        <div class="kpi-label">昼寝した回数</div>
+        <div class="kpi-note">※ 「仮眠」として申請済み</div>
+      </div>
+      <div class="kpi-item fade-in">
+        <div class="kpi-num">∞</div>
+        <div class="kpi-label">やる気の総量</div>
+        <div class="kpi-note">※ 計測不能につき無限大と表記</div>
+      </div>
+      <div class="kpi-item fade-in">
+        <div class="kpi-num" data-count="4">0</div>
+        <div class="kpi-label">オフィスで飼っている植物の数</div>
+        <div class="kpi-note">※ うち1つは造花</div>
+      </div>
+      <div class="kpi-item fade-in">
+        <div class="kpi-num" data-count="12">0</div>
+        <div class="kpi-label">「これはイージーですか？」と自問した回数/日</div>
+        <div class="kpi-note">※ 平均値。最大記録は41回</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAKE GRAPH -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">Data Visualization</p>
+    <h2 class="section-heading fade-in">イージー度の推移（2020〜2025）</h2>
+    <div class="fake-graph fade-in">
+      <div class="graph-title">各年のイージー指数（独自調べ / 単位：イージー）</div>
+      <div class="bar-row">
+        <div class="bar-label">2020年</div>
+        <div class="bar-track"><div class="bar-fill" style="width:18%"><span>18 Easy</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2021年</div>
+        <div class="bar-track"><div class="bar-fill" style="width:25%"><span>25 Easy</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2022年（構想期）</div>
+        <div class="bar-track"><div class="bar-fill" style="width:42%"><span>42 Easy</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2023年</div>
+        <div class="bar-track"><div class="bar-fill" style="width:61%"><span>61 Easy</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2024年（設立）</div>
+        <div class="bar-track"><div class="bar-fill" style="width:88%"><span>88 Easy</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">2025年（現在）</div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%"><span>MAX Easy 🏆</span></div></div>
+      </div>
+      <p style="margin-top:1.5rem;font-size:0.72rem;opacity:0.3;font-style:italic;">※ イージー指数は当社独自の計測方法によります。第三者機関による検証は行っていません。というか計測方法は代表の気分です。</p>
+    </div>
+  </div>
+</div>
+
+<!-- AWARDS -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">Awards & Recognition</p>
+    <h2 class="section-heading fade-in">受賞歴</h2>
+    <div class="awards-grid">
+      <div class="award-item fade-in">
+        <div class="award-trophy">🥇</div>
+        <div class="award-name">最もイージーな会社賞</div>
+        <div class="award-org">全日本イージー協会 — 2024年</div>
+        <div class="award-desc">「これほどイージーな会社は見たことがない」という審査員全員一致の評価により受賞。審査委員長は会議中に寝ていたが、それもイージーとして加点された。</div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-trophy">🏆</div>
+        <div class="award-name">残業ゼロ継続表彰</div>
+        <div class="award-org">自社表彰委員会 — 2024年</div>
+        <div class="award-desc">創業以来、残業ゼロを継続していることを社内で表彰。表彰式は定時に終了。賞状は代表が自分で自分に渡した。</div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-trophy">⭐</div>
+        <div class="award-name">GoogleマップReview 星5獲得</div>
+        <div class="award-org">Google Maps — 2025年</div>
+        <div class="award-desc">社員が投稿した1件のレビューにより、評価平均5.0を達成。「イージーでした」とだけ書かれていた。</div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-trophy">🎖</div>
+        <div class="award-name">コーヒー消費量地域No.1</div>
+        <div class="award-org">近隣のカフェ調べ — 2024年</div>
+        <div class="award-desc">半径200m以内の企業の中で、一人当たりのコーヒー消費量がトップであることが明らかに。「仕事かどうかわからないが、とにかくよく来る」と店員に称えられた。</div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-trophy">🌟</div>
+        <div class="award-name">「会社名が覚えやすい賞」</div>
+        <div class="award-org">代表の友人一同 — 2024年</div>
+        <div class="award-desc">「EASY.INCって社名、イージーすぎて逆に覚えられる」という友人の発言をきっかけに即席で制定。盾はAmazonで買った。</div>
+      </div>
+      <div class="award-item fade-in">
+        <div class="award-trophy">🎗</div>
+        <div class="award-name">弊社史上最大のプロジェクト完遂</div>
+        <div class="award-org">社内 — 2025年</div>
+        <div class="award-desc">このコーポレートサイトの制作。要件定義から公開まで、誰も残業せずに完成した。担当者は「イージーでした」と一言。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">Client Testimonials</p>
+    <h2 class="section-heading fade-in">お客様の声</h2>
+    <div class="testi-grid">
+      <div class="testi-card fade-in">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">依頼したらイージーに解決されました。何がどうなったかよくわかりませんでしたが、気づいたらうまくいっていました。</p>
+        <div class="testi-author">田中 イージー様</div>
+        <div class="testi-role">製造業 / 代表取締役 / 満足度：イージー</div>
+      </div>
+      <div class="testi-card fade-in">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">「本当にこれで大丈夫ですか？」と3回聞きましたが、3回とも「イージーです」と言われました。大丈夫でした。</p>
+        <div class="testi-author">鈴木 かんたん様</div>
+        <div class="testi-role">IT企業 / CTO / 最初は不安でした</div>
+      </div>
+      <div class="testi-card fade-in">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">他社には「それは難しいですね」と言われた課題を、EASY.INCは「イージーです」と言って本当に解決した。正直、怖かった。</p>
+        <div class="testi-author">佐藤 むずかしくない様</div>
+        <div class="testi-role">スタートアップ / CEO / 元・懐疑派</div>
+      </div>
+      <div class="testi-card fade-in">
+        <div class="testi-stars">★★★★☆</div>
+        <p class="testi-text">星4つなのは、あまりにイージーすぎて「本当に頑張ってくれたのか？」と少し心配になったから。でも結果は最高でした。次も頼みます。</p>
+        <div class="testi-author">山田 よんつぼし様</div>
+        <div class="testi-role">中小企業 / 経営企画 / やや心配性</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRESS -->
+<div class="wrap">
+  <div class="section-block">
+    <p class="section-label fade-in">メディア掲載</p>
+    <h2 class="section-heading fade-in">Press</h2>
+    <div class="press-list">
+      <div class="press-item fade-in">
+        <div class="press-outlet">イージー経済新聞</div>
+        <div class="press-headline">「残業ゼロで利益ゼロ」——EASY.INCの驚異の経営モデル</div>
+        <div class="press-date">2025年1月15日</div>
+      </div>
+      <div class="press-item fade-in">
+        <div class="press-outlet">週刊東洋イージー</div>
+        <div class="press-headline">次世代スタートアップ特集：「社名で全部説明できる会社」トップ10</div>
+        <div class="press-date">2025年2月3日</div>
+      </div>
+      <div class="press-item fade-in">
+        <div class="press-outlet">Forbes JAPAN（非公式）</div>
+        <div class="press-headline">「イージーすぎて取材にならなかった」——記者が語る現場レポート</div>
+        <div class="press-date">2025年3月22日</div>
+      </div>
+      <div class="press-item fade-in">
+        <div class="press-outlet">TechCrunch EASY</div>
+        <div class="press-headline">EASY.INC、コーヒー消費量で前年比340%増を達成。売上は非公開。</div>
+        <div class="press-date">2025年4月1日</div>
+      </div>
+      <div class="press-item fade-in">
+        <div class="press-outlet">NHK（夢の中で）</div>
+        <div class="press-headline">「もっとイージーに生きよう」——注目企業が語る働き方改革の未来</div>
+        <div class="press-date">放送日：未定（夢なので）</div>
+      </div>
+      <div class="press-item fade-in">
+        <div class="press-outlet">地元の回覧板</div>
+        <div class="press-headline">近所にイージーな会社ができました。騒音なし。ゴミ出しも正確。</div>
+        <div class="press-date">2024年12月</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">EASY.INC</span>
+  <span class="footer-copy">© 2024 EASY.INC — 全ての実績は当社調べです。当社とは代表一名です。</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*70); obs.unobserve(e.target); }});
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Animate counters
+  function animCount(el, target, dur) {
+    let start = null;
+    const step = ts => {
+      if (!start) start = ts;
+      const p = Math.min((ts-start)/dur, 1);
+      el.textContent = Math.floor(p * target).toLocaleString();
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  const cObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.target.dataset.count) {
+        animCount(e.target, parseInt(e.target.dataset.count), 1800);
+        cObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach(el => cObs.observe(el));
+</script>
+</body>
+</html>
