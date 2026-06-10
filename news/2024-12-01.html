@@ -49,13 +49,14 @@
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      padding: 0.4rem;
+      padding: 0.5rem;
       background: none;
       border: none;
+      flex-shrink: 0;
     }
     .nav-hamburger span {
       display: block;
-      width: 22px;
+      width: 24px;
       height: 2px;
       background: var(--off-white);
       transition: transform 0.25s, opacity 0.25s;
@@ -65,30 +66,43 @@
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     @media (max-width: 768px) {
+      /* nav needs to be the offset parent for the dropdown */
+      nav { position: fixed; }
+      .nav-top { padding: 1rem 1.5rem; position: relative; }
+      .nav-tagline { display: none; }
       .nav-hamburger { display: flex; }
+      /* Hide horizontal tab row entirely on mobile */
       .nav-tabs {
-        display: none;
+        display: none !important;
         flex-direction: column;
         padding: 0;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 57px; /* nav-top height */
         left: 0; right: 0;
-        background: rgba(10,10,10,0.97);
-        backdrop-filter: blur(12px);
+        background: rgba(10,10,10,0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--border);
-        z-index: 99;
+        z-index: 9999;
+        max-height: calc(100vh - 57px);
+        overflow-y: auto;
       }
-      .nav-tabs.open { display: flex; }
+      .nav-tabs.open { display: flex !important; }
+      .nav-tabs li { width: 100%; }
       .nav-tabs li a {
-        padding: 1rem 2rem;
+        padding: 1.1rem 1.5rem;
         border-bottom: 1px solid var(--border);
-        font-size: 0.85rem;
+        font-size: 0.88rem;
+        white-space: normal;
+        opacity: 0.7;
       }
       .nav-tabs li a::after { display: none; }
       .nav-tabs li a.active {
-        background: rgba(232,255,0,0.06);
-        border-left: 2px solid var(--yellow);
-        padding-left: calc(2rem - 2px);
+        opacity: 1;
+        color: var(--yellow);
+        background: rgba(232,255,0,0.05);
+        border-left: 3px solid var(--yellow);
+        padding-left: calc(1.5rem - 3px);
       }
     }
   </style>
