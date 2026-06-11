@@ -1,14 +1,5 @@
-.page-hero { padding: 10rem 3rem 6rem; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid var(--border); }
-    .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; }
-    .page-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(3rem, 8vw, 7rem); line-height: 0.9; letter-spacing: -0.04em; }
-    .page-title em { font-style: normal; color: var(--yellow); }
-    .page-lead { margin-top: 2rem; max-width: 500px; font-size: 0.95rem; opacity: 0.5; line-height: 1.9; }
-
-    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
-
-    /* FEATURED */
+/* FEATURED */
     .featured { padding: 5rem 0 2rem; border-bottom: 1px solid var(--border); }
-    .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 2rem; }
     .featured-card {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0;
       background: var(--border); border: 1px solid var(--border);
@@ -21,11 +12,11 @@
     .featured-meta { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
     .tag { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; border: 1px solid var(--yellow); color: var(--yellow); padding: 0.2rem 0.7rem; }
     .date { font-size: 0.72rem; opacity: 0.35; letter-spacing: 0.1em; }
-    .featured-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.1; margin-bottom: 1.2rem; transition: color 0.2s; }
+    .featured-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.1; margin-bottom: 1.2rem; transition: color 0.2s; }
     .featured-excerpt { font-size: 0.9rem; opacity: 0.6; line-height: 1.85; }
     .featured-side { padding: 3.5rem; display: flex; flex-direction: column; justify-content: flex-end; }
     .featured-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); opacity: 0.6; margin-bottom: 1rem; }
-    .featured-quote { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem; line-height: 1.4; margin-bottom: 0.5rem; }
+    .featured-quote { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.4; margin-bottom: 0.5rem; }
     .featured-quote-ja { font-size: 0.82rem; opacity: 0.45; line-height: 1.7; margin-bottom: 1rem; }
     .featured-quote-attr { font-size: 0.7rem; opacity: 0.35; letter-spacing: 0.12em; text-transform: uppercase; }
     .read-more { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--yellow); margin-top: 2rem; opacity: 0.7; }
@@ -42,90 +33,16 @@
     }
     .news-item:hover .news-title { color: var(--yellow); }
     .news-date { font-size: 0.72rem; letter-spacing: 0.1em; opacity: 0.35; text-transform: uppercase; }
-    .news-title { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 1rem; transition: color 0.2s; line-height: 1.4; }
+    .news-title { font-family: var(--font-display); font-weight: 500; font-size: 1rem; transition: color 0.2s; line-height: 1.4; }
     .news-tag-badge { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--border); padding: 0.2rem 0.6rem; opacity: 0.45; white-space: nowrap; }
     .news-arrow { opacity: 0.3; font-size: 1rem; transition: transform 0.2s, opacity 0.2s; }
     .news-item:hover .news-arrow { opacity: 1; transform: translateX(4px); }
 
-    footer { border-top: 1px solid var(--border); padding: 2.5rem 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
-    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
-
-    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-in.visible { opacity: 1; transform: none; }
-
     @media(max-width:768px){
       .nav-top { padding: 1rem 1.5rem; }
-      .wrap { padding: 0 1.5rem; }
-      .page-hero { padding: 8rem 1.5rem 4rem; }
       .featured-card { grid-template-columns: 1fr; }
       .featured-side { border-top: 1px solid var(--border); }
       .featured-main, .featured-side { padding: 2rem; }
       .news-item { grid-template-columns: 1fr; gap: 0.4rem; }
       .news-tag-badge, .news-arrow { display: none; }
-      footer { padding: 2rem 1.5rem; }
     }
-
-    /* ─── MOBILE NAV ─── */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 0.5rem;
-      background: none;
-      border: none;
-      flex-shrink: 0;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--off-white);
-      transition: transform 0.25s, opacity 0.25s;
-    }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    @media (max-width: 768px) {
-      /* nav needs to be the offset parent for the dropdown */
-      nav { position: fixed; }
-      .nav-top { padding: 1rem 1.5rem; position: relative; }
-      .nav-tagline { display: none; }
-      .nav-hamburger { display: flex; }
-      /* Hide horizontal tab row entirely on mobile */
-      .nav-tabs {
-        display: none !important;
-        flex-direction: column;
-        padding: 0;
-        position: fixed;
-        top: 57px; /* nav-top height */
-        left: 0; right: 0;
-        background: rgba(10,10,10,0.98);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
-        z-index: 9999;
-        max-height: calc(100vh - 57px);
-        overflow-y: auto;
-      }
-      .nav-tabs.open { display: flex !important; }
-      .nav-tabs li { width: 100%; }
-      .nav-tabs li a {
-        padding: 1.1rem 1.5rem;
-        border-bottom: 1px solid var(--border);
-        font-size: 0.88rem;
-        white-space: normal;
-        opacity: 0.7;
-      }
-      .nav-tabs li a::after { display: none; }
-      .nav-tabs li a.active {
-        opacity: 1;
-        color: var(--yellow);
-        background: rgba(232,255,0,0.05);
-        border-left: 3px solid var(--yellow);
-        padding-left: calc(1.5rem - 3px);
-      }
-    }
-  

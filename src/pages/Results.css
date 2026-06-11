@@ -1,19 +1,8 @@
-.page-hero { padding: 10rem 3rem 6rem; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid var(--border); }
-    .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; }
-    .page-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(3rem, 8vw, 7rem); line-height: 0.9; letter-spacing: -0.04em; }
-    .page-title em { font-style: normal; color: var(--yellow); }
-    .page-lead { margin-top: 2rem; max-width: 540px; font-size: 0.95rem; opacity: 0.5; line-height: 1.9; }
-
-    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
-    .section-block { padding: 6rem 0; border-bottom: 1px solid var(--border); }
-    .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem; }
-    .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.1; margin-bottom: 3rem; }
-
-    /* BIG NUMBERS */
+/* BIG NUMBERS */
     .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
     .kpi-item { background: var(--black); padding: 3rem 2rem; text-align: center; transition: background 0.2s; position: relative; overflow: hidden; }
     .kpi-item:hover { background: #0f0f0f; }
-    .kpi-num { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--yellow); line-height: 1; margin-bottom: 0.8rem; }
+    .kpi-num { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--yellow); line-height: 1; margin-bottom: 0.8rem; }
     .kpi-label { font-size: 0.82rem; opacity: 0.55; line-height: 1.6; }
     .kpi-note { font-size: 0.65rem; opacity: 0.3; margin-top: 0.5rem; font-style: italic; }
 
@@ -22,7 +11,7 @@
     .award-item { background: var(--black); padding: 3rem 2rem; transition: background 0.2s; }
     .award-item:hover { background: #0f0f0f; }
     .award-trophy { font-size: 3rem; margin-bottom: 1.2rem; }
-    .award-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .award-name { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
     .award-org { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); opacity: 0.7; margin-bottom: 0.8rem; }
     .award-desc { font-size: 0.85rem; opacity: 0.5; line-height: 1.75; }
 
@@ -32,97 +21,26 @@
     .testi-text { font-size: 1.05rem; line-height: 1.85; opacity: 0.8; margin-bottom: 1.5rem; font-style: italic; }
     .testi-text::before { content: '\201C'; color: var(--yellow); }
     .testi-text::after { content: '\201D'; color: var(--yellow); }
-    .testi-author { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.88rem; }
+    .testi-author { font-family: var(--font-display); font-weight: 600; font-size: 0.88rem; }
     .testi-role { font-size: 0.72rem; opacity: 0.4; margin-top: 0.2rem; letter-spacing: 0.1em; }
     .testi-stars { color: var(--yellow); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
 
     /* GRAPH */
     .fake-graph { background: #0d0d0d; border: 1px solid var(--border); padding: 2rem; }
-    .graph-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 2.5rem; opacity: 0.8; }
+    .graph-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; margin-bottom: 2.5rem; opacity: 0.8; }
     .bar-row { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.2rem; }
     .bar-label { font-size: 0.78rem; opacity: 0.5; width: 180px; flex-shrink: 0; text-align: right; }
     .bar-track { flex: 1; height: 28px; background: #1a1a1a; position: relative; }
     .bar-fill { height: 100%; background: var(--yellow); display: flex; align-items: center; padding-left: 0.8rem; transition: width 1.5s ease; }
-    .bar-fill span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.78rem; color: var(--black); white-space: nowrap; }
+    .bar-fill span { font-family: var(--font-display); font-weight: 700; font-size: 0.78rem; color: var(--black); white-space: nowrap; }
 
     /* PRESS */
     .press-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
     .press-item { background: var(--black); padding: 2.5rem 2rem; transition: background 0.2s; }
     .press-item:hover { background: #0f0f0f; }
     .press-outlet { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem; opacity: 0.7; }
-    .press-headline { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1rem; line-height: 1.4; margin-bottom: 0.5rem; }
+    .press-headline { font-family: var(--font-display); font-weight: 600; font-size: 1rem; line-height: 1.4; margin-bottom: 0.5rem; }
     .press-date { font-size: 0.72rem; opacity: 0.35; }
-
-    footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
-    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
-
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .fade-in.visible { opacity: 1; transform: none; }
 
     @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } .awards-grid { grid-template-columns: 1fr; } .testi-grid { grid-template-columns: 1fr; } }
     @media (max-width: 768px) { .wrap { padding: 0 1.5rem; } .page-hero { padding: 8rem 1.5rem 4rem; } .bar-label { width: 100px; } footer { flex-direction: column; padding: 2rem 1.5rem; } }
-
-    /* ─── MOBILE NAV ─── */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 0.5rem;
-      background: none;
-      border: none;
-      flex-shrink: 0;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--off-white);
-      transition: transform 0.25s, opacity 0.25s;
-    }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    @media (max-width: 768px) {
-      /* nav needs to be the offset parent for the dropdown */
-      nav { position: fixed; }
-      .nav-top { padding: 1rem 1.5rem; position: relative; }
-      .nav-tagline { display: none; }
-      .nav-hamburger { display: flex; }
-      /* Hide horizontal tab row entirely on mobile */
-      .nav-tabs {
-        display: none !important;
-        flex-direction: column;
-        padding: 0;
-        position: fixed;
-        top: 57px; /* nav-top height */
-        left: 0; right: 0;
-        background: rgba(10,10,10,0.98);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
-        z-index: 9999;
-        max-height: calc(100vh - 57px);
-        overflow-y: auto;
-      }
-      .nav-tabs.open { display: flex !important; }
-      .nav-tabs li { width: 100%; }
-      .nav-tabs li a {
-        padding: 1.1rem 1.5rem;
-        border-bottom: 1px solid var(--border);
-        font-size: 0.88rem;
-        white-space: normal;
-        opacity: 0.7;
-      }
-      .nav-tabs li a::after { display: none; }
-      .nav-tabs li a.active {
-        opacity: 1;
-        color: var(--yellow);
-        background: rgba(232,255,0,0.05);
-        border-left: 3px solid var(--yellow);
-        padding-left: calc(1.5rem - 3px);
-      }
-    }
-  

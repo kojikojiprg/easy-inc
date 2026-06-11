@@ -1,33 +1,4 @@
-.page-hero {
-      padding: 10rem 3rem 7rem; max-width: 1000px; margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-    }
-    .page-eyebrow {
-      font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--yellow); margin-bottom: 1.2rem;
-    }
-    .page-title {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
-      font-size: clamp(3.5rem, 9vw, 8rem);
-      line-height: 0.9; letter-spacing: -0.04em;
-    }
-    .page-title em { font-style: normal; color: var(--yellow); }
-    .page-lead {
-      margin-top: 2.5rem; max-width: 520px;
-      font-size: 1rem; opacity: 0.5; line-height: 1.85;
-    }
-
-    /* ── SECTION ── */
-    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
-    .section-block { padding: 7rem 0; border-bottom: 1px solid var(--border); }
-    .section-label {
-      font-size: 0.68rem; letter-spacing: 0.3em;
-      text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem;
-    }
-    .section-heading {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
-      font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.1; margin-bottom: 3rem;
-    }
+/* ── SECTION ── */
 
     /* ── PRESIDENT MESSAGE ── */
     .message-grid {
@@ -46,7 +17,7 @@
       font-size: 4rem;
     }
     .president-name {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-family: var(--font-display); font-weight: 700;
       font-size: 1.1rem; margin-bottom: 0.3rem;
     }
     .president-title { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.4; }
@@ -56,11 +27,11 @@
     .message-body blockquote {
       border-left: 2px solid var(--yellow);
       padding-left: 1.5rem; margin: 2.5rem 0;
-      font-family: 'Space Grotesk', sans-serif; font-weight: 500;
+      font-family: var(--font-display); font-weight: 500;
       font-size: 1.15rem; line-height: 1.55; opacity: 1;
     }
     .message-sig {
-      margin-top: 3rem; font-family: 'Space Grotesk', sans-serif;
+      margin-top: 3rem; font-family: var(--font-display);
       font-weight: 700; font-size: 1.3rem; color: var(--yellow);
     }
 
@@ -80,12 +51,12 @@
       transform: translateX(-3.5px);
     }
     .tl-year {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-family: var(--font-display); font-weight: 700;
       font-size: 0.75rem; letter-spacing: 0.18em; color: var(--yellow);
       text-transform: uppercase; margin-bottom: 0.6rem;
     }
     .tl-event {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+      font-family: var(--font-display); font-weight: 600;
       font-size: 1.05rem; margin-bottom: 0.5rem;
     }
     .tl-desc { font-size: 0.88rem; opacity: 0.5; line-height: 1.7; max-width: 560px; }
@@ -114,7 +85,7 @@
     .biz-card:hover { background: #0f0f0f; }
     .biz-icon { font-size: 2rem; margin-bottom: 1.5rem; }
     .biz-name {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-family: var(--font-display); font-weight: 700;
       font-size: 1.2rem; margin-bottom: 1rem;
     }
     .biz-desc { font-size: 0.88rem; opacity: 0.55; line-height: 1.8; }
@@ -136,113 +107,27 @@
     .value-item:last-child { border-right: none; }
     .value-item:hover { background: #0d0d0d; }
     .value-num {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-family: var(--font-display); font-weight: 900;
       font-size: 3.5rem; color: var(--yellow); opacity: 0.15;
       line-height: 1; margin-bottom: 1rem;
       transition: opacity 0.25s;
     }
     .value-item:hover .value-num { opacity: 0.6; }
     .value-name {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-family: var(--font-display); font-weight: 700;
       font-size: 1.1rem; margin-bottom: 0.7rem;
     }
     .value-desc { font-size: 0.85rem; opacity: 0.5; line-height: 1.75; }
 
     /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
-    }
-    .footer-logo {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
-      font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow);
-    }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a {
-      color: var(--off-white); text-decoration: none;
-      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-      opacity: 0.35; transition: opacity 0.2s;
-    }
-    .footer-links a:hover { opacity: 1; }
-    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
 
     /* ── FADE ── */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .fade-in.visible { opacity: 1; transform: none; }
 
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       .nav-links { display: none; }
-      .wrap { padding: 0 1.5rem; }
-      .page-hero { padding: 10rem 1.5rem 5rem; }
       .message-grid { grid-template-columns: 1fr; gap: 3rem; }
       .president-card { position: static; }
       .values-row { grid-template-columns: 1fr; }
       .value-item { border-right: none; border-bottom: 1px solid var(--border); }
-      footer { flex-direction: column; padding: 2rem 1.5rem; }
     }
-
-    /* ─── MOBILE NAV ─── */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 0.5rem;
-      background: none;
-      border: none;
-      flex-shrink: 0;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--off-white);
-      transition: transform 0.25s, opacity 0.25s;
-    }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    @media (max-width: 768px) {
-      /* nav needs to be the offset parent for the dropdown */
-      nav { position: fixed; }
-      .nav-top { padding: 1rem 1.5rem; position: relative; }
-      .nav-tagline { display: none; }
-      .nav-hamburger { display: flex; }
-      /* Hide horizontal tab row entirely on mobile */
-      .nav-tabs {
-        display: none !important;
-        flex-direction: column;
-        padding: 0;
-        position: fixed;
-        top: 57px; /* nav-top height */
-        left: 0; right: 0;
-        background: rgba(10,10,10,0.98);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
-        z-index: 9999;
-        max-height: calc(100vh - 57px);
-        overflow-y: auto;
-      }
-      .nav-tabs.open { display: flex !important; }
-      .nav-tabs li { width: 100%; }
-      .nav-tabs li a {
-        padding: 1.1rem 1.5rem;
-        border-bottom: 1px solid var(--border);
-        font-size: 0.88rem;
-        white-space: normal;
-        opacity: 0.7;
-      }
-      .nav-tabs li a::after { display: none; }
-      .nav-tabs li a.active {
-        opacity: 1;
-        color: var(--yellow);
-        background: rgba(232,255,0,0.05);
-        border-left: 3px solid var(--yellow);
-        padding-left: calc(1.5rem - 3px);
-      }
-    }
-  

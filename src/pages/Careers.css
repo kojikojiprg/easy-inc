@@ -1,19 +1,6 @@
-.page-hero {
-      padding: 10rem 3rem 7rem; max-width: 1000px; margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 6rem; align-items: end;
-    }
-    .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; }
-    .page-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.9; letter-spacing: -0.04em; }
-    .page-title em { font-style: normal; color: var(--yellow); }
-    .hero-right { padding-bottom: 0.5rem; }
+.hero-right { padding-bottom: 0.5rem; }
     .hero-right p { font-size: 0.95rem; opacity: 0.55; line-height: 1.9; }
     .hero-right p + p { margin-top: 1.2rem; }
-
-    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
-    .section-block { padding: 7rem 0; border-bottom: 1px solid var(--border); }
-    .section-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem; }
-    .section-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.1; margin-bottom: 3.5rem; }
 
     /* CULTURE */
     .culture-grid {
@@ -23,7 +10,7 @@
     .culture-card { background: var(--black); padding: 3rem 2.5rem; transition: background 0.25s; }
     .culture-card:hover { background: #0f0f0f; }
     .culture-icon { font-size: 2.2rem; margin-bottom: 1.5rem; }
-    .culture-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; }
+    .culture-title { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; }
     .culture-desc { font-size: 0.86rem; opacity: 0.55; line-height: 1.8; }
     .culture-quote { margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-size: 0.78rem; font-style: italic; opacity: 0.35; line-height: 1.6; }
 
@@ -35,7 +22,7 @@
     .perk-item { background: var(--black); padding: 2.5rem 2rem; transition: background 0.2s; }
     .perk-item:hover { background: #0f0f0f; }
     .perk-icon { font-size: 1.8rem; margin-bottom: 1rem; }
-    .perk-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .perk-name { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
     .perk-desc { font-size: 0.82rem; opacity: 0.5; line-height: 1.7; }
 
     /* JOB LISTINGS */
@@ -43,7 +30,7 @@
       display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 3rem;
     }
     .filter-btn {
-      font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem;
+      font-family: var(--font-display); font-size: 0.75rem;
       letter-spacing: 0.14em; text-transform: uppercase;
       padding: 0.5rem 1.2rem;
       border: 1px solid var(--border);
@@ -79,7 +66,7 @@
       background: #fff; color: var(--black);
       padding: 0.18rem 0.65rem; font-weight: 700;
     }
-    .job-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .job-title { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; margin-bottom: 0.5rem; }
     .job-meta { font-size: 0.8rem; opacity: 0.4; display: flex; gap: 1.5rem; }
     .job-arrow { font-size: 1.2rem; transition: transform 0.25s, color 0.25s; opacity: 0.35; }
 
@@ -103,19 +90,19 @@
     }
     .modal-close:hover { opacity: 1; }
     .modal-dept { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem; }
-    .modal-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 2rem; margin-bottom: 2rem; line-height: 1.1; }
+    .modal-title { font-family: var(--font-display); font-weight: 900; font-size: 2rem; margin-bottom: 2rem; line-height: 1.1; }
     .modal-meta { display: flex; gap: 2rem; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
     .modal-meta-item label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.4; display: block; margin-bottom: 0.3rem; }
     .modal-meta-item span { font-size: 0.9rem; }
     .modal-section { margin-bottom: 2.5rem; }
-    .modal-section h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem; }
+    .modal-section h4 { font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1rem; }
     .modal-section p { font-size: 0.9rem; opacity: 0.7; line-height: 1.85; }
     .modal-section ul { list-style: none; }
     .modal-section ul li { font-size: 0.88rem; opacity: 0.65; padding: 0.5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.8rem; }
     .modal-section ul li::before { content: '✦'; color: var(--yellow); flex-shrink: 0; font-size: 0.7rem; margin-top: 0.15rem; }
     .modal-apply {
       display: block; width: 100%; background: var(--yellow); color: var(--black);
-      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      font-family: var(--font-display); font-weight: 700;
       font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase;
       border: none; padding: 1.2rem; cursor: pointer;
       transition: background 0.2s; margin-top: 3rem;
@@ -129,98 +116,21 @@
       padding: 5rem 2rem; text-align: center;
     }
     .qb-text {
-      font-family: 'Space Grotesk', sans-serif; font-weight: 900;
+      font-family: var(--font-display); font-weight: 900;
       font-size: clamp(1.5rem, 3.5vw, 2.8rem); line-height: 1.2;
       max-width: 800px; margin: 0 auto 1rem;
     }
     .qb-attr { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.5; }
 
     /* FOOTER */
-    footer { border-top: 1px solid var(--border); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
-    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 0.2em; color: var(--yellow); }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { color: var(--off-white); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.35; transition: opacity 0.2s; }
-    .footer-links a:hover { opacity: 1; }
-    .footer-copy { font-size: 0.72rem; opacity: 0.25; }
-
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .fade-in.visible { opacity: 1; transform: none; }
 
     @media (max-width: 900px) {
       .culture-grid { grid-template-columns: 1fr; }
-      .page-hero { grid-template-columns: 1fr; gap: 3rem; }
     }
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       .nav-links { display: none; }
-      .wrap { padding: 0 1.5rem; }
-      .page-hero { padding: 10rem 1.5rem 5rem; }
       .job-item { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
       .modal { padding: 2.5rem 1.5rem; }
       .modal-meta { flex-wrap: wrap; gap: 1.2rem; }
-      footer { flex-direction: column; padding: 2rem 1.5rem; }
     }
-
-    /* ─── MOBILE NAV ─── */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 0.5rem;
-      background: none;
-      border: none;
-      flex-shrink: 0;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--off-white);
-      transition: transform 0.25s, opacity 0.25s;
-    }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    @media (max-width: 768px) {
-      /* nav needs to be the offset parent for the dropdown */
-      nav { position: fixed; }
-      .nav-top { padding: 1rem 1.5rem; position: relative; }
-      .nav-tagline { display: none; }
-      .nav-hamburger { display: flex; }
-      /* Hide horizontal tab row entirely on mobile */
-      .nav-tabs {
-        display: none !important;
-        flex-direction: column;
-        padding: 0;
-        position: fixed;
-        top: 57px; /* nav-top height */
-        left: 0; right: 0;
-        background: rgba(10,10,10,0.98);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border-bottom: 1px solid var(--border);
-        z-index: 9999;
-        max-height: calc(100vh - 57px);
-        overflow-y: auto;
-      }
-      .nav-tabs.open { display: flex !important; }
-      .nav-tabs li { width: 100%; }
-      .nav-tabs li a {
-        padding: 1.1rem 1.5rem;
-        border-bottom: 1px solid var(--border);
-        font-size: 0.88rem;
-        white-space: normal;
-        opacity: 0.7;
-      }
-      .nav-tabs li a::after { display: none; }
-      .nav-tabs li a.active {
-        opacity: 1;
-        color: var(--yellow);
-        background: rgba(232,255,0,0.05);
-        border-left: 3px solid var(--yellow);
-        padding-left: calc(1.5rem - 3px);
-      }
-    }
-  
