@@ -1,0 +1,113 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--black);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--off-white);
+}
+
+.nav-tagline {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--yellow);
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  border-top: 1px solid var(--border);
+}
+
+.nav-tabs li a {
+  display: block;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: #888;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.nav-tabs li a:hover,
+.nav-tabs li a.active {
+  color: var(--off-white);
+}
+
+.nav-tabs li a.active {
+  border-bottom: 2px solid var(--yellow);
+}
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--off-white);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  .nav-hamburger { display: flex; }
+  .nav-tagline { display: none; }
+
+  .nav-tabs {
+    flex-direction: column;
+    border-top: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-tabs.open {
+    max-height: 500px;
+  }
+
+  .nav-tabs li a {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-tabs li a.active {
+    border-bottom: 1px solid var(--border);
+    color: var(--yellow);
+  }
+}
