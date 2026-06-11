@@ -9,8 +9,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/easy-inc/assets/index-FshCutxU.js"></script>
-    <link rel="stylesheet" crossorigin href="/easy-inc/assets/index-DM_0bXwn.css">
+    <script>
+      // 404.html からのリダイレクト時にパスを復元する
+      (function () {
+        var redirect = sessionStorage.getItem('spa_redirect');
+        if (redirect) {
+          sessionStorage.removeItem('spa_redirect');
+          window.history.replaceState(null, null, '/easy-inc' + redirect);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/easy-inc/assets/index-BA3xm52N.js"></script>
+    <link rel="stylesheet" crossorigin href="/easy-inc/assets/index-BG44cTBX.css">
   </head>
   <body>
     <div id="root"></div>

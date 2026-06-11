@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EASY.INC</title>
+    <script>
+      // GitHub Pages は SPA のサブパスを知らないので 404 を返す。
+      // このスクリプトがパスを sessionStorage に退避してトップへ飛ばす。
+      // index.html 側でパスを復元して React Router に渡す。
+      var path = window.location.pathname.replace('/easy-inc', '') || '/';
+      var search = window.location.search;
+      sessionStorage.setItem('spa_redirect', path + search);
+      window.location.replace('/easy-inc/');
+    </script>
+  </head>
+  <body></body>
+</html>
