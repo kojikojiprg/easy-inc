@@ -10,6 +10,14 @@
   --parchment: #1a180f;
 }
 html { scroll-behavior: smooth; }
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+@media (max-width: 768px) {
+  .container { padding: 0 1.2rem; }
+}
 body {
   background: var(--black);
   color: var(--off-white);

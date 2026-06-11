@@ -47,7 +47,7 @@
   font-family: var(--font-display);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
-  color: #888;
+  color: #aaa;
   transition: color 0.2s;
   white-space: nowrap;
 }

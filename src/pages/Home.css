@@ -54,7 +54,7 @@
 
 .hero-desc {
   font-size: 1.1rem;
-  color: #aaa;
+  color: #ddd;
   max-width: 500px;
   margin-bottom: 2.5rem;
   line-height: 1.8;
@@ -80,7 +80,7 @@
   right: 2rem;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
-  color: #555;
+  color: #bbb;
   writing-mode: vertical-rl;
 }
 
@@ -173,7 +173,7 @@
 
 .service-tagline {
   font-size: 0.82rem;
-  color: #888;
+  color: #ddd;
   line-height: 1.6;
 }
 
@@ -202,7 +202,7 @@
 }
 
 .about-banner-text p {
-  color: #aaa;
+  color: #ddd;
   margin-bottom: 1.2rem;
   line-height: 1.8;
 }
@@ -221,7 +221,7 @@
   font-weight: 700;
   color: var(--yellow);
 }
-.stat-label { font-size: 0.72rem; color: #666; letter-spacing: 0.05em; margin-top: 0.2rem; }
+.stat-label { font-size: 0.72rem; color: #ddd; letter-spacing: 0.05em; margin-top: 0.2rem; }
 
 /* ===== NEWS ===== */
 .news-list { list-style: none; }
@@ -242,7 +242,7 @@
 .news-date {
   font-family: var(--font-display);
   font-size: 0.75rem;
-  color: #555;
+  color: #bbb;
   white-space: nowrap;
   min-width: 80px;
 }
@@ -264,7 +264,7 @@
 
 /* ===== CONTACT ===== */
 .contact-desc {
-  color: #888;
+  color: #ddd;
   max-width: 500px;
   margin-bottom: 2rem;
 }
