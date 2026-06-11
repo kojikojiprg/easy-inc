@@ -10,14 +10,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <script>
-      // 404.html からのリダイレクト時にパスを復元する
+      // 404.html から ?p=/path で飛んできた場合にパスを復元する
       (function () {
-        var redirect = sessionStorage.getItem('spa_redirect');
-        if (redirect) {
-          sessionStorage.removeItem('spa_redirect');
-          window.history.replaceState(null, null, '/easy-inc' + redirect);
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
         }
-      })();
+      }());
+    </script>
+    <script>
+      // クエリパラメータ方式でのパス復元
+      (function () {
+        var search = window.location.search;
+        if (search.indexOf('?p=') === 0) {
+          var decoded = search.slice(1)
+            .split('&')
+            .reduce(function (memo, part) {
+              var arr = part.split('=');
+              if (arr[0] === 'p') memo.path = arr[1].replace(/~and~/g, '&');
+              if (arr[0] === 'q') memo.query = arr[1].replace(/~and~/g, '&');
+              return memo;
+            }, { path: '', query: '' });
+          window.history.replaceState(
+            null, null,
+            window.location.pathname.replace(/\/$/, '') +
+            '/' + decoded.path.replace(/^\//, '') +
+            (decoded.query ? '?' + decoded.query : '') +
+            window.location.hash
+          );
+        }
+      }());
     </script>
   </head>
   <body>
