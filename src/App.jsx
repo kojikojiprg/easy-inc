@@ -10,6 +10,9 @@ import Religion from './pages/Religion'
 import Shisha from './pages/Shisha'
 import NewsList from './pages/NewsList'
 import NewsArticle from './pages/NewsArticle'
+import NotFound from './pages/NotFound'
+
+<Route path="*" element={<NotFound />} />
 
 export default function App() {
   return (
