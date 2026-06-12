@@ -5,7 +5,7 @@ import './News.css'
 
 export default function NewsList() {
   useFadeIn()
-  const [featured, ...rest] = newsArticles
+  const [featured] = newsArticles
 
   return (
     <>
