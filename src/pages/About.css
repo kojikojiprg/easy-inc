@@ -73,28 +73,6 @@
       padding: 1.4rem 0; font-size: 0.93rem; line-height: 1.75; opacity: 0.7;
     }
 
-    /* ── BUSINESS DETAIL ── */
-    .biz-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1px; background: var(--border); border: 1px solid var(--border);
-    }
-    .biz-card {
-      background: var(--black); padding: 3rem 2.5rem;
-      transition: background 0.25s;
-    }
-    .biz-card:hover { background: #0f0f0f; }
-    .biz-icon { font-size: 2rem; margin-bottom: 1.5rem; }
-    .biz-name {
-      font-family: var(--font-display); font-weight: 700;
-      font-size: 1.2rem; margin-bottom: 1rem;
-    }
-    .biz-desc { font-size: 0.88rem; opacity: 0.55; line-height: 1.8; }
-    .biz-quote {
-      margin-top: 1.5rem; padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.82rem; font-style: italic; opacity: 0.4; line-height: 1.6;
-    }
-
     /* ── VALUES ── */
     .values-row {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -119,13 +97,8 @@
     }
     .value-desc { font-size: 0.85rem; opacity: 0.5; line-height: 1.75; }
 
-    /* ── FOOTER ── */
-
-    /* ── FADE ── */
-
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
-      .nav-links { display: none; }
       .message-grid { grid-template-columns: 1fr; gap: 3rem; }
       .president-card { position: static; }
       .values-row { grid-template-columns: 1fr; }

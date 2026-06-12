@@ -19,10 +19,7 @@
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px;
       background: var(--border); border: 1px solid var(--border);
     }
-    .perk-item { background: var(--black); padding: 2.5rem 2rem; transition: background 0.2s; }
-    .perk-item:hover { background: #0f0f0f; }
     .perk-icon { font-size: 1.8rem; margin-bottom: 1rem; }
-    .perk-name { font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
     .perk-desc { font-size: 0.82rem; opacity: 0.5; line-height: 1.7; }
 
     /* JOB LISTINGS */
@@ -110,26 +107,11 @@
     }
     .modal-apply:hover { background: #fff; }
 
-    /* QUOTE BANNER */
-    .quote-banner {
-      background: var(--yellow); color: var(--black);
-      padding: 5rem 2rem; text-align: center;
-    }
-    .qb-text {
-      font-family: var(--font-display); font-weight: 900;
-      font-size: clamp(1.5rem, 3.5vw, 2.8rem); line-height: 1.2;
-      max-width: 800px; margin: 0 auto 1rem;
-    }
-    .qb-attr { font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.5; }
-
-    /* FOOTER */
-
     @media (max-width: 900px) {
       .culture-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
-      .nav-links { display: none; }
       .job-item { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
       .modal { padding: 2.5rem 1.5rem; }
       .modal-meta { flex-wrap: wrap; gap: 1.2rem; }

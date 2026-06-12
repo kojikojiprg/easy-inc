@@ -53,66 +53,10 @@
     }
     .sd-quote-attr { font-size: 0.72rem; opacity: 0.55; margin-top: 0.8rem; letter-spacing: 0.1em; }
 
-    /* FLOW SECTION */
-    .flow-steps {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1px; background: var(--border); border: 1px solid var(--border);
-    }
-    .flow-step {
-      background: var(--black); padding: 2.5rem 2rem;
-      position: relative; overflow: hidden;
-      transition: background 0.25s;
-    }
-    .flow-step:hover { background: #0f0f0f; }
-    .flow-arrow {
-      position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%);
-      font-size: 1.2rem; opacity: 0.15;
-    }
-    .flow-step:last-child .flow-arrow { display: none; }
-    .flow-num {
-      font-family: var(--font-display); font-weight: 900;
-      font-size: 2.5rem; color: var(--yellow); opacity: 0.2;
-      line-height: 1; margin-bottom: 1rem;
-    }
-    .flow-title {
-      font-family: var(--font-display); font-weight: 700;
-      font-size: 1rem; margin-bottom: 0.6rem;
-    }
-    .flow-desc { font-size: 0.82rem; opacity: 0.5; line-height: 1.7; }
-
-    /* CASE STUDY */
-    .case-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1px; background: var(--border); border: 1px solid var(--border);
-    }
-    .case-item { background: var(--black); padding: 3rem 2.5rem; transition: background 0.2s; }
-    .case-item:hover { background: #0f0f0f; }
-    .case-tag {
-      display: inline-block; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-      border: 1px solid var(--yellow); color: var(--yellow);
-      padding: 0.2rem 0.7rem; margin-bottom: 1.5rem;
-    }
-    .case-title {
-      font-family: var(--font-display); font-weight: 700;
-      font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.3;
-    }
-    .case-desc { font-size: 0.86rem; opacity: 0.55; line-height: 1.75; }
-    .case-result {
-      margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
-      font-family: var(--font-display); font-weight: 700;
-      font-size: 1.8rem; color: var(--yellow);
-    }
-    .case-result-label { font-size: 0.72rem; opacity: 0.4; font-family: var(--font-body); font-weight: 300; margin-top: 0.2rem; }
-
-    /* FOOTER */
-
     @media (max-width: 900px) {
-      .flow-steps { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
       .service-detail { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
-      .nav-links { display: none; }
       .sd-main { padding: 2.5rem 1.8rem; }
-      .flow-steps { grid-template-columns: 1fr; }
     }
