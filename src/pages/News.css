@@ -3,7 +3,8 @@
 ═══════════════════════════════════════ */
 
 .news-featured {
-  padding: 4rem 0 3rem;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
   border-bottom: 1px solid var(--border);
 }
 
@@ -70,7 +71,8 @@
 
 /* ── ALL ARTICLES LIST ── */
 .news-all {
-  padding: 3rem 0 6rem;
+  padding-top: 3rem;
+  padding-bottom: 6rem;
 }
 
 .news-list {
