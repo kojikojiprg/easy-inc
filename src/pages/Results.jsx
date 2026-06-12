@@ -34,14 +34,6 @@ const TESTI = [
   { stars: 5, text: '他社には「それは難しいですね」と言われた課題を、EASY.INCは「イージーです」と言って本当に解決した。正直、怖かった。', author: '佐藤 むずかしくない様', role: 'スタートアップ / CEO / 元・懐疑派' },
   { stars: 4, text: '星4つなのは、あまりにイージーすぎて「本当に頑張ってくれたのか？」と少し心配になったから。でも結果は最高でした。次も頼みます。', author: '山田 よんつぼし様', role: '中小企業 / 経営企画 / やや心配性' },
 ]
-const PRESS = [
-  { outlet: 'イージー経済新聞', title: '「残業ゼロで利益ゼロ」——EASY.INCの驚異の経営モデル', date: '2025年1月15日' },
-  { outlet: '週刊東洋イージー', title: '次世代スタートアップ特集：「社名で全部説明できる会社」トップ10', date: '2025年2月3日' },
-  { outlet: 'Forbes JAPAN（非公式）', title: '「イージーすぎて取材にならなかった」——記者が語る現場レポート', date: '2025年3月22日' },
-  { outlet: 'TechCrunch EASY', title: 'EASY.INC、シーシャ消費量で前年比340%増を達成。売上は非公開。', date: '2025年4月1日' },
-  { outlet: 'NHK（夢の中で）', title: '「もっとイージーに生きよう」——注目企業が語る働き方改革の未来', date: '放送日：未定（夢なので）' },
-  { outlet: '地元の回覧板', title: '近所にイージーな会社ができました。騒音なし。ゴミ出しも正確。', date: '2024年12月' },
-]
 
 function KpiItem({ count, label, note, fixed }) {
   const ref = useRef(null)
@@ -137,22 +129,6 @@ export default function Results() {
                 <div className="testi-text">{t.text}</div>
                 <div className="testi-author">{t.author}</div>
                 <div className="testi-role">{t.role}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="wrap">
-        <div className="section-block">
-          <p className="section-label fade-in">メディア掲載</p>
-          <h2 className="section-heading fade-in">Press</h2>
-          <div className="press-list">
-            {PRESS.map((p,i) => (
-              <div className="press-item fade-in" key={i}>
-                <div className="press-outlet">{p.outlet}</div>
-                <div className="press-title">{p.title}</div>
-                <div className="press-date">{p.date}</div>
               </div>
             ))}
           </div>
