@@ -9,7 +9,7 @@ const JOBS = [
     modalDept: 'Engineering',
     body: '何かをイージーにしてください。何かはあなたが決めていいです。「これイージーにしたいな」と思ったことを、イージーにしてください。それが仕事です。週報もイージーです（任意）。',
     required: ['パソコンが開ける','「イージー」という言葉に抵抗がない','何かをイージーにしたいという気持ち'],
-    welcome: ['TypeScript / Python / その他なんでも','コーヒーが好き','昼寝が得意'],
+    welcome: ['TypeScript / Python / その他なんでも','シーシャが好き','昼寝が得意'],
     cta: 'イージーに応募する →', mailto: 'careers@easy-inc.jp?subject=エンジニア応募' },
   { id: 'job2', dept: 'Design', type: '正社員', badge: null, filter: 'design',
     title: '見た目をイージーにするデザイナー',
@@ -21,7 +21,7 @@ const JOBS = [
     cta: 'イージーに応募する →', mailto: 'careers@easy-inc.jp?subject=デザイナー応募' },
   { id: 'job3', dept: 'Special', type: '正社員', badge: '大注目', filter: 'easy',
     title: 'イージー推進部長（新設ポジション）',
-    loc: 'オフィス（猫がいる）', salary: 'コーヒー代込み', hours: '昼寝込み',
+    loc: 'オフィス（猫がいる）', salary: 'シーシャ代込み', hours: '昼寝込み',
     modalDept: 'Special Position',
     body: '社内の「難しいもの」を見つけて、「イージーにしろ」と言う役職です。具体的な解決策は考えなくていいです。「これイージーじゃない」と声に出すだけで、周囲が動きます。肩書きは「イージー推進部長」です。名刺に印刷します。',
     required: ['「これイージーじゃない」と言える勇気','猫と仲良くできる（イージーみけとの面接あり）','特になし'],
@@ -101,7 +101,7 @@ export default function Careers() {
             <div style={{background:'var(--black)',padding:'3rem 2.5rem'}}>
               <div style={{fontSize:'0.68rem',letterSpacing:'0.25em',textTransform:'uppercase',color:'var(--yellow)',marginBottom:'1.5rem',opacity:0.8}}>必須条件</div>
               <ul style={{listStyle:'none',display:'flex',flexDirection:'column',gap:'1rem'}}>
-                {['なんとなくやる気がある','パソコンが開ける','コーヒーまたは飲み物を飲める（種類不問）','「イージー」という言葉に嫌悪感がない','定時に帰れる（これは必須）'].map(r => (
+                {['なんとなくやる気がある','パソコンが開ける','シーシャを吸える（種類不問）','「イージー」という言葉に嫌悪感がない','定時に帰れる（これは必須）'].map(r => (
                   <li key={r} style={{display:'flex',gap:'1rem',alignItems:'flex-start',fontSize:'0.92rem',opacity:0.75}}><span style={{color:'var(--yellow)',flexShrink:0}}>✦</span>{r}</li>
                 ))}
               </ul>
@@ -109,7 +109,7 @@ export default function Careers() {
             <div style={{background:'var(--black)',padding:'3rem 2.5rem',borderLeft:'1px solid var(--border)'}}>
               <div style={{fontSize:'0.68rem',letterSpacing:'0.25em',textTransform:'uppercase',color:'var(--yellow)',marginBottom:'1.5rem',opacity:0.8}}>歓迎条件</div>
               <ul style={{listStyle:'none',display:'flex',flexDirection:'column',gap:'1rem'}}>
-                {['昼寝が得意','「これイージーにできるな」が口癖','1日2杯以上コーヒーを飲む','名前に「イージー」が入っている（加点方式）','このページを最後まで読んだ（あなたは今ここです）'].map(r => (
+                {['昼寝が得意','「これイージーにできるな」が口癖','1日1本以上シーシャを吸う','名前に「イージー」が入っている（加点方式）','このページを最後まで読んだ（あなたは今ここです）'].map(r => (
                   <li key={r} style={{display:'flex',gap:'1rem',alignItems:'flex-start',fontSize:'0.92rem',opacity:0.75}}><span style={{color:'var(--yellow)',flexShrink:0}}>◎</span>{r}</li>
                 ))}
               </ul>
@@ -149,7 +149,7 @@ export default function Careers() {
           <div className="culture-grid">
             {[['🎯','本質だけに集中する','不必要な会議、不必要なプロセス、不必要な複雑さを徹底的に排除します。あなたの時間は、本当に大切なことだけに使われます。','"The ability to simplify means to eliminate the unnecessary so that the necessary may speak." — Hans Hofmann'],
               ['😴','昼寝は権利である','15〜20分の仮眠は公式に推奨されています。「仮眠室」という名の会議室があります。予約不要。起こしません。','"A rested mind is an easy mind." — EASY.INC Employee Handbook, p.1（全1ページ）'],
-              ['☕','コーヒーは無限に出る','オフィスのコーヒーマシンに上限はありません。飲みすぎ注意という規定もありません。「コーヒー代」という経費項目もありません。全部会社持ちです。','"Coffee is a language in itself." — Jackie Chan（本当にこう言ったらしい）'],
+              ['🚬','シーシャは無限に出る','オフィスのシーシャ台に上限はありません。吸いすぎ注意という規定もありません。「シーシャ代」という経費項目もありません。全部会社持ちです。','"Shishas are for people who can't make it on their own." — Jackie Chan（本当にこう言ったらしい）'],
             ].map(([icon, title, desc, quote]) => (
               <div className="culture-card fade-in" key={title}>
                 <div className="culture-icon">{icon}</div>
@@ -172,7 +172,7 @@ export default function Careers() {
               ['⏰','コアタイム：なし','「コアタイムを決めること」がイージーではないため、設定していません。起きたら仕事してください。'],
               ['📚','学習支援 無制限','「これ買いたい」と言えばだいたい通ります。申請フォームはありません。Slackで「買っていいですか」と聞くだけです。'],
               ['💤','昼寝手当','昼寝した日は+500円。証明方法：「昼寝しました」と申告するだけ。確認はしません。イージーに申告してください。'],
-              ['☕','コーヒー飲み放題','前述の通り。リモートの場合はコーヒー代を月1万円まで経費申請できます。スタバでもイージーに。'],
+              ['🚬','シーシャ吸い放題','前述の通り。リモートの場合はシーシャ代を月1万円まで経費申請できます。シーシャカフェでもイージーに。'],
               ['🌴','有休：存在しない','休みたい日は休んでください。申請不要。「今日休みます」とSlackに書けば十分です。既読スルーで承認とします。'],
               ['💰','給与：要相談','「いくら欲しいですか？」という質問から始まります。高い方が頑張れるならそれがイージーです。話し合いましょう。'],
               ['🐈','ペット同伴可','社内猫「イージーみけ」と仲良くできる方に限ります。みけの機嫌が最終面接の合否に影響することがあります。'],
