@@ -54,7 +54,7 @@ export default function Shisha() {
         <div className="symbol">💨</div>
         <p className="reli-eyebrow">The Official Philosophy of EASY.INC</p>
         <h1 className="reli-title">シーシャは<br /><em>イージー</em></h1>
-        <p className="reli-sub">私たちは長い議論の末に結論を出した。シーシャこそが、イージーの最終形態である、と。</p>
+        <p className="reli-sub">私たちは長い議論の末に結論を出した。<br />シーシャこそが、イージーの最終形態である、と。</p>
         <span className="reli-scroll">↓ 煙とともに悟れ</span>
       </section>
 
