@@ -149,7 +149,7 @@ export default function Careers() {
           <div className="culture-grid">
             {[['🎯','本質だけに集中する','不必要な会議、不必要なプロセス、不必要な複雑さを徹底的に排除します。あなたの時間は、本当に大切なことだけに使われます。','"The ability to simplify means to eliminate the unnecessary so that the necessary may speak." — Hans Hofmann'],
               ['😴','昼寝は権利である','15〜20分の仮眠は公式に推奨されています。「仮眠室」という名の会議室があります。予約不要。起こしません。','"A rested mind is an easy mind." — EASY.INC Employee Handbook, p.1（全1ページ）'],
-              ['🚬','シーシャは無限に出る','オフィスのシーシャ台に上限はありません。吸いすぎ注意という規定もありません。「シーシャ代」という経費項目もありません。全部会社持ちです。','"Shishas are for people who can't make it on their own." — Jackie Chan（本当にこう言ったらしい）'],
+              ['🚬','シーシャは無限に出る','オフィスのシーシャ台に上限はありません。吸いすぎ注意という規定もありません。「シーシャ代」という経費項目もありません。全部会社持ちです。','"Shishas are for people who can\'t make it on their own." — Jackie Chan（本当にこう言ったらしい）'],
             ].map(([icon, title, desc, quote]) => (
               <div className="culture-card fade-in" key={title}>
                 <div className="culture-icon">{icon}</div>
