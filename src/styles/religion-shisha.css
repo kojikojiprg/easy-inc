@@ -1,118 +1,380 @@
+/* ── HERO ── */
 .reli-hero {
-      min-height: 100vh; display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center; padding: 8rem 2rem 6rem;
-      position: relative; overflow: hidden;
-    }
-    .reli-hero-bg {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at center, #1a1500 0%, #0A0A0A 70%);
-    }
-    .symbol {
-      font-size: 6rem; margin-bottom: 2rem; position: relative; z-index: 1;
-      animation: glow 3s ease-in-out infinite;
-    }
-    @keyframes glow {
-      0%,100% { filter: drop-shadow(0 0 8px rgba(201,168,76,0.3)); }
-      50%      { filter: drop-shadow(0 0 32px rgba(201,168,76,0.7)); }
-    }
-    .reli-eyebrow { font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; position: relative; z-index: 1; }
-    .reli-title {
-      font-family: 'Noto Serif JP', serif; font-weight: 700;
-      font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1.1;
-      position: relative; z-index: 1; margin-bottom: 1.5rem;
-    }
-    .reli-title em { font-style: normal; color: var(--gold); }
-    .reli-sub { font-size: 1.05rem; opacity: 0.55; max-width: 500px; line-height: 1.9; position: relative; z-index: 1; }
-    .reli-scroll { position: absolute; bottom: 3rem; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.3; animation: bob 2s ease-in-out infinite; }
-    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 8rem 2rem 6rem;
+  position: relative; overflow: hidden;
+}
+.reli-hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, #1a1500 0%, #0A0A0A 70%);
+}
+.symbol {
+  font-size: 6rem; margin-bottom: 2rem; position: relative; z-index: 1;
+  animation: glow 3s ease-in-out infinite;
+}
+@keyframes glow {
+  0%,100% { filter: drop-shadow(0 0 8px rgba(201,168,76,0.3)); }
+  50%      { filter: drop-shadow(0 0 32px rgba(201,168,76,0.7)); }
+}
+.reli-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem; position: relative; z-index: 1;
+}
+.reli-title {
+  font-family: 'Noto Serif JP', serif; font-weight: 700;
+  font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1.1;
+  position: relative; z-index: 1; margin-bottom: 1.5rem;
+}
+.reli-title em { font-style: normal; color: var(--gold); }
+.reli-sub {
+  font-size: 1.05rem; opacity: 0.55; max-width: 500px;
+  line-height: 1.9; position: relative; z-index: 1;
+}
+.reli-scroll {
+  position: absolute; bottom: 3rem;
+  font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+  opacity: 0.3; animation: bob 2s ease-in-out infinite;
+}
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
 
-    /* ── WRAP ── */
+/* ── SECTION LABELS ── */
+.reli-section-label {
+  font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.75; margin-bottom: 0.75rem;
+}
+.reli-section-heading {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  margin-bottom: 2.5rem;
+  color: var(--off-white);
+}
 
-    /* ── TENETS ── */
-    .tenets { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .tenet {
-      background: var(--black); padding: 3rem 3.5rem;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; align-items: start;
-      transition: background 0.2s;
-    }
-    .tenet:hover { background: #0d0d0d; }
-    .tenet-num {
-      font-family: var(--font-display); font-weight: 900;
-      font-size: 3.5rem; color: var(--gold); opacity: 0.2;
-      line-height: 1; transition: opacity 0.25s;
-    }
-    .tenet:hover .tenet-num { opacity: 0.6; }
-    .tenet-title { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.2rem; margin-bottom: 0.8rem; }
-    .tenet-body { font-size: 0.92rem; opacity: 0.65; line-height: 1.9; }
-    .tenet-verdict { margin-top: 0.8rem; font-size: 0.78rem; color: var(--gold); opacity: 0.7; font-style: italic; }
+/* ── SECTION BLOCK ── */
+.section-block {
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.section-block.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 
-    /* ── SCRIPTURE ── */
-    .scripture-block {
-      background: var(--parchment); border: 1px solid rgba(201,168,76,0.2);
-      padding: 4rem; margin-top: 0;
-    }
-    .scripture-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; opacity: 0.7; }
-    .scripture-text {
-      font-family: 'Noto Serif JP', serif; font-weight: 400;
-      font-size: 1.05rem; line-height: 2.2; opacity: 0.8;
-    }
-    .scripture-text p + p { margin-top: 1.5rem; }
-    .scripture-verse { color: var(--gold); font-weight: 700; }
+/* ── INFO TABLE ── */
+.info-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+.info-table td {
+  padding: 0.85rem 1.2rem;
+  border: 1px solid var(--border);
+}
+.info-table td:first-child {
+  width: 30%; color: var(--gold); opacity: 0.85;
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--parchment);
+}
+.info-table td:last-child {
+  color: var(--off-white); opacity: 0.8; background: #0d0d0d;
+}
 
-    /* ── HIERARCHY ── */
-    .hierarchy { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .rank-item {
-      background: var(--black); padding: 2.2rem 2rem;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) auto;
-      align-items: center; gap: 2rem; transition: background 0.2s;
-    }
-    .rank-item:hover { background: #0d0d0d; }
-    .rank-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
-    .rank-desc { font-size: 0.85rem; opacity: 0.55; line-height: 1.7; }
-    .rank-badge { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid var(--gold); color: var(--gold); padding: 0.25rem 0.8rem; white-space: nowrap; opacity: 0.7; }
+/* ── TENETS ── */
+.tenets {
+  display: flex; flex-direction: column;
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+}
+.tenet {
+  background: var(--black); padding: 3rem 3.5rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2.5rem; align-items: start;
+  transition: background 0.2s;
+}
+.tenet:hover { background: #0d0d0d; }
+.tenet-num {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 3.5rem; color: var(--gold); opacity: 0.2;
+  line-height: 1; transition: opacity 0.25s;
+}
+.tenet:hover .tenet-num { opacity: 0.6; }
+.tenet-title {
+  font-family: 'Noto Serif JP', serif; font-weight: 700;
+  font-size: 1.2rem; margin-bottom: 0.8rem;
+}
+.tenet-body { font-size: 0.92rem; opacity: 0.65; line-height: 1.9; }
+.tenet-verdict {
+  margin-top: 0.8rem; font-size: 0.78rem;
+  color: var(--gold); opacity: 0.7; font-style: italic;
+}
 
-    /* ── HOLY DAYS ── */
-    .holydays-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .holyday-item { background: var(--black); padding: 2.5rem 2rem; transition: background 0.2s; }
-    .holyday-item:hover { background: #0d0d0d; }
-    .holyday-date { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.7; margin-bottom: 0.6rem; }
-    .holyday-name { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; }
-    .holyday-desc { font-size: 0.85rem; opacity: 0.55; line-height: 1.8; }
-    .holyday-ritual { margin-top: 1rem; font-size: 0.78rem; color: var(--gold); opacity: 0.6; }
+/* ── EFFECTS ── */
+.effects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.effect-item {
+  background: var(--black);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: background 0.2s;
+}
+.effect-item:hover { background: #0d0d0d; }
+.effect-num {
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+}
+.effect-title {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--off-white);
+  margin: 0;
+  line-height: 1.4;
+}
+.effect-desc {
+  font-size: 0.88rem;
+  color: var(--off-white);
+  opacity: 0.65;
+  line-height: 1.85;
+  margin: 0;
+  flex: 1;
+}
+.effect-note {
+  font-size: 0.7rem;
+  color: var(--gold);
+  opacity: 0.45;
+  margin: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
 
-    /* ── FAQ ── */
-    .faq-list { display: flex; flex-direction: column; }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-q {
-      padding: 1.8rem 0; font-family: var(--font-display); font-weight: 600;
-      font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-      transition: color 0.2s;
-    }
-    .faq-q:hover { color: var(--yellow); }
-    .faq-arrow { font-size: 1.2rem; transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
-    .faq-item.open .faq-arrow { transform: rotate(45deg); }
-    .faq-a { font-size: 0.92rem; opacity: 0.65; line-height: 1.9; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
-    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 1.8rem; }
+/* ── SCRIPTURE ── */
+.scripture-block {
+  background: var(--parchment);
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 4rem;
+  margin-top: 0;
+}
+.scripture-label {
+  font-size: 0.65rem; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 2rem; opacity: 0.7;
+}
+.scripture-text {
+  font-family: 'Noto Serif JP', serif; font-weight: 400;
+  font-size: 1.05rem; line-height: 2.2; opacity: 0.8;
+}
+.scripture-text p + p { margin-top: 1.5rem; }
+.scripture-verse { color: var(--gold); font-weight: 700; }
 
-    /* ── JOIN BANNER ── */
-    .join-banner {
-      background: var(--gold); color: var(--black);
-      padding: 6rem 2rem; text-align: center;
-    }
-    .join-title { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 1.5rem; }
-    .join-sub { font-size: 1rem; opacity: 0.65; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.9; }
-    .join-btn {
-      display: inline-block; background: var(--black); color: var(--gold);
-      font-family: var(--font-display); font-weight: 700;
-      font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 1rem 2.5rem; text-decoration: none; transition: background 0.2s, color 0.2s;
-    }
-    .join-btn:hover { background: #111; }
-    .join-disclaimer { margin-top: 1.5rem; font-size: 0.68rem; opacity: 0.4; }
+/* ── FLAVORS ── */
+.flavor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.flavor-item {
+  background: var(--black);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: background 0.2s;
+  position: relative;
+}
+.flavor-item:hover { background: #0d0d0d; }
+.flavor-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.65;
+  margin: 0;
+}
+.flavor-emoji {
+  font-size: 2.4rem;
+  line-height: 1;
+  margin: 0.5rem 0 0.3rem;
+}
+.flavor-name {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--off-white);
+  margin: 0;
+  line-height: 1.3;
+}
+.flavor-desc {
+  font-size: 0.86rem;
+  color: var(--off-white);
+  opacity: 0.6;
+  line-height: 1.85;
+  margin: 0;
+  flex: 1;
+}
 
-    @media (max-width: 768px) {
-      .tenet { grid-template-columns: 1fr; gap: 1rem; }
-      .rank-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .join-banner { padding: 4rem 1.5rem; }
-    }
+/* ── TIMELINE (500年のイージー史) ── */
+.shisha-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.stl-item {
+  background: var(--black);
+  padding: 2.8rem 3rem;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  transition: background 0.2s;
+}
+.stl-item:hover { background: #0d0d0d; }
+.stl-era {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  opacity: 0.75;
+  line-height: 1.7;
+  padding-top: 0.3rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.stl-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold);
+  padding: 0.2rem 0.6rem;
+  opacity: 0.7;
+}
+.stl-title {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--off-white);
+  margin: 0 0 0.7rem;
+  line-height: 1.4;
+}
+.stl-desc {
+  font-size: 0.88rem;
+  color: var(--off-white);
+  opacity: 0.62;
+  line-height: 1.9;
+  margin: 0;
+}
+
+/* ── HIERARCHY ── */
+.hierarchy {
+  display: flex; flex-direction: column;
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+}
+.rank-item {
+  background: var(--black); padding: 2.2rem 2rem;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) auto;
+  align-items: center; gap: 2rem; transition: background 0.2s;
+}
+.rank-item:hover { background: #0d0d0d; }
+.rank-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+.rank-desc { font-size: 0.85rem; opacity: 0.55; line-height: 1.7; }
+.rank-badge {
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  border: 1px solid var(--gold); color: var(--gold);
+  padding: 0.25rem 0.8rem; white-space: nowrap; opacity: 0.7;
+}
+
+/* ── HOLY DAYS ── */
+.holydays-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+}
+.holyday-item {
+  background: var(--black); padding: 2.5rem 2rem; transition: background 0.2s;
+}
+.holyday-item:hover { background: #0d0d0d; }
+.holyday-date {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.7; margin-bottom: 0.6rem;
+}
+.holyday-name {
+  font-family: 'Noto Serif JP', serif; font-weight: 700;
+  font-size: 1.1rem; margin-bottom: 0.8rem;
+}
+.holyday-desc { font-size: 0.85rem; opacity: 0.55; line-height: 1.8; }
+.holyday-ritual { margin-top: 1rem; font-size: 0.78rem; color: var(--gold); opacity: 0.6; }
+
+/* ── FAQ ── */
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  padding: 1.8rem 0; font-family: var(--font-display); font-weight: 600;
+  font-size: 1rem; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--yellow); }
+.faq-arrow {
+  font-size: 1.2rem; transition: transform 0.3s;
+  flex-shrink: 0; margin-left: 1rem;
+}
+.faq-item.open .faq-arrow { transform: rotate(45deg); }
+.faq-a {
+  font-size: 0.92rem; opacity: 0.65; line-height: 1.9;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+}
+.faq-item.open .faq-a { max-height: 300px; padding-bottom: 1.8rem; }
+
+/* ── JOIN BANNER ── */
+.join-banner {
+  background: var(--gold); color: var(--black);
+  padding: 6rem 2rem; text-align: center;
+}
+.join-title {
+  font-family: 'Noto Serif JP', serif; font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 1.5rem;
+}
+.join-sub {
+  font-size: 1rem; opacity: 0.65; max-width: 480px;
+  margin: 0 auto 2.5rem; line-height: 1.9;
+}
+.join-btn {
+  display: inline-block; background: var(--black); color: var(--gold);
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 1rem 2.5rem; text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.join-btn:hover { background: #111; }
+.join-disclaimer { margin-top: 1.5rem; font-size: 0.68rem; opacity: 0.4; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .tenet { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1.5rem; }
+  .rank-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .join-banner { padding: 4rem 1.5rem; }
+  .scripture-block { padding: 2.5rem 1.5rem; }
+  .effects-grid { grid-template-columns: 1fr; }
+  .flavor-grid { grid-template-columns: 1fr; }
+  .stl-item { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1.5rem; }
+  .stl-era { white-space: normal; }
+}
