@@ -52,7 +52,7 @@ export default function Religion() {
         <div className="reli-hero-bg" />
         <div className="symbol">☯️</div>
         <p className="reli-eyebrow">The Church of Easy</p>
-        <h1 className="reli-title">イージー教へ<br /><em>ようこそ。</em></h1>
+        <h1 className="reli-title"><em>イージー教</em>へ<br />ようこそ</h1>
         <p className="reli-sub">難しく生きることに疲れたあなたへ。私たちは、イージーという真理を信じる者たちの集いです。入信はイージーです。</p>
         <span className="reli-scroll">↓ 悟りを開く</span>
       </section>
