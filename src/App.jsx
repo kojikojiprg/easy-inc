@@ -12,8 +12,6 @@ import NewsList from './pages/NewsList'
 import NewsArticle from './pages/NewsArticle'
 import NotFound from './pages/NotFound'
 
-<Route path="*" element={<NotFound />} />
-
 export default function App() {
   return (
     <BrowserRouter basename="/easy-inc">
@@ -29,6 +27,7 @@ export default function App() {
           <Route path="shisha"   element={<Shisha />} />
           <Route path="news"     element={<NewsList />} />
           <Route path="news/:id" element={<NewsArticle />} />
+          <Route path="*"        element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

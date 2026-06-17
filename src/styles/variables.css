@@ -63,7 +63,7 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--font-display);
   font-weight: 900;
   font-size: clamp(3rem, 8vw, 7rem);
-  line-height: 0.9;
+  line-height: 1.1;
   letter-spacing: -0.04em;
 }
 .page-title em { font-style: normal; color: var(--yellow); }
@@ -72,7 +72,7 @@ a { color: inherit; text-decoration: none; }
   max-width: 520px;
   font-size: 0.97rem;
   opacity: 0.5;
-  line-height: 1.85;
+  line-height: 1.8;
 }
 
 /* ── SECTION ── */

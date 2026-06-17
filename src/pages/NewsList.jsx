@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useFadeIn } from '../hooks/useFadeIn'
 import { newsArticles } from '../data/news'
+import { useLanguage } from '../context/LanguageContext'
 import './News.css'
 
 export default function NewsList() {
   useFadeIn()
-  const [featured] = newsArticles
+  const { lang, t } = useLanguage()
+  const articles = newsArticles[lang]
+  const [featured] = articles
 
   return (
     <>
@@ -15,13 +18,13 @@ export default function NewsList() {
           Latest <em>Updates.</em>
         </h1>
         <p className="page-hero-desc">
-          EASY.INCの最新情報。イージーにお読みください。長い記事は書きません。なぜならイージーではないからです。
+          {t("The latest from EASY.INC. Read it easily. We don't write long articles, because that wouldn't be easy.", 'EASY.INCの最新情報。イージーにお読みください。長い記事は書きません。なぜならイージーではないからです。')}
         </p>
       </section>
 
       {/* FEATURED */}
       <section className="news-featured container fade-in">
-        <p className="section-label">最新記事</p>
+        <p className="section-label">{t('Latest Article', '最新記事')}</p>
         <Link to={`/news/${featured.id}`} className="featured-card">
           <div className="featured-meta">
             <span className="news-tag">{featured.tag}</span>
@@ -32,19 +35,19 @@ export default function NewsList() {
           {featured.quote && (
             <blockquote>
               "{featured.quote.en}"
-              <span className="ja">{featured.quote.ja}</span>
+              {lang === 'ja' && <span className="ja">{featured.quote.ja}</span>}
               <cite>{featured.quote.cite}</cite>
             </blockquote>
           )}
-          <span className="featured-cta">続きを読む →</span>
+          <span className="featured-cta">{t('Read more →', '続きを読む →')}</span>
         </Link>
       </section>
 
       {/* ALL ARTICLES */}
       <section className="news-all container">
-        <p className="section-label">すべての記事</p>
+        <p className="section-label">{t('All Articles', 'すべての記事')}</p>
         <ul className="news-list">
-          {newsArticles.map((a) => (
+          {articles.map((a) => (
             <li key={a.id} className="news-item fade-in">
               <Link to={`/news/${a.id}`} className="news-link">
                 <span className="news-date">{a.date}</span>

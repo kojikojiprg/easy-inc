@@ -23,14 +23,14 @@
 }
 .reli-title {
   font-family: 'Noto Serif JP', serif; font-weight: 700;
-  font-size: clamp(3rem, 8vw, 6.5rem); line-height: 1.1;
+  font-size: clamp(3rem, 8vw, 7rem); line-height: 1.1;
   text-align: center;
   position: relative; z-index: 1; margin-bottom: 1.5rem;
 }
 .reli-title em { font-style: normal; color: var(--gold); }
 .reli-sub {
   font-size: 1.05rem; opacity: 0.55; max-width: 500px;
-  line-height: 1.9; position: relative; z-index: 1;
+  line-height: 1.8; position: relative; z-index: 1;
 }
 .reli-scroll {
   position: absolute; bottom: 3rem;

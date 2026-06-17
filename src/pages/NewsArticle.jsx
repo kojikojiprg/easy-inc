@@ -1,9 +1,10 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useFadeIn } from '../hooks/useFadeIn'
 import { newsArticles } from '../data/news'
+import { useLanguage } from '../context/LanguageContext'
 import './News.css'
 
-function ArticleBody({ blocks }) {
+function ArticleBody({ blocks, lang, t }) {
   return (
     <div className="article-body">
       {blocks.map((block, i) => {
@@ -13,7 +14,7 @@ function ArticleBody({ blocks }) {
           case 'blockquote': return (
             <blockquote key={i}>
               "{block.en}"
-              <span className="ja">{block.ja}</span>
+              {lang === 'ja' && <span className="ja">{block.ja}</span>}
               <cite>{block.cite}</cite>
             </blockquote>
           )
@@ -37,8 +38,8 @@ function ArticleBody({ blocks }) {
             <div className="president-sign" key={i}>
               <div className="president-avatar">🙂</div>
               <div>
-                <div className="president-name">山田 イージー</div>
-                <div className="president-title">代表取締役 / Founder &amp; CEO</div>
+                <div className="president-name">{t('Easy Yamada', '山田 イージー')}</div>
+                <div className="president-title">{t('Representative Director / Founder & CEO', '代表取締役 / Founder & CEO')}</div>
               </div>
             </div>
           )
@@ -53,12 +54,14 @@ function ArticleBody({ blocks }) {
 export default function NewsArticle() {
   useFadeIn()
   const { id } = useParams()
-  const article = newsArticles.find(a => a.id === id)
+  const { lang, t } = useLanguage()
+  const articles = newsArticles[lang]
+  const article = articles.find(a => a.id === id)
   if (!article) return <Navigate to="/news" replace />
 
-  const idx = newsArticles.indexOf(article)
-  const prev = newsArticles[idx + 1]
-  const next = newsArticles[idx - 1]
+  const idx = articles.indexOf(article)
+  const prev = articles[idx + 1]
+  const next = articles[idx - 1]
 
   return (
     <div className="article-wrap">
@@ -68,18 +71,18 @@ export default function NewsArticle() {
       </div>
       <h1 className="article-title" dangerouslySetInnerHTML={{__html: article.titleHtml}} />
       <p className="article-lead">{article.lead}</p>
-      <ArticleBody blocks={article.body} />
+      <ArticleBody blocks={article.body} lang={lang} t={t} />
 
       <div className="article-nav">
         {prev ? (
           <Link to={`/news/${prev.id}`} className="article-nav-link prev">
-            <span className="nav-dir">← 前の記事</span>
+            <span className="nav-dir">{t('← Previous', '← 前の記事')}</span>
             <span className="nav-label">{prev.title}</span>
           </Link>
         ) : <div />}
         {next ? (
           <Link to={`/news/${next.id}`} className="article-nav-link next">
-            <span className="nav-dir">次の記事 →</span>
+            <span className="nav-dir">{t('Next →', '次の記事 →')}</span>
             <span className="nav-label">{next.title}</span>
           </Link>
         ) : <div />}

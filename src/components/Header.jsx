@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 import './Header.css'
 
 const NAV_LINKS = [
@@ -17,6 +18,7 @@ const NAV_LINKS = [
 export default function Header() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
+  const { lang, toggleLang, t } = useLanguage()
   useEffect(() => { setOpen(false) }, [pathname])
 
   return (
@@ -25,7 +27,12 @@ export default function Header() {
         <div className="nav-top">
           <NavLink to="/" className="nav-logo">EASY.INC</NavLink>
           <span className="nav-tagline">Make It Easy</span>
-          <button className={`nav-hamburger ${open ? 'open' : ''}`} onClick={() => setOpen(!open)} aria-label="メニュー">
+          <button className="lang-toggle" onClick={toggleLang} aria-label={t('Switch to Japanese', '英語に切り替え')}>
+            <span className={lang === 'en' ? 'active' : ''}>EN</span>
+            <span className="lang-sep">/</span>
+            <span className={lang === 'ja' ? 'active' : ''}>JA</span>
+          </button>
+          <button className={`nav-hamburger ${open ? 'open' : ''}`} onClick={() => setOpen(!open)} aria-label={t('Menu', 'メニュー')}>
             <span /><span /><span />
           </button>
         </div>

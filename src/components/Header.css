@@ -61,6 +61,30 @@
   border-bottom: 2px solid var(--yellow);
 }
 
+/* Language toggle */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35em 0.8em;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: #777;
+  cursor: pointer;
+}
+
+.lang-toggle span.active {
+  color: var(--yellow);
+}
+
+.lang-toggle .lang-sep {
+  opacity: 0.4;
+}
+
 /* Hamburger */
 .nav-hamburger {
   display: none;
