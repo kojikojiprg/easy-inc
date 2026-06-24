@@ -47,7 +47,7 @@
   font-family: var(--font-display);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
-  color: #aaa;
+  color: var(--nav-inactive);
   transition: color 0.2s;
   white-space: nowrap;
 }
@@ -73,7 +73,7 @@
   font-family: var(--font-display);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
-  color: #777;
+  color: var(--nav-lang);
   cursor: pointer;
 }
 
@@ -112,26 +112,37 @@
 @media (max-width: 768px) {
   .nav-hamburger { display: flex; }
   .nav-tagline { display: none; }
+  .nav-top { padding: 1rem 1.5rem; position: relative; }
 
   .nav-tabs {
+    display: none !important;
     flex-direction: column;
-    border-top: 1px solid var(--border);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    padding: 0;
+    position: fixed;
+    top: calc(var(--nav-top-height, 83px) + 8px);
+    left: 0; right: 0;
+    background: var(--nav-overlay);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    z-index: 9999;
+    max-height: calc(100vh - var(--nav-top-height, 83px) - 8px);
+    overflow-y: auto;
   }
-
-  .nav-tabs.open {
-    max-height: 500px;
-  }
-
+  .nav-tabs.open { display: flex !important; }
+  .nav-tabs li { width: 100%; }
   .nav-tabs li a {
-    padding: 0.9rem 0;
+    padding: 1.1rem 1.5rem;
     border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+    white-space: normal;
+    opacity: 0.7;
   }
-
   .nav-tabs li a.active {
-    border-bottom: 1px solid var(--border);
+    opacity: 1;
     color: var(--yellow);
+    background: var(--yellow-05);
+    border-left: 3px solid var(--yellow);
+    padding-left: calc(1.5rem - 3px);
   }
 }

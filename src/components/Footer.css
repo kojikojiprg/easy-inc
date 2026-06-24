@@ -17,11 +17,11 @@
   font-weight: 700;
   letter-spacing: 0.05em;
   font-size: 1rem;
-  color: var(--off-white);
+  color: var(--yellow);
 }
 
 .footer-copy {
   font-size: 0.75rem;
-  color: #999;
+  color: var(--text-muted);
   letter-spacing: 0.05em;
 }

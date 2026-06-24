@@ -1,3 +1,12 @@
+/* ── RELIGION / SHISHA VARIABLES ── */
+:root {
+  --reli-dark:  #1a1500;
+  --gold-20:    rgba(201,168,76,0.5);
+  --gold-30:    rgba(201,168,76,0.7);
+  --gold-40:    rgba(201,168,76,0.85);
+  --gold-70:    rgba(201,168,76,1.0);
+}
+
 /* ── HERO ── */
 .reli-hero {
   min-height: calc(100vh - var(--nav-height, 0px)); display: flex; flex-direction: column;
@@ -7,15 +16,15 @@
 }
 .reli-hero-bg {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at center, #1a1500 0%, #0A0A0A 70%);
+  background: radial-gradient(ellipse at center, var(--reli-dark) 0%, var(--black) 70%);
 }
 .symbol {
   font-size: 6rem; margin-bottom: 2rem; position: relative; z-index: 1;
   animation: glow 3s ease-in-out infinite;
 }
 @keyframes glow {
-  0%,100% { filter: drop-shadow(0 0 8px rgba(201,168,76,0.3)); }
-  50%      { filter: drop-shadow(0 0 32px rgba(201,168,76,0.7)); }
+  0%,100% { filter: drop-shadow(0 0 8px var(--gold-30)); }
+  50%      { filter: drop-shadow(0 0 32px var(--gold-70)); }
 }
 .reli-eyebrow {
   font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
@@ -82,7 +91,7 @@
   background: var(--parchment);
 }
 .info-table td:last-child {
-  color: var(--off-white); opacity: 0.8; background: #0d0d0d;
+  color: var(--off-white); opacity: 0.8; background: var(--surface-3);
 }
 
 /* ── TENETS ── */
@@ -96,7 +105,7 @@
   gap: 2.5rem; align-items: start;
   transition: background 0.2s;
 }
-.tenet:hover { background: #0d0d0d; }
+.tenet:hover { background: var(--surface-3); }
 .tenet-num {
   font-family: var(--font-display); font-weight: 900;
   font-size: 3.5rem; color: var(--gold); opacity: 0.2;
@@ -129,7 +138,7 @@
   gap: 0.6rem;
   transition: background 0.2s;
 }
-.effect-item:hover { background: #0d0d0d; }
+.effect-item:hover { background: var(--surface-3); }
 .effect-num {
   font-size: 0.62rem;
   letter-spacing: 0.28em;
@@ -165,7 +174,7 @@
 /* ── SCRIPTURE ── */
 .scripture-block {
   background: var(--parchment);
-  border: 1px solid rgba(201,168,76,0.2);
+  border: 1px solid var(--gold-20);
   padding: 4rem;
   margin-top: 0;
 }
@@ -198,7 +207,7 @@
   transition: background 0.2s;
   position: relative;
 }
-.flavor-item:hover { background: #0d0d0d; }
+.flavor-item:hover { background: var(--surface-3); }
 .flavor-tag {
   font-size: 0.6rem;
   letter-spacing: 0.28em;
@@ -246,7 +255,7 @@
   align-items: start;
   transition: background 0.2s;
 }
-.stl-item:hover { background: #0d0d0d; }
+.stl-item:hover { background: var(--surface-3); }
 .stl-era {
   font-size: 0.8rem;
   letter-spacing: 0.12em;
@@ -263,7 +272,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  border: 1px solid rgba(201,168,76,0.4);
+  border: 1px solid var(--gold-40);
   color: var(--gold);
   padding: 0.2rem 0.6rem;
   opacity: 0.7;
@@ -294,7 +303,7 @@
   display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) auto;
   align-items: center; gap: 2rem; transition: background 0.2s;
 }
-.rank-item:hover { background: #0d0d0d; }
+.rank-item:hover { background: var(--surface-3); }
 .rank-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
 .rank-desc { font-size: 0.85rem; opacity: 0.55; line-height: 1.7; }
 .rank-badge {
@@ -311,7 +320,7 @@
 .holyday-item {
   background: var(--black); padding: 2.5rem 2rem; transition: background 0.2s;
 }
-.holyday-item:hover { background: #0d0d0d; }
+.holyday-item:hover { background: var(--surface-3); }
 .holyday-date {
   font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--gold); opacity: 0.7; margin-bottom: 0.6rem;
@@ -368,7 +377,7 @@
   padding: 1rem 2.5rem; text-decoration: none;
   transition: background 0.2s, color 0.2s;
 }
-.join-btn:hover { background: #111; }
+.join-btn:hover { background: var(--surface-1); }
 .join-disclaimer { margin-top: 1.5rem; font-size: 0.68rem; opacity: 0.4; }
 
 /* ── MOBILE ── */

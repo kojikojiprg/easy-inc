@@ -10,6 +10,31 @@
   --parchment: #1a180f;
   --font-display: 'Space Grotesk', sans-serif;
   --font-body:    'Inter', sans-serif;
+
+  /* ── SURFACES ── */
+  --surface-1:    #111111;
+  --surface-2:    #0f0f0f;
+  --surface-3:    #0d0d0d;
+  --dark-1:       #1a1a1a;
+  --dark-2:       #2a2a2a;
+
+  /* ── TEXT ── */
+  --white:        #ffffff;
+  --text-sub:     #dddddd;
+  --text-muted:   #aaaaaa;
+  --nav-inactive: #dddddd;
+  --nav-lang:     #aaaaaa;
+
+  /* ── OVERLAYS ── */
+  --overlay:      rgba(0,0,0,0.85);
+  --nav-overlay:  rgba(10,10,10,0.98);
+
+  /* ── YELLOW ALPHA ── */
+  --yellow-03:    rgba(232,255,0,0.03);
+  --yellow-05:    rgba(232,255,0,0.05);
+  --yellow-08:    rgba(232,255,0,0.08);
+  --yellow-15:    rgba(232,255,0,0.15);
+  --yellow-30:    rgba(232,255,0,0.30);
 }
 html { scroll-behavior: smooth; }
 

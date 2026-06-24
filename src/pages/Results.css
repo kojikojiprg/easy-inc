@@ -1,7 +1,7 @@
 /* BIG NUMBERS */
     .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
     .kpi-item { background: var(--black); padding: 3rem 2rem; text-align: center; transition: background 0.2s; position: relative; overflow: hidden; }
-    .kpi-item:hover { background: #0f0f0f; }
+    .kpi-item:hover { background: var(--surface-2); }
     .kpi-num { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--yellow); line-height: 1; margin-bottom: 0.8rem; }
     .kpi-label { font-size: 0.82rem; opacity: 0.55; line-height: 1.6; }
     .kpi-note { font-size: 0.65rem; opacity: 0.3; margin-top: 0.5rem; font-style: italic; }
@@ -9,7 +9,7 @@
     /* AWARD */
     .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
     .award-item { background: var(--black); padding: 3rem 2rem; transition: background 0.2s; }
-    .award-item:hover { background: #0f0f0f; }
+    .award-item:hover { background: var(--surface-2); }
     .award-trophy { font-size: 3rem; margin-bottom: 1.2rem; }
     .award-name { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
     .award-org { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--yellow); opacity: 0.7; margin-bottom: 0.8rem; }
@@ -17,7 +17,7 @@
 
     /* TESTIMONIALS */
     .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .testi-card { background: #0d0d0d; border: 1px solid var(--border); padding: 2.5rem; }
+    .testi-card { background: var(--surface-3); border: 1px solid var(--border); padding: 2.5rem; }
     .testi-text { font-size: 1.05rem; line-height: 1.85; opacity: 0.8; margin-bottom: 1.5rem; font-style: italic; }
     .testi-text::before { content: '\201C'; color: var(--yellow); }
     .testi-text::after { content: '\201D'; color: var(--yellow); }
@@ -26,20 +26,20 @@
     .testi-stars { color: var(--yellow); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
 
     /* GRAPH */
-    .fake-graph { background: #0d0d0d; border: 1px solid var(--border); padding: 2rem; }
+    .fake-graph { background: var(--surface-3); border: 1px solid var(--border); padding: 2rem; }
     .graph-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; margin-bottom: 2.5rem; opacity: 0.8; }
     .bar-row { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.2rem; }
     .bar-label { font-size: 0.78rem; opacity: 0.5; width: 180px; flex-shrink: 0; text-align: right; }
-    .bar-track { flex: 1; height: 28px; background: #1a1a1a; position: relative; }
+    .bar-track { flex: 1; height: 28px; background: var(--dark-1); position: relative; }
     .bar-fill { height: 100%; background: var(--yellow); display: flex; align-items: center; padding-left: 0.8rem; transition: width 1.5s ease; }
     .bar-fill span { font-family: var(--font-display); font-weight: 700; font-size: 0.78rem; color: var(--black); white-space: nowrap; }
 
     /* PRESS */
     .press-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
     .press-item { background: var(--black); padding: 2.5rem 2rem; transition: background 0.2s; }
-    .press-item:hover { background: #0f0f0f; }
+    .press-item:hover { background: var(--surface-2); }
     .press-outlet { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--yellow); margin-bottom: 0.8rem; opacity: 0.7; }
     .press-date { font-size: 0.72rem; opacity: 0.35; }
 
     @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } .awards-grid { grid-template-columns: 1fr; } .testi-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 768px) { .wrap { padding: 0 1.5rem; } .bar-label { width: 100px; } footer { flex-direction: column; padding: 2rem 1.5rem; } }
+    @media (max-width: 768px) { .bar-label { width: 100px; } }

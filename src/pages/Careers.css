@@ -8,7 +8,7 @@
       background: var(--border); border: 1px solid var(--border);
     }
     .culture-card { background: var(--black); padding: 3rem 2.5rem; transition: background 0.25s; }
-    .culture-card:hover { background: #0f0f0f; }
+    .culture-card:hover { background: var(--surface-2); }
     .culture-icon { font-size: 2.2rem; margin-bottom: 1.5rem; }
     .culture-title { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.8rem; }
     .culture-desc { font-size: 0.86rem; opacity: 0.55; line-height: 1.8; }
@@ -46,7 +46,7 @@
       cursor: pointer; transition: background 0.2s;
       text-decoration: none; color: var(--off-white);
     }
-    .job-item:hover { background: #0f0f0f; }
+    .job-item:hover { background: var(--surface-2); }
     .job-item:hover .job-arrow { color: var(--yellow); transform: translate(4px, -4px); }
     .job-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 0.6rem; }
     .job-dept {
@@ -60,7 +60,7 @@
     }
     .job-new {
       font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-      background: #fff; color: var(--black);
+      background: var(--white); color: var(--black);
       padding: 0.18rem 0.65rem; font-weight: 700;
     }
     .job-title { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; margin-bottom: 0.5rem; }
@@ -69,7 +69,7 @@
 
     /* JOB DETAIL MODAL */
     .modal-overlay {
-      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+      display: none; position: fixed; inset: 0; background: var(--overlay);
       z-index: 200; backdrop-filter: blur(6px);
       align-items: flex-start; justify-content: center; overflow-y: auto; padding: 2rem;
     }
@@ -105,13 +105,12 @@
       transition: background 0.2s; margin-top: 3rem;
       text-align: center; text-decoration: none;
     }
-    .modal-apply:hover { background: #fff; }
+    .modal-apply:hover { background: var(--white); }
 
     @media (max-width: 900px) {
       .culture-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
-      nav { padding: 1.2rem 1.5rem; }
       .job-item { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
       .modal { padding: 2.5rem 1.5rem; }
       .modal-meta { flex-wrap: wrap; gap: 1.2rem; }

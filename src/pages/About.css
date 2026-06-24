@@ -10,7 +10,7 @@
     }
     .president-avatar {
       width: 180px; height: 180px; border-radius: 50%;
-      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      background: linear-gradient(135deg, var(--dark-1) 0%, var(--dark-2) 100%);
       border: 2px solid var(--border);
       margin: 0 auto 1.5rem;
       display: flex; align-items: center; justify-content: center;
@@ -83,7 +83,7 @@
       transition: background 0.2s;
     }
     .value-item:last-child { border-right: none; }
-    .value-item:hover { background: #0d0d0d; }
+    .value-item:hover { background: var(--surface-3); }
     .value-num {
       font-family: var(--font-display); font-weight: 900;
       font-size: 3.5rem; color: var(--yellow); opacity: 0.15;
@@ -98,7 +98,6 @@
     .value-desc { font-size: 0.85rem; opacity: 0.5; line-height: 1.75; }
 
     @media (max-width: 768px) {
-      nav { padding: 1.2rem 1.5rem; }
       .message-grid { grid-template-columns: 1fr; gap: 3rem; }
       .president-card { position: static; }
       .values-row { grid-template-columns: 1fr; }

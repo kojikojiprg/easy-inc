@@ -17,7 +17,7 @@
   color: var(--off-white);
   transition: background 0.2s;
 }
-.featured-card:hover { background: #111; }
+.featured-card:hover { background: var(--surface-1); }
 .featured-card:hover .featured-title { color: var(--yellow); }
 
 .featured-meta {
@@ -204,7 +204,7 @@
   margin: 2.5rem 0;
   padding: 1.8rem 2rem;
   border-left: 3px solid var(--yellow);
-  background: #111;
+  background: var(--surface-1);
   font-style: italic;
   font-size: 1rem;
   line-height: 1.8;
@@ -234,7 +234,7 @@
   margin: 2rem 0;
   padding: 2rem 2.5rem;
   border: 1px solid var(--border);
-  background: #0d0d0d;
+  background: var(--surface-3);
 }
 
 .feature-box h3 {
@@ -351,7 +351,7 @@
   transition: background 0.2s, border-color 0.2s;
 }
 .article-nav-link:hover {
-  background: #111;
+  background: var(--surface-1);
   border-color: var(--yellow);
 }
 .article-nav-link.next { text-align: right; }

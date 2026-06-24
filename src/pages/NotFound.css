@@ -22,8 +22,8 @@
   letter-spacing: -0.04em;
   /* グリッチ風のテキストシャドウ */
   text-shadow:
-    2px 0 0 rgba(232, 255, 0, 0.3),
-    -2px 0 0 rgba(232, 255, 0, 0.15);
+    2px 0 0 var(--yellow-30),
+    -2px 0 0 var(--yellow-15);
 }
 
 .notfound-label {
@@ -50,7 +50,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   line-height: 1.8;
-  color: #bbb;
+  color: var(--text-sub);
   margin: 0 0 2.5rem;
 }
 
@@ -71,7 +71,7 @@
 .notfound-quote .ja {
   display: block;
   font-size: 0.875rem;
-  color: #bbb;
+  color: var(--text-sub);
   font-style: normal;
   margin-top: 0.4rem;
 }
@@ -79,7 +79,7 @@
 .notfound-quote cite {
   display: block;
   font-size: 0.8rem;
-  color: #999;
+  color: var(--text-muted);
   font-style: normal;
   margin-top: 0.75rem;
   letter-spacing: 0.05em;
@@ -101,7 +101,7 @@
 }
 
 .notfound-btn:hover {
-  background: #fff;
+  background: var(--white);
   transform: translateY(-2px);
 }
 
