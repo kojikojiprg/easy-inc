@@ -1,5 +1,4 @@
-.page-hero { padding: 10rem 3rem 6rem; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid var(--border); }
-    .page-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; }
+.page-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--yellow); margin-bottom: 1.2rem; }
     .page-title { font-family: 'Space Grotesk', sans-serif; font-weight: 900; font-size: clamp(3rem, 8vw, 7rem); line-height: 1.1; letter-spacing: -0.04em; }
     .page-title em { font-style: normal; color: var(--yellow); }
     .page-lead { margin-top: 2rem; max-width: 540px; font-size: 0.95rem; opacity: 0.5; line-height: 1.8; }
@@ -66,7 +65,6 @@
       .interview:nth-child(even) .interview-inner { direction: ltr; }
       .profile-card { position: static; }
       .wrap { padding: 0 1.5rem; }
-      .page-hero { padding: 8rem 1.5rem 4rem; }
       footer { flex-direction: column; padding: 2rem 1.5rem; }
     }
 

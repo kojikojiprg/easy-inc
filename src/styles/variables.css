@@ -42,13 +42,17 @@ a { color: inherit; text-decoration: none; }
 
 /* ── PAGE HERO ── */
 .page-hero {
-  padding: 10rem 2rem 7rem;
+  min-height: calc(100vh - var(--nav-height, 0px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 2rem;
   max-width: 1000px;
   margin: 0 auto;
   border-bottom: 1px solid var(--border);
 }
 @media (max-width: 768px) {
-  .page-hero { padding: 8rem 1.2rem 4rem; }
+  .page-hero { padding: 3rem 1.2rem; }
 }
 
 /* ── PAGE HERO TEXT ── */

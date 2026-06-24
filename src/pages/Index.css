@@ -1,5 +1,5 @@
 #hero {
-      height: 100vh;
+      min-height: calc(100vh - var(--nav-height, 0px));
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -7,7 +7,6 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      padding-top: 7rem;
     }
 
     .hero-bg-text {
@@ -469,6 +468,8 @@
       .news-tag { display: none; }
       footer { flex-direction: column; padding: 2rem 1.5rem; }
       .about-stat-row { gap: 2rem; }
+      /* On mobile the nav is position:fixed (out of flow), so compensate with padding-top */
+      #hero { min-height: 100vh; padding-top: var(--nav-height, 0px); }
     }
 
     @media (prefers-reduced-motion: reduce) {

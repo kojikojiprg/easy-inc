@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import Header from './Header'
 import Footer from './Footer'
 import { useLanguage } from '../context/LanguageContext'
@@ -17,6 +17,18 @@ export default function Layout() {
   const { pathname } = useLocation()
   const { t } = useLanguage()
   useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+
+  useLayoutEffect(() => {
+    const nav = document.querySelector('.nav')
+    if (!nav) return
+    const update = () => {
+      document.documentElement.style.setProperty('--nav-height', `${nav.offsetHeight}px`)
+    }
+    update()
+    const ro = new ResizeObserver(update)
+    ro.observe(nav)
+    return () => ro.disconnect()
+  }, [])
   const entry = footerCopy[pathname]
   const copy = entry ? t(entry.en, entry.ja) : 'All Rights Reserved'
   return (
