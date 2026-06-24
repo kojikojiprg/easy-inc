@@ -20,13 +20,17 @@ export default function Layout() {
 
   useLayoutEffect(() => {
     const nav = document.querySelector('.nav')
-    if (!nav) return
+    const navTop = document.querySelector('.nav-top')
+    if (!nav || !navTop) return
+
     const update = () => {
       document.documentElement.style.setProperty('--nav-height', `${nav.offsetHeight}px`)
+      document.documentElement.style.setProperty('--nav-top-height', `${navTop.getBoundingClientRect().bottom}px`)
     }
     update()
     const ro = new ResizeObserver(update)
     ro.observe(nav)
+    ro.observe(navTop)
     return () => ro.disconnect()
   }, [])
   const entry = footerCopy[pathname]

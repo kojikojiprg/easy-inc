@@ -102,17 +102,17 @@
         flex-direction: column;
         padding: 0;
         position: fixed;
-        top: 57px; /* nav-top height */
+        top: calc(var(--nav-top-height, 83px) + 8px);
         left: 0; right: 0;
         background: rgba(10,10,10,0.98);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         border-bottom: 1px solid var(--border);
         z-index: 9999;
-        max-height: calc(100vh - 57px);
+        max-height: calc(100vh - var(--nav-top-height, 83px) - 8px);
         overflow-y: auto;
       }
-      .nav-tabs.open { display: flex !important; }
+      .nav-tabs.open { display: flex !important; max-height: calc(100vh - var(--nav-top-height, 83px) - 8px); }
       .nav-tabs li { width: 100%; }
       .nav-tabs li a {
         padding: 1.1rem 1.5rem;
