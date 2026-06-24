@@ -103,3 +103,8 @@
       .values-row { grid-template-columns: 1fr; }
       .value-item { border-right: none; border-bottom: 1px solid var(--border); }
     }
+
+    @media (hover: none) {
+      .value-item.scroll-active { background: var(--surface-3); }
+      .value-item.scroll-active .value-num { opacity: 0.6; }
+    }

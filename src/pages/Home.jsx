@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useFadeIn } from '../hooks/useFadeIn'
+import { useScrollHighlight } from '../hooks/useScrollHighlight'
 import { useLanguage } from '../context/LanguageContext'
 import './Index.css'
 
@@ -30,6 +31,7 @@ const NEWS = [
 
 export default function Home() {
   useFadeIn()
+  useScrollHighlight('.quote-card, .service-item, .news-item')
   const { lang, t } = useLanguage()
 
   useEffect(() => {

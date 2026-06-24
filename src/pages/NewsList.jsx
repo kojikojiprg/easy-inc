@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import { useFadeIn } from '../hooks/useFadeIn'
+import { useScrollHighlight } from '../hooks/useScrollHighlight'
 import { newsArticles } from '../data/news'
 import { useLanguage } from '../context/LanguageContext'
 import './News.css'
 
 export default function NewsList() {
   useFadeIn()
+  useScrollHighlight('.featured-card, .news-link')
   const { lang, t } = useLanguage()
   const articles = newsArticles[lang]
   const [featured] = articles

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useFadeIn } from '../hooks/useFadeIn'
+import { useScrollHighlight } from '../hooks/useScrollHighlight'
 import { useLanguage } from '../context/LanguageContext'
 import '../styles/religion-shisha.css'
 
@@ -85,6 +86,7 @@ function FaqItem({ q, a }) {
 
 export default function Religion() {
   useFadeIn()
+  useScrollHighlight('.tenet, .effect-item, .rank-item, .holyday-item, .faq-q')
   const { lang, t } = useLanguage()
   return (
     <>

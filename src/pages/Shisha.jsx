@@ -1,4 +1,5 @@
 import { useFadeIn } from '../hooks/useFadeIn'
+import { useScrollHighlight } from '../hooks/useScrollHighlight'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import '../styles/religion-shisha.css'
@@ -96,6 +97,7 @@ const THESIS = {
 
 export default function Shisha() {
   useFadeIn()
+  useScrollHighlight('.tenet, .flavor-item, .stl-item, .rank-item, .holyday-item, .faq-q')
   const { lang, t } = useLanguage()
   return (
     <>

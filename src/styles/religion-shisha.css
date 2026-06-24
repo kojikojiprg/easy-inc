@@ -391,3 +391,14 @@
   .stl-item { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1.5rem; }
   .stl-era { white-space: normal; }
 }
+
+@media (hover: none) {
+  .tenet.scroll-active { background: var(--surface-3); }
+  .tenet.scroll-active .tenet-num { opacity: 0.6; }
+  .effect-item.scroll-active { background: var(--surface-3); }
+  .flavor-item.scroll-active { background: var(--surface-3); }
+  .stl-item.scroll-active { background: var(--surface-3); }
+  .rank-item.scroll-active { background: var(--surface-3); }
+  .holyday-item.scroll-active { background: var(--surface-3); }
+  .faq-q.scroll-active { color: var(--yellow); }
+}

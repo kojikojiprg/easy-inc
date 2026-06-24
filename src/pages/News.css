@@ -400,3 +400,10 @@
   .article-nav { grid-template-columns: 1fr; }
   .article-nav-link.next { text-align: left; }
 }
+
+@media (hover: none) {
+  .featured-card.scroll-active { background: var(--surface-1); }
+  .featured-card.scroll-active .featured-title { color: var(--yellow); }
+  .news-link.scroll-active .news-title-text { color: var(--yellow); }
+  .news-link.scroll-active .news-arrow { opacity: 1; transform: translateX(4px); }
+}

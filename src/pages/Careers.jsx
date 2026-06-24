@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useFadeIn } from '../hooks/useFadeIn'
+import { useScrollHighlight } from '../hooks/useScrollHighlight'
 import { requirements, process, culture, benefits, jobs } from '../data/careers'
 import { useLanguage } from '../context/LanguageContext'
 import './Careers.css'
@@ -34,6 +35,7 @@ function Modal({ job, onClose, t }) {
 
 export default function Careers() {
   useFadeIn()
+  useScrollHighlight('.culture-card, .job-item')
   const { lang, t } = useLanguage()
   const [filter, setFilter] = useState('all')
   const [modal, setModal] = useState(null)

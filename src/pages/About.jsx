@@ -1,9 +1,11 @@
 import { useFadeIn } from '../hooks/useFadeIn'
+import { useScrollHighlight } from '../hooks/useScrollHighlight'
 import { useLanguage } from '../context/LanguageContext'
 import './About.css'
 
 export default function About() {
   useFadeIn()
+  useScrollHighlight('.value-item')
   const { lang, t } = useLanguage()
   return (
     <>

@@ -432,3 +432,10 @@
       .marquee-inner { animation: none; }
       .scroll-hint { animation: none; }
     }
+
+    @media (hover: none) {
+      .quote-card.scroll-active { background: var(--surface-1); }
+      .service-item.scroll-active { background: var(--surface-2); }
+      .service-item.scroll-active .service-num { color: var(--yellow); opacity: 0.3; }
+      .news-item.scroll-active .news-title { color: var(--yellow); }
+    }

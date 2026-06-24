@@ -115,3 +115,9 @@
       .modal { padding: 2.5rem 1.5rem; }
       .modal-meta { flex-wrap: wrap; gap: 1.2rem; }
     }
+
+    @media (hover: none) {
+      .culture-card.scroll-active { background: var(--surface-2); }
+      .job-item.scroll-active { background: var(--surface-2); }
+      .job-item.scroll-active .job-arrow { color: var(--yellow); transform: translate(4px, -4px); }
+    }

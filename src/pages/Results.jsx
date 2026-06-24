@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useFadeIn } from '../hooks/useFadeIn'
+import { useScrollHighlight } from '../hooks/useScrollHighlight'
 import { useLanguage } from '../context/LanguageContext'
 import './Results.css'
 
@@ -107,6 +108,7 @@ function KpiItem({ count, label, note, fixed }) {
 
 export default function Results() {
   useFadeIn()
+  useScrollHighlight('.kpi-item, .award-item, .press-item')
   const { lang, t } = useLanguage()
   return (
     <>
