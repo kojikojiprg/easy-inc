@@ -50,7 +50,7 @@ const AWARDS = {
     { icon: '🏆', name: 'Zero Overtime Streak Award', org: 'Internal Awards Committee — 2024', desc: 'Internally recognized for maintaining zero overtime since founding. The ceremony ended right on time. The founder handed the certificate to himself.' },
     { icon: '⭐', name: '5-Star Google Maps Review', org: 'Google Maps — 2025', desc: 'Achieved a perfect 5.0 average from one review, posted by an employee. It just said, "It was easy."' },
     { icon: '🎖', name: '#1 in Local Shisha Consumption', org: "Per a nearby café's research — 2024", desc: 'Top per-capita shisha consumption among companies within a 200m radius. A staff member praised us: "I don\'t know if it\'s work, but they sure come a lot."' },
-    { icon: '🌟', name: '"Easiest Company Name to Remember" Award', org: "The founder's friends — 2024", desc: 'Established on the spot after a friend said, "EASY.INC is such an easy name that it\'s actually memorable." The trophy was bought on Amazon.' },
+    { icon: '🌟', name: '"Easiest Company Name to Remember" Award', org: "The founder's friends — 2024", desc: 'Established on the spot after a friend said, "EASY INC. is such an easy name that it\'s actually memorable." The trophy was bought on Amazon.' },
     { icon: '🎗', name: 'Largest Project in Company History, Completed', org: 'Internal — 2025', desc: 'Building this very corporate website. From requirements to launch, nobody worked overtime. The person in charge had one comment: "It was easy."' },
   ],
   ja: [
@@ -58,7 +58,7 @@ const AWARDS = {
     { icon: '🏆', name: '残業ゼロ継続表彰', org: '自社表彰委員会 — 2024年', desc: '創業以来、残業ゼロを継続していることを社内で表彰。表彰式は定時に終了。賞状は代表が自分で自分に渡した。' },
     { icon: '⭐', name: 'GoogleマップReview 星5獲得', org: 'Google Maps — 2025年', desc: '社員が投稿した1件のレビューにより、評価平均5.0を達成。「イージーでした」とだけ書かれていた。' },
     { icon: '🎖', name: 'シーシャ消費量地域No.1', org: '近隣のカフェ調べ — 2024年', desc: '半径200m以内の企業の中で、一人当たりのシーシャ消費量がトップ。「仕事かどうかわからないが、とにかくよく来る」と店員に称えられた。' },
-    { icon: '🌟', name: '「会社名が覚えやすい賞」', org: '代表の友人一同 — 2024年', desc: '「EASY.INCって社名、イージーすぎて逆に覚えられる」という友人の発言をきっかけに即席で制定。盾はAmazonで買った。' },
+    { icon: '🌟', name: '「会社名が覚えやすい賞」', org: '代表の友人一同 — 2024年', desc: '「EASY INC.って社名、イージーすぎて逆に覚えられる」という友人の発言をきっかけに即席で制定。盾はAmazonで買った。' },
     { icon: '🎗', name: '弊社史上最大のプロジェクト完遂', org: '社内 — 2025年', desc: 'このコーポレートサイトの制作。要件定義から公開まで、誰も残業せずに完成した。担当者は「イージーでした」と一言。' },
   ],
 }
@@ -66,13 +66,13 @@ const TESTI = {
   en: [
     { stars: 5, text: "We made a request and it got resolved, easily. We're not totally sure what happened, but somehow it just worked out.", author: 'Mr. Easy Tanaka', role: 'Manufacturing / Representative Director / Satisfaction: Easy' },
     { stars: 5, text: 'I asked "are you sure this is really okay?" three times, and three times the answer was "it\'s easy." It was okay.', author: 'Mr. Simple Suzuki', role: 'IT company / CTO / Anxious at first' },
-    { stars: 5, text: 'A problem other companies called "that\'s a tough one" — EASY.INC just said "it\'s easy" and actually solved it. Honestly, a little scary.', author: 'Ms. Not-Difficult Sato', role: 'Startup / CEO / Former skeptic' },
+    { stars: 5, text: 'A problem other companies called "that\'s a tough one" — EASY INC. just said "it\'s easy" and actually solved it. Honestly, a little scary.', author: 'Ms. Not-Difficult Sato', role: 'Startup / CEO / Former skeptic' },
     { stars: 4, text: "Four stars only because it was so easy I started worrying, 'did they actually try hard?' But the result was excellent. I'll be back.", author: 'Ms. Four-Stars Yamada', role: 'SME / Corporate Planning / A bit of a worrier' },
   ],
   ja: [
     { stars: 5, text: '依頼したらイージーに解決されました。何がどうなったかよくわかりませんでしたが、気づいたらうまくいっていました。', author: '田中 イージー様', role: '製造業 / 代表取締役 / 満足度：イージー' },
     { stars: 5, text: '「本当にこれで大丈夫ですか？」と3回聞きましたが、3回とも「イージーです」と言われました。大丈夫でした。', author: '鈴木 かんたん様', role: 'IT企業 / CTO / 最初は不安でした' },
-    { stars: 5, text: '他社には「それは難しいですね」と言われた課題を、EASY.INCは「イージーです」と言って本当に解決した。正直、怖かった。', author: '佐藤 むずかしくない様', role: 'スタートアップ / CEO / 元・懐疑派' },
+    { stars: 5, text: '他社には「それは難しいですね」と言われた課題を、EASY INC.は「イージーです」と言って本当に解決した。正直、怖かった。', author: '佐藤 むずかしくない様', role: 'スタートアップ / CEO / 元・懐疑派' },
     { stars: 4, text: '星4つなのは、あまりにイージーすぎて「本当に頑張ってくれたのか？」と少し心配になったから。でも結果は最高でした。次も頼みます。', author: '山田 よんつぼし様', role: '中小企業 / 経営企画 / やや心配性' },
   ],
 }

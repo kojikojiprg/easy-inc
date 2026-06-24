@@ -6,10 +6,10 @@ const INTERVIEWS = {
   en: [
     { icon: '🧑‍💻', name: 'Easy Taro', dept: 'Engineering', join: 'Joined: December 2024 (founding member)', tags: ['Full-stack','Shisha','Napping'], bg: 'linear-gradient(135deg,#1a1a2e,#2a2a4e)',
       qas: [
-        { q: 'Why did you join EASY.INC?', a: 'Because the company name was <strong>literally "Easy"</strong>. I figured, "maybe even joining this place will be easy," and applied. The interview really was just one question: "What\'s your favorite food?" I said curry and got hired.' },
+        { q: 'Why did you join EASY INC.?', a: 'Because the company name was <strong>literally "Easy"</strong>. I figured, "maybe even joining this place will be easy," and applied. The interview really was just one question: "What\'s your favorite food?" I said curry and got hired.' },
         { q: 'What matters most to you at work?', a: 'I ask myself "can this be made easier?" twelve times a day on average. Last week I had a day where I asked it 41 times. I didn\'t write a single line of code that day, but instead I <strong>thought extremely hard</strong>.' },
         { q: 'How do you spend your days off?', a: 'Easily. Specifically: wake up → smoke shisha → do nothing → take a nap → smoke shisha → sleep. I consider it <strong>a perfectly complete easy day</strong>.' },
-        { q: 'What do you like about EASY.INC?', a: 'No overtime. Also, very few meetings. And when I say the company name, people go "wait, Easy?" so it <strong>always gets a conversation started</strong>, which I like too.' },
+        { q: 'What do you like about EASY INC.?', a: 'No overtime. Also, very few meetings. And when I say the company name, people go "wait, Easy?" so it <strong>always gets a conversation started</strong>, which I like too.' },
       ], quote: "Living easy isn't the same as being lazy.<br>...Well, sometimes it is, a little.", quoteLabel: 'Easy Taro / Engineer' },
     { icon: '👩‍🎨', name: 'Easy Hanako', dept: 'Design', join: 'Joined: January 2025', tags: ['UX','Shisha','Walking'], bg: 'linear-gradient(135deg,#2e1a1a,#4e2a2a)',
       qas: [
@@ -20,9 +20,9 @@ const INTERVIEWS = {
       ], quote: 'The best design looks like it was never designed at all.<br>Which means my job never really ends.', quoteLabel: 'Easy Hanako / Designer' },
     { icon: '🧔', name: 'Easy Jiro', dept: 'Strategy', join: 'Joined: February 2025', tags: ['Strategy','Shisha','Reading (manga)'], bg: 'linear-gradient(135deg,#1a2e1a,#2a4e2a)',
       qas: [
-        { q: 'Why did you leave your previous job?', a: 'I used to work in strategy consulting, building 200-page slide decks every day. One day I realized, <strong>"couldn\'t this just be one page?"</strong> I said that to my boss and got yelled at. So I moved to EASY.INC. Now I really do fit it on one page.' },
-        { q: "What is EASY.INC's strategy?", a: '"Make it easy." That\'s it. We hold a strategy meeting every year, and we always land on this same conclusion. The meeting <strong>wraps up in 5 minutes</strong>. We spend the rest of the time smoking shisha.' },
-        { q: 'Has there been any difficult work?', a: 'The concept of "difficult work" <strong>hasn\'t been discovered yet</strong> at EASY.INC. There are moments where I think "isn\'t this hard?" but my routine is to immediately rethink it as "no, this can be made easy." So far, everything has been easy.' },
+        { q: 'Why did you leave your previous job?', a: 'I used to work in strategy consulting, building 200-page slide decks every day. One day I realized, <strong>"couldn\'t this just be one page?"</strong> I said that to my boss and got yelled at. So I moved to EASY INC.. Now I really do fit it on one page.' },
+        { q: "What is EASY INC.'s strategy?", a: '"Make it easy." That\'s it. We hold a strategy meeting every year, and we always land on this same conclusion. The meeting <strong>wraps up in 5 minutes</strong>. We spend the rest of the time smoking shisha.' },
+        { q: 'Has there been any difficult work?', a: 'The concept of "difficult work" <strong>hasn\'t been discovered yet</strong> at EASY INC.. There are moments where I think "isn\'t this hard?" but my routine is to immediately rethink it as "no, this can be made easy." So far, everything has been easy.' },
         { q: 'Any message for future hires?', a: "Come on in, easily. Don't overthink it. The application form, the interview, life after joining — <strong>all of it is easy</strong>. Don't worry. Worrying is the single hardest thing here." },
       ], quote: 'A single page of truth is worth more<br>than 200 pages of slides.', quoteLabel: 'Easy Jiro / Strategist' },
     { icon: '👩‍💼', name: 'Easy Mitsuko', dept: 'Business Development', join: 'Joined: March 2025', tags: ['Sales','Shisha','Yoga'], bg: 'linear-gradient(135deg,#2e2a1a,#4e3a2a)',
@@ -35,10 +35,10 @@ const INTERVIEWS = {
   ja: [
     { icon: '🧑‍💻', name: 'イージー太郎', dept: 'Engineering', join: '入社：2024年12月（創業メンバー）', tags: ['フルスタック','シーシャ','昼寝'], bg: 'linear-gradient(135deg,#1a1a2e,#2a2a4e)',
       qas: [
-        { q: 'EASY.INCに入社した理由は？', a: '社名が<strong>イージーだったから</strong>です。「これは入社もイージーかもしれない」と思って応募しました。実際、面接は「好きな食べ物は何ですか？」の1問でした。カレーと答えたら採用でした。' },
+        { q: 'EASY INC.に入社した理由は？', a: '社名が<strong>イージーだったから</strong>です。「これは入社もイージーかもしれない」と思って応募しました。実際、面接は「好きな食べ物は何ですか？」の1問でした。カレーと答えたら採用でした。' },
         { q: '仕事で大切にしていることは？', a: '「これ、もっとイージーにできないか？」と毎日12回自問しています。12回というのは平均で、先週は41回自問した日がありました。その日はコードを一行も書きませんでしたが、代わりに<strong>非常に深く考えました</strong>。' },
         { q: '休日の過ごし方は？', a: 'イージーに過ごしています。具体的には、起きる→シーシャを吸う→何もしない→昼寝する→シーシャを吸う→寝る、のルーティンです。<strong>完成されたイージーな一日</strong>だと思っています。' },
-        { q: 'EASY.INCの好きなところは？', a: '残業がないところです。あと、会議が少ないところ。あと、社名を言うと「え、イージー？」って聞き返されるので、<strong>会話のきっかけになる</strong>ところも好きです。' },
+        { q: 'EASY INC.の好きなところは？', a: '残業がないところです。あと、会議が少ないところ。あと、社名を言うと「え、イージー？」って聞き返されるので、<strong>会話のきっかけになる</strong>ところも好きです。' },
       ], quote: '「イージーに生きることは、怠けることじゃない。<br>…まあ、たまに怠けてるけど。」', quoteLabel: 'イージー太郎 / Engineer' },
     { icon: '👩‍🎨', name: 'イージー花子', dept: 'Design', join: '入社：2025年1月', tags: ['UX','シーシャ','散歩'], bg: 'linear-gradient(135deg,#2e1a1a,#4e2a2a)',
       qas: [
@@ -49,9 +49,9 @@ const INTERVIEWS = {
       ], quote: '「最高のデザインは、デザインされていないように見える。<br>だから私の仕事は終わりがない。」', quoteLabel: 'イージー花子 / Designer' },
     { icon: '🧔', name: 'イージー次郎', dept: 'Strategy', join: '入社：2025年2月', tags: ['戦略','シーシャ','読書（マンガ）'], bg: 'linear-gradient(135deg,#1a2e1a,#2a4e2a)',
       qas: [
-        { q: '前職からの転職理由は？', a: '前職は戦略コンサルで、毎日200ページのパワポを作っていました。あるとき「<strong>これ、1枚にまとめられるのでは？</strong>」と気づきました。上司に言ったら怒られました。EASY.INCに転職しました。今は本当に1枚にまとめています。' },
-        { q: 'EASY.INCの戦略とは？', a: '「イージーにする」です。以上です。毎年戦略会議をしますが、毎回この結論になります。会議は<strong>5分で終わります</strong>。残りの時間でシーシャを吸います。' },
-        { q: '難しかった仕事はありますか？', a: '「難しい仕事」という概念が、EASY.INCでは<strong>まだ発見されていません</strong>。「これは難しいのでは？」と思う瞬間はありますが、「いや、イージーにできる」と思い直すのがルーティンです。今のところ全部イージーでした。' },
+        { q: '前職からの転職理由は？', a: '前職は戦略コンサルで、毎日200ページのパワポを作っていました。あるとき「<strong>これ、1枚にまとめられるのでは？</strong>」と気づきました。上司に言ったら怒られました。EASY INC.に転職しました。今は本当に1枚にまとめています。' },
+        { q: 'EASY INC.の戦略とは？', a: '「イージーにする」です。以上です。毎年戦略会議をしますが、毎回この結論になります。会議は<strong>5分で終わります</strong>。残りの時間でシーシャを吸います。' },
+        { q: '難しかった仕事はありますか？', a: '「難しい仕事」という概念が、EASY INC.では<strong>まだ発見されていません</strong>。「これは難しいのでは？」と思う瞬間はありますが、「いや、イージーにできる」と思い直すのがルーティンです。今のところ全部イージーでした。' },
         { q: 'これから入社する人へのメッセージは？', a: 'イージーに来てください。難しく考えないでください。応募フォームも、面接も、入社後も、<strong>全部イージーです</strong>。心配しないでください。心配することが一番難しいことです。' },
       ], quote: '「200ページのパワポより、<br>1枚の真実の方が価値がある。」', quoteLabel: 'イージー次郎 / Strategist' },
     { icon: '👩‍💼', name: 'イージー三子', dept: 'Business Development', join: '入社：2025年3月', tags: ['営業','シーシャ','ヨガ'], bg: 'linear-gradient(135deg,#2e2a1a,#4e3a2a)',
@@ -91,7 +91,7 @@ export default function Team() {
       <div className="page-hero">
         <p className="page-eyebrow fade-in">Employee Interviews</p>
         <h1 className="page-title fade-in">{t(<>We asked<br />everyone on the team.</>, <>社員全員に<br />聞いてみた。</>)}</h1>
-        <p className="page-lead fade-in">{t("We asked the people who work at EASY.INC about their jobs, about Easy, and about things that don't really matter. Everyone said shockingly similar things.", 'EASY.INCで働く人たちに、仕事のこと、イージーのこと、そしてどうでもいいことを聞きました。全員が驚くほど似たようなことを言っています。')}</p>
+        <p className="page-lead fade-in">{t("We asked the people who work at EASY INC. about their jobs, about Easy, and about things that don't really matter. Everyone said shockingly similar things.", 'EASY INC.で働く人たちに、仕事のこと、イージーのこと、そしてどうでもいいことを聞きました。全員が驚くほど似たようなことを言っています。')}</p>
       </div>
 
       <div className="wrap">

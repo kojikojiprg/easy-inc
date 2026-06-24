@@ -8,14 +8,14 @@ const CHARMS = {
   en: [
     { num: 'I', title: 'Smoke slows down time', body: "Smoking shisha is, by its nature, impossible to rush. You heat the coal, wait for the smoke to rise, draw it in slowly, and exhale quietly. That whole rhythm naturally pulls out the \"ability to wait\" that modern life has taken from us.", verdict: "✦ One session averages 60–90 minutes. That's how long the \"not rushing\" lasts." },
     { num: 'II', title: 'The best conversation device, gathered around', body: 'Shisha originated in a culture of sharing one vessel among many people. You just sit around one hose, and somehow, conversation starts. People stop looking at their screens. Even silence stops feeling uncomfortable.', verdict: '✦ "Talking while smoking shisha" is a universally understood social style, anywhere in the world' },
-    { num: 'III', title: 'Flavor, a translation of feeling', body: "Mint, double apple, mango, grape, rose — there are over 100 shisha flavors. Choosing a flavor to match today's mood is a delicious way of putting your own feelings into words.", verdict: "✦ EASY.INC recommends the new habit of expressing today's feelings through flavor" },
+    { num: 'III', title: 'Flavor, a translation of feeling', body: "Mint, double apple, mango, grape, rose — there are over 100 shisha flavors. Choosing a flavor to match today's mood is a delicious way of putting your own feelings into words.", verdict: "✦ EASY INC. recommends the new habit of expressing today's feelings through flavor" },
     { num: 'IV', title: 'Too beautiful, just by existing', body: 'The shisha apparatus is a work of art in itself. The glass flask, the metal fittings, the colorful hose. Just setting it on a table changes the whole mood of the room. Watching the smoke rise alone can put you in a near-meditative state.', verdict: "✦ Time spent watching the shape of smoke isn't wasted. It's the richest time there is." },
     { num: 'V', title: 'The gravity of a 500-year-old culture', body: "Born in India, refined in Persia, made the center of social life in the Ottoman Empire, spread among the people of Egypt, and now enjoyed at shisha cafés in Shibuya, Tokyo. There's a reason humanity hasn't quit this habit in over 500 years.", verdict: '✦ "Nargile" in Turkish, "شيشة" in Arabic. Different names, same universal feeling good.' },
   ],
   ja: [
     { num: '一', title: '煙が、時間を遅くする', body: 'シーシャを吸う行為は、本質的に「急げない」。炭を熱し、煙が立ち上がるのを待ち、ゆっくりと吸い込み、静かに吐き出す。この一連のリズムが、現代人が失った「待つ能力」を自然に引き出す。', verdict: '✦ 1セッション平均60〜90分。それだけ「急がない」が続く' },
     { num: '二', title: 'みんなで囲む、最高の会話装置', body: 'シーシャは、本来ひとつの器を複数人でシェアする文化から生まれた。ひとつのホースを囲んで座る。それだけで、不思議と会話が始まる。画面を見なくなる。沈黙も苦にならない。', verdict: '✦「シーシャしながら話す」は、世界どこでも通じる万国共通の社交スタイル' },
-    { num: '三', title: 'フレーバーという名の、感情の翻訳', body: 'ミント、ダブルアップル、マンゴー、グレープ、ローズ——シーシャのフレーバーは100種を超える。今日の気分に合わせてフレーバーを選ぶ行為は、自分の感情をおいしく言語化することだ。', verdict: '✦ フレーバーで今日の感情を表現する新習慣を、EASY.INCは推奨する' },
+    { num: '三', title: 'フレーバーという名の、感情の翻訳', body: 'ミント、ダブルアップル、マンゴー、グレープ、ローズ——シーシャのフレーバーは100種を超える。今日の気分に合わせてフレーバーを選ぶ行為は、自分の感情をおいしく言語化することだ。', verdict: '✦ フレーバーで今日の感情を表現する新習慣を、EASY INC.は推奨する' },
     { num: '四', title: '美しすぎる、存在そのもの', body: 'シーシャの器具は、それ自体がアート作品だ。ガラスのフラスコ、金属の装飾、彩り豊かなホース。卓上に置くだけで場の雰囲気が変わる。煙の立ち上る様は、見ているだけで瞑想に近い状態を生む。', verdict: '✦ 煙の形を眺めていた時間は、無駄ではない。それが最も豊かな時間だ' },
     { num: '五', title: '500年続く文化の、重力', body: 'インドで生まれ、ペルシャで洗練され、オスマン帝国で社交の中心となり、エジプトで民衆に広まり、今や東京・渋谷のシーシャカフェでも楽しめる。500年以上、人類がやめなかった習慣には理由がある。', verdict: '✦ トルコ語で「ナルギーレ」、アラビア語で「شيشة」。名前は違えど、気持ちいいは共通' },
   ],
@@ -66,7 +66,7 @@ const HISTORY = {
     { era: '18th–19th century', title: 'Spread', desc: 'Expanded to Egypt, the Levant, and North Africa. Each region developed its own style and flavors, diversifying shisha culture.', badge: 'Spread' },
     { era: 'Late 20th century', title: 'Westward Expansion', desc: 'Landed in Europe and the US alongside globalization. Shisha bars appeared in London, New York, and Paris, embraced by younger generations as a cross-cultural experience.', badge: 'Westward Expansion' },
     { era: '2010s onward', title: 'Arrival in Japan', desc: 'A shisha café boom arrived in Japan. Specialty shops surged, mainly in urban areas. Spread via social media, it blended into youth culture as "experiential content."', badge: 'Arrival in Japan' },
-    { era: '2024', title: 'A New Chapter', desc: 'EASY.INC is founded. Shisha is adopted as official philosophy. The "Fourth Precept of Easy: Thou shalt smoke shisha" is established. History enters a new chapter here.', badge: 'New Chapter' },
+    { era: '2024', title: 'A New Chapter', desc: 'EASY INC. is founded. Shisha is adopted as official philosophy. The "Fourth Precept of Easy: Thou shalt smoke shisha" is established. History enters a new chapter here.', badge: 'New Chapter' },
   ],
   ja: [
     { era: '16世紀', title: '発祥', desc: 'インド・ペルシャ地方で発祥。タバコの煙を水に通すことで喉への刺激を和らげる方法を、インドの医者たちが考案。イージーの原点はここにある。', badge: '発祥' },
@@ -74,7 +74,7 @@ const HISTORY = {
     { era: '18〜19世紀', title: '拡散', desc: 'エジプト・レバント・北アフリカへ広がる。各地域独自のスタイルとフレーバーが生まれ、シーシャ文化が多様化。', badge: '拡散' },
     { era: '20世紀後半', title: '西方進出', desc: 'グローバル化とともに欧米へ上陸。ロンドン、ニューヨーク、パリにシーシャバーが登場。異文化体験として若者世代に支持される。', badge: '西方進出' },
     { era: '2010年代〜', title: '日本上陸', desc: '日本でシーシャカフェブーム到来。都市部を中心に専門店が急増。SNSでの拡散とともに「体験型コンテンツ」として若者文化に溶け込む。', badge: '日本上陸' },
-    { era: '2024年', title: '新章突入', desc: 'EASY.INCが設立。シーシャを公式哲学として採択。「イージー教四戒：シーシャを吸うべし」が制定される。歴史はここで新たな章へ突入する。', badge: '新章突入' },
+    { era: '2024年', title: '新章突入', desc: 'EASY INC.が設立。シーシャを公式哲学として採択。「イージー教四戒：シーシャを吸うべし」が制定される。歴史はここで新たな章へ突入する。', badge: '新章突入' },
   ],
 }
 
@@ -104,7 +104,7 @@ export default function Shisha() {
       <section className="reli-hero">
         <div className="reli-hero-bg" />
         <div className="symbol">💨</div>
-        <p className="reli-eyebrow">The Official Philosophy of EASY.INC</p>
+        <p className="reli-eyebrow">The Official Philosophy of EASY INC.</p>
         <h1 className="reli-title">{t(<>Shisha is<br /><em>Easy</em></>, <>シーシャは<br /><em>イージー</em></>)}</h1>
         <p className="reli-sub">{t(<>After a long debate, we reached a conclusion.<br />Shisha is the final form of Easy.</>, <>私たちは長い議論の末に結論を出した。<br />シーシャこそが、イージーの最終形態である、と。</>)}</p>
         <span className="reli-scroll">{t('↓ Find enlightenment in the smoke', '↓ 煙とともに悟れ')}</span>
@@ -115,7 +115,7 @@ export default function Shisha() {
         <p className="reli-section-label">What is Shisha</p>
         <h2 className="reli-section-heading">{t('What Is Shisha?', 'シーシャとは何か')}</h2>
         <p style={{opacity:0.65,lineHeight:1.9,marginBottom:'1.5rem'}}>{t('Shisha (water pipe) is a smoking culture born in the India–Persia region in the 16th century. Tobacco smoke is passed through water once to cool and purify it, then enjoyed alongside mellow flavors.', 'シーシャ（水タバコ）は、16世紀のインド・ペルシャ地方で生まれた喫煙文化だ。タバコの煙を一度水にくぐらせることで冷却・浄化し、まろやかなフレーバーとともに楽しむ。')}</p>
-        <p style={{opacity:0.65,lineHeight:1.9,marginBottom:'2rem'}}>{t(<>EASY.INC doesn't recommend shisha merely as a pastime. We recommend shisha <em style={{color:'var(--gold)',fontStyle:'normal'}}>as a philosophy</em>.</>, <>EASY.INCは、シーシャを単なる嗜好品として推奨しているのではない。シーシャを<em style={{color:'var(--gold)',fontStyle:'normal'}}>哲学として</em>推奨している。</>)}</p>
+        <p style={{opacity:0.65,lineHeight:1.9,marginBottom:'2rem'}}>{t(<>EASY INC. doesn't recommend shisha merely as a pastime. We recommend shisha <em style={{color:'var(--gold)',fontStyle:'normal'}}>as a philosophy</em>.</>, <>EASY INC.は、シーシャを単なる嗜好品として推奨しているのではない。シーシャを<em style={{color:'var(--gold)',fontStyle:'normal'}}>哲学として</em>推奨している。</>)}</p>
         <table className="info-table"><tbody>
           {(lang === 'ja' ? [
             ['発祥','インド・ペルシャ地方（16世紀）'],['歴史','500年以上（やめた人類なし）'],['フレーバー','100種以上（まだ増えてる）'],['平均時間','60〜90分/セッション'],['急げるか','物理的に不可能'],['イージー度','∞（測定不能）'],
@@ -157,10 +157,10 @@ export default function Shisha() {
 
       {/* THESIS */}
       <section className="section-block wrap">
-        <p className="reli-section-label">The EASY.INC Thesis</p>
+        <p className="reli-section-label">The EASY INC. Thesis</p>
         <h2 className="reli-section-heading">{t('Why Shisha Is Easy', 'シーシャはなぜイージーか')}</h2>
         <div className="scripture-block fade-in">
-          <p className="scripture-label">{t('EASY.INC Official Position Paper — 5 Articles', 'EASY.INC 公式見解書 — 全5条')}</p>
+          <p className="scripture-label">{t('EASY INC. Official Position Paper — 5 Articles', 'EASY INC. 公式見解書 — 全5条')}</p>
           <div className="scripture-text">
             {lang === 'ja'
               ? THESIS.ja.map((tx,i)=><p key={i}><span className="scripture-verse">{tx.slice(0,3)}</span>{tx.slice(3)}</p>)

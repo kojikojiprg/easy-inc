@@ -25,7 +25,7 @@ export default function Header() {
     <nav className="nav">
       <div className="nav-inner container">
         <div className="nav-top">
-          <NavLink to="/" className="nav-logo">EASY.INC</NavLink>
+          <NavLink to="/" className="nav-logo">EASY INC.</NavLink>
           <span className="nav-tagline">Make It Easy</span>
           <button className="lang-toggle" onClick={toggleLang} aria-label={t('Switch to Japanese', '英語に切り替え')}>
             <span className={lang === 'en' ? 'active' : ''}>EN</span>

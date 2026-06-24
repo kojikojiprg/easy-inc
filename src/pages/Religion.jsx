@@ -42,7 +42,7 @@ const HOLYDAYS = {
     { date: 'Daily, 7:00–8:00 AM', name: 'Morning Easy Hour', desc: 'A sacred hour for starting the day without rushing. Smoke shisha while thinking about "how to spend today, easily." Not looking at your phone is recommended.', ritual: 'Ritual: Smoke one shisha' },
     { date: 'Every Friday', name: 'Easy Friday', desc: 'A day to close out the week by reflecting on "what did I make easier this week?" If you don\'t want to reflect, you don\'t have to. That\'s easy too.', ritual: 'Ritual: Leave on time (absolute)' },
     { date: 'First Monday of every month', name: 'Easy Month-Start Ceremony', desc: 'A day to silently vow, "I will spend this month easily too." You only need to say the vow inside your head.', ritual: "Ritual: None in particular (that's the easy part)" },
-    { date: 'December 1', name: 'Founding Day of the Church of Easy', desc: 'The day EASY.INC was founded. All believers need only mutter the word "Easy" once. No grand ceremony is planned — because that wouldn\'t be easy.', ritual: 'Ritual: Say "Easy" (once)' },
+    { date: 'December 1', name: 'Founding Day of the Church of Easy', desc: 'The day EASY INC. was founded. All believers need only mutter the word "Easy" once. No grand ceremony is planned — because that wouldn\'t be easy.', ritual: 'Ritual: Say "Easy" (once)' },
     { date: 'Birthday (yours)', name: 'Personal Easy Day', desc: 'The day you were born. On this day alone, do whatever you like, easily. You may eat cake. You may do nothing at all. Either is easy.', ritual: 'Ritual: Do whatever you like' },
     { date: 'Irregular', name: 'Spontaneous Easy Day', desc: 'A day when you suddenly feel "easy" for no particular reason. On that day, let everything flow easily. Important decisions can wait until tomorrow.', ritual: 'Ritual: Nap (recommended)' },
   ],
@@ -50,7 +50,7 @@ const HOLYDAYS = {
     { date: '毎日 7:00〜8:00', name: '朝のイージー時間', desc: '一日を急がず始めるための神聖な1時間。シーシャを吸いながら今日を「どうイージーに過ごすか」を考える。スマホを見ないことが推奨される。', ritual: '儀式：シーシャを1本吸う' },
     { date: '毎週金曜日', name: 'イージー・フライデー', desc: '週の締めくくりに「今週、何をイージーにしたか」を振り返る日。振り返りたくない場合は、振り返らなくてもよい。それもイージーである。', ritual: '儀式：定時退社（絶対）' },
     { date: '毎月第一月曜日', name: 'イージー月始め式', desc: '新しい月に「今月もイージーに過ごします」と心に誓う日。誓いの言葉は心の中で唱えるだけでよい。', ritual: '儀式：特になし（それがイージー）' },
-    { date: '12月1日', name: 'イージー教創設記念日', desc: 'EASY.INCが設立された日。信者全員が「イージー」と一言つぶやくだけでよい。盛大な式典は予定していない。イージーではないから。', ritual: '儀式：「イージー」と言う（1回）' },
+    { date: '12月1日', name: 'イージー教創設記念日', desc: 'EASY INC.が設立された日。信者全員が「イージー」と一言つぶやくだけでよい。盛大な式典は予定していない。イージーではないから。', ritual: '儀式：「イージー」と言う（1回）' },
     { date: '誕生日（各自）', name: '個人イージー記念日', desc: 'あなたが生まれた日。この日ばかりは、イージーに好きなことをしてよい。ケーキを食べてもよい。なにもしなくてもよい。どちらもイージーである。', ritual: '儀式：好きなことをする' },
     { date: '不定期', name: '突発的イージーの日', desc: '「今日はなんかイージーな気分だ」と感じた日。その日は全てをイージーに流してよい。重要な判断は明日でよい。', ritual: '儀式：昼寝（推奨）' },
   ],
@@ -62,7 +62,7 @@ const FAQS = {
     { q: 'Can I follow another religion at the same time?', a: "Easy. Worrying about conflicts with other religions is a hard thing to do, so we've decided not to worry about it." },
     { q: "What if I can't smoke shisha?", a: 'Anything works. The important part is having a "slow time to take something in." Just don\'t forget your respect for shisha.' },
     { q: 'Can I leave?', a: 'There\'s no membership record to begin with, so there\'s no concept of leaving. The moment you think "I don\'t need to be easy anymore," you\'re automatically considered to have left.' },
-    { q: 'Is the Church of Easy a real religion?', a: 'No. It\'s placeholder content on EASY.INC\'s website. That said, the idea that "living easy beats living hard" is genuinely real.' },
+    { q: 'Is the Church of Easy a real religion?', a: 'No. It\'s placeholder content on EASY INC.\'s website. That said, the idea that "living easy beats living hard" is genuinely real.' },
   ],
   ja: [
     { q: 'イージー教に入信するとどうなりますか？', a: '特に何も変わりません。ただ、「難しいことはイージーにすればいい」という視点が少し強くなります。副作用として、会議が減ります。' },
@@ -70,7 +70,7 @@ const FAQS = {
     { q: '他の宗教との掛け持ちはできますか？', a: 'イージーです。他の宗教とのコンフリクトを気にするのは難しいことなので、気にしないことにしています。' },
     { q: 'シーシャが吸えない場合はどうすればよいですか？', a: 'なんでもよいです。要は「ゆっくり吸う時間」が大切です。ただし、シーシャへのリスペクトは忘れずに。' },
     { q: '退会できますか？', a: 'そもそも入会記録がないので、退会の概念がありません。「もうイージーじゃなくていいや」と思った瞬間に、自動的に退会扱いになります。' },
-    { q: 'イージー教は本物の宗教ですか？', a: 'いいえ。EASY.INCのダミーサイトのコンテンツです。ただ、「難しく生きるより、イージーに生きた方がいい」という考え方は本物です。' },
+    { q: 'イージー教は本物の宗教ですか？', a: 'いいえ。EASY INC.のダミーサイトのコンテンツです。ただ、「難しく生きるより、イージーに生きた方がいい」という考え方は本物です。' },
   ],
 }
 
@@ -105,9 +105,9 @@ export default function Religion() {
         <p style={{opacity:0.65,lineHeight:1.9,marginBottom:'2rem'}}>{t("The Church of Easy is the easiest belief system in human history, secretly founded somewhere in Tokyo in 2024. We consider \"difficulty\" evil and \"easiness\" the highest virtue. We are not registered as a religious organization, because registering wasn't easy.", 'イージー教は、2024年に東京のどこかで密かに創設された、人類史上最もイージーな思想体系です。私たちは「難しさ」を悪とし、「イージーさ」を最高の徳と考えます。宗教法人の登録はしていません。なぜなら、登録がイージーではないからです。')}</p>
         <table className="info-table"><tbody>
           {(lang === 'ja' ? [
-            ['開祖','イージー大師（正体不明）'],['創設','2024年（たぶん12月）'],['聖典','イージー教典（全1ページ）'],['礼拝','任意（しなくてもイージー）'],['戒律','難しいことをしない（1つだけ）'],['本部','EASY.INC（兼用）'],
+            ['開祖','イージー大師（正体不明）'],['創設','2024年（たぶん12月）'],['聖典','イージー教典（全1ページ）'],['礼拝','任意（しなくてもイージー）'],['戒律','難しいことをしない（1つだけ）'],['本部','EASY INC.（兼用）'],
           ] : [
-            ['Founder','The Easy Grand Master (identity unknown)'],['Founded','2024 (December, probably)'],['Scripture','The Easy Scripture (one page total)'],['Worship','Optional (skipping it is easy too)'],['Commandment',"Don't do hard things (just the one)"],['Headquarters','EASY.INC (dual-use)'],
+            ['Founder','The Easy Grand Master (identity unknown)'],['Founded','2024 (December, probably)'],['Scripture','The Easy Scripture (one page total)'],['Worship','Optional (skipping it is easy too)'],['Commandment',"Don't do hard things (just the one)"],['Headquarters','EASY INC. (dual-use)'],
           ]).map(([k,v])=>(<tr key={k}><td>{k}</td><td>{v}</td></tr>))}
         </tbody></table>
       </section>
@@ -187,7 +187,7 @@ export default function Religion() {
       <div className="join-banner">
         <h2 className="join-title">{t(<>Join right now.<br />(Actually, you already have.)</>, <>今すぐ入信する。<br />（というか、もうしてます）</>)}</h2>
         <p className="join-sub">{t("Having read this page to the end, you're already an Easy Novice. Congratulations. There's no paperwork required.", 'このページを最後まで読んだあなたは、すでにイージー見習いです。おめでとうございます。特に手続きはありません。')}</p>
-        <Link to="/careers" className="join-btn">{t('Work at EASY.INC (the real initiation)', 'EASY.INCで働く（本物の入信）')}</Link>
+        <Link to="/careers" className="join-btn">{t('Work at EASY INC. (the real initiation)', 'EASY INC.で働く（本物の入信）')}</Link>
         <p className="join-disclaimer">{t('* The Church of Easy is not a registered religious organization. It has no legal authority. Shisha is not mandatory (though it is recommended).', '※ イージー教は宗教法人ではありません。法的拘束力もありません。シーシャの強制もありません（推奨はします）。')}</p>
       </div>
     </>

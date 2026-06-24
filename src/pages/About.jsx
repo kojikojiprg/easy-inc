@@ -10,7 +10,7 @@ export default function About() {
   return (
     <>
       <div className="page-hero">
-        <p className="page-eyebrow fade-in">About EASY.INC</p>
+        <p className="page-eyebrow fade-in">About EASY INC.</p>
         <h1 className="page-title fade-in">We believe<br /><em>easy</em><br />is everything.</h1>
         <p className="page-lead fade-in">{t("Easy. That one word holds our entire philosophy. Being easy isn't about cutting corners — it's the most honest answer you arrive at after thinking something all the way through.", 'イージー。その一言に、私たちの哲学のすべてが込められています。簡単であることは、手を抜くことではない。考え抜いた先にたどり着く、もっとも誠実な答えです。')}</p>
       </div>
@@ -42,17 +42,17 @@ export default function About() {
                 <>
                   <p>Hawthorneが言うように、「簡単に読める文章」を書くには、途方もない努力が必要です。同じことがあらゆる仕事に言えます。簡単に使えるプロダクト、簡単に伝わるコミュニケーション、簡単に動ける組織——これらはすべて、深い思考と地道な実行の結果です。</p>
                   <p>私たちは「イージー」を掲げることで、常に問い続けます。「まだ難しい部分が残っていないか？」「本当にこれがベストか？」と。答えが出るまで、私たちの仕事は終わりません。</p>
-                  <p>EASY.INCは、難しいことを簡単にする会社です。それ以上でも、それ以下でもありません。その一点に、全力を尽くします。</p>
+                  <p>EASY INC.は、難しいことを簡単にする会社です。それ以上でも、それ以下でもありません。その一点に、全力を尽くします。</p>
                 </>
               ) : (
                 <>
                   <p>As Hawthorne put it, writing something that reads easily takes an enormous amount of effort. The same is true of every kind of work. A product that's easy to use, communication that's easy to follow, an organization that's easy to run — all of it is the result of deep thinking and quiet, persistent execution.</p>
                   <p>By holding up "easy" as our banner, we keep asking ourselves: is there still a hard part left in here? Is this really the best we can do? Until we have an answer, our work isn't finished.</p>
-                  <p>EASY.INC is a company that makes hard things easy. Nothing more, nothing less. We put everything we have into that one point.</p>
+                  <p>EASY INC. is a company that makes hard things easy. Nothing more, nothing less. We put everything we have into that one point.</p>
                 </>
               )}
               <div className="message-sig">{t('Easy Yamada', '山田 イージー')}</div>
-              <div style={{fontSize:'0.78rem',opacity:0.35,marginTop:'0.4rem',letterSpacing:'0.1em'}}>Founder &amp; CEO, EASY.INC</div>
+              <div style={{fontSize:'0.78rem',opacity:0.35,marginTop:'0.4rem',letterSpacing:'0.1em'}}>Founder &amp; CEO, EASY INC.</div>
             </div>
           </div>
         </div>
@@ -65,9 +65,9 @@ export default function About() {
           <table className="info-table fade-in">
             <tbody>
               {(lang === 'ja' ? [
-                ['会社名','イージー.inc（EASY.INC）'],['設立','2024年12月1日'],['代表者','代表取締役 山田 イージー'],['所在地','〒100-0001 東京都千代田区イージー通り1-2-3'],['資本金','1,000万円'],['事業内容','イージー事業全般（Easy Strategy / Easy Design / Easy Technology / Easy Growth）'],['取引銀行','イージー銀行 東京支店'],['コーポレートサイト','https://kojikojiprg.github.io/easy-inc/'],
+                ['会社名','イージー.inc（EASY INC.）'],['設立','2024年12月1日'],['代表者','代表取締役 山田 イージー'],['所在地','〒100-0001 東京都千代田区イージー通り1-2-3'],['資本金','1,000万円'],['事業内容','イージー事業全般（Easy Strategy / Easy Design / Easy Technology / Easy Growth）'],['取引銀行','イージー銀行 東京支店'],['コーポレートサイト','https://kojikojiprg.github.io/easy-inc/'],
               ] : [
-                ['Company Name','EASY.INC'],['Founded','December 1, 2024'],['Representative','Easy Yamada, Representative Director'],['Address','1-2-3 Easy-dori, Chiyoda-ku, Tokyo 100-0001, Japan'],['Capital','¥10,000,000'],['Business','The Easy business, in general (Easy Strategy / Easy Design / Easy Technology / Easy Growth)'],['Bank','Easy Bank, Tokyo Branch'],['Website','https://kojikojiprg.github.io/easy-inc/'],
+                ['Company Name','EASY INC.'],['Founded','December 1, 2024'],['Representative','Easy Yamada, Representative Director'],['Address','1-2-3 Easy-dori, Chiyoda-ku, Tokyo 100-0001, Japan'],['Capital','¥10,000,000'],['Business','The Easy business, in general (Easy Strategy / Easy Design / Easy Technology / Easy Growth)'],['Bank','Easy Bank, Tokyo Branch'],['Website','https://kojikojiprg.github.io/easy-inc/'],
               ]).map(([k,v]) => (
                 <tr key={k}><th>{k}</th><td>{v}</td></tr>
               ))}
@@ -82,7 +82,7 @@ export default function About() {
           <h2 className="section-heading fade-in">Our History</h2>
           <div className="timeline">
             {(lang === 'ja' ? [
-              ['2023 — Spring','構想の始まり','創業者・山田が「なぜこんなに多くのことが難しいままなのか」という問いを持ち、EASY.INC の構想をスタート。最初のコンセプトノートを執筆。'],
+              ['2023 — Spring','構想の始まり','創業者・山田が「なぜこんなに多くのことが難しいままなのか」という問いを持ち、EASY INC. の構想をスタート。最初のコンセプトノートを執筆。'],
               ['2024 — January','プロトタイプ開発開始','第一弾サービス「Easy Strategy」のプロトタイプ開発を開始。10社のβテスターとともに検証を繰り返す。'],
               ['2024 — June','シードラウンド調達','国内VCより初回シード資金を調達。チームを5名体制へ拡大し、プロダクト開発を本格化。'],
               ['2024 — December','イージー.inc 設立','東京都千代田区にて正式に法人設立。「Make It Easy」をコーポレートミッションとして掲げる。'],
@@ -90,10 +90,10 @@ export default function About() {
               ['2025 — March','Easy Design / Easy Technology ローンチ','サービスラインナップを拡充。デザインとテクノロジー領域のコンサルティングを開始。'],
               ['2025 — Present','プリシリーズA準備中','さらなる事業拡大に向け、次のラウンドを準備中。採用も積極的に強化中。'],
             ] : [
-              ['2023 — Spring','The Idea Begins','Founder Yamada starts asking why so many things stay needlessly difficult, and begins shaping the concept for EASY.INC. Writes the first concept notes.'],
+              ['2023 — Spring','The Idea Begins','Founder Yamada starts asking why so many things stay needlessly difficult, and begins shaping the concept for EASY INC.. Writes the first concept notes.'],
               ['2024 — January','Prototype Development Begins','Starts building a prototype of our first service, Easy Strategy. Iterates with 10 beta-testing companies.'],
               ['2024 — June','Seed Round Raised','Raises its first seed round from a domestic VC. Grows the team to 5 and ramps up product development.'],
-              ['2024 — December','EASY.INC Incorporated','Officially incorporated in Chiyoda, Tokyo. Adopts "Make It Easy" as its corporate mission.'],
+              ['2024 — December','EASY INC. Incorporated','Officially incorporated in Chiyoda, Tokyo. Adopts "Make It Easy" as its corporate mission.'],
               ['2025 — January','Easy Strategy Launches','Officially releases its first service. Passes 20 client companies within a month of launch.'],
               ['2025 — March','Easy Design / Easy Technology Launch','Expands the service lineup. Begins offering consulting in design and technology.'],
               ['2025 — Present','Pre-Series A in Progress','Preparing the next funding round to fuel further growth. Actively ramping up hiring.'],

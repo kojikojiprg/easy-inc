@@ -60,7 +60,7 @@ export const culture = {
       icon: '😴',
       title: 'Napping is a right',
       desc: 'A 15–20 minute nap is officially encouraged. We have a meeting room called the "Nap Room." No reservation needed. We won\'t wake you up.',
-      quote: '"A rested mind is an easy mind." — EASY.INC Employee Handbook, p.1 (the entire handbook)',
+      quote: '"A rested mind is an easy mind." — EASY INC. Employee Handbook, p.1 (the entire handbook)',
     },
     {
       icon: '🚬',
@@ -80,7 +80,7 @@ export const culture = {
       icon: '😴',
       title: '昼寝は権利である',
       desc: '15〜20分の仮眠は公式に推奨されています。「仮眠室」という名の会議室があります。予約不要。起こしません。',
-      quote: '"A rested mind is an easy mind." — EASY.INC Employee Handbook, p.1（全1ページ）',
+      quote: '"A rested mind is an easy mind." — EASY INC. Employee Handbook, p.1（全1ページ）',
     },
     {
       icon: '🚬',

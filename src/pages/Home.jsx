@@ -14,7 +14,7 @@ const QUOTES = [
   { text: 'Great design is making something memorable and meaningful. Easy design is making something simple out of something complex.', ja: '「優れたデザインとは記憶に残り意味のあるものを作ること。イージーなデザインとは、複雑なものをシンプルにすること。」', attr: 'Dieter Rams（ディーター・ラムス）' },
   { text: 'Take it easy — but take it.', ja: '「イージーに生きろ——でも、ちゃんと生きろ。」', attr: 'Studs Terkel' },
   { text: 'Simplicity is the ultimate sophistication. The ability to simplify means to eliminate the unnecessary so that the necessary may speak.', ja: '「シンプルさは究極の洗練である。シンプルにする能力とは、不要なものを取り除き、必要なものを語らせることだ。」', attr: 'Hans Hofmann' },
-  { text: 'Easy is not lazy. Easy is the result of discipline, clarity, and relentless refinement.', ja: '「イージーは怠けることではない。それは規律と明確さと、たゆまぬ洗練の結果だ。」', attr: 'EASY.INC' },
+  { text: 'Easy is not lazy. Easy is the result of discipline, clarity, and relentless refinement.', ja: '「イージーは怠けることではない。それは規律と明確さと、たゆまぬ洗練の結果だ。」', attr: 'EASY INC.' },
 ]
 const SERVICES = [
   { num: '01', icon: '⚡', name: 'Easy Strategy', desc: { en: 'Turning complex problems into a strategy anyone can understand. The art of stripping thinking down to what matters.', ja: '複雑な課題を、誰もが理解できる戦略へ。本質だけを残す思考の整理術。' } },
@@ -26,7 +26,7 @@ const NEWS = [
   { id: '2025-06-01', date: '2025.06.01', title: { en: 'Launching joint projects with partner companies', ja: 'パートナー企業との協業プロジェクト始動' }, tag: 'Press' },
   { id: '2025-03-08', date: '2025.03.08', title: { en: '"What Is Easy?" — A Message from Our Founder', ja: '「イージーとは何か」について — 代表メッセージ' }, tag: 'Blog' },
   { id: '2025-01-15', date: '2025.01.15', title: { en: 'Our First Service, "Easy Strategy," Now Available', ja: '第一弾サービス「Easy Strategy」の提供開始' }, tag: 'Service' },
-  { id: '2024-12-01', date: '2024.12.01', title: { en: 'Announcing the Founding of EASY.INC', ja: 'EASY.INC、設立のお知らせ' }, tag: 'Company' },
+  { id: '2024-12-01', date: '2024.12.01', title: { en: 'Announcing the Founding of EASY INC.', ja: 'EASY INC.、設立のお知らせ' }, tag: 'Company' },
 ]
 
 export default function Home() {
@@ -48,7 +48,7 @@ export default function Home() {
       {/* HERO */}
       <div id="hero">
         <div className="hero-bg-text" id="heroText">EASY</div>
-        <p className="hero-eyebrow">EASY.INC — Est. 2026</p>
+        <p className="hero-eyebrow">EASY INC. — Est. 2026</p>
         <h1 className="hero-headline">Make It<br /><em>Easy.</em></h1>
         <p className="hero-sub">Everything we do is guided by one principle — if it isn't easy, we haven't finished yet.</p>
         <a href="#contact" className="hero-cta">Get in touch</a>
@@ -110,12 +110,12 @@ export default function Home() {
           <div className="about-body fade-in">
             {lang === 'ja' ? (
               <>
-                <p>EASY.INC は「イージー」を事業の中心に置く会社です。私たちが信じるのは、本当に優れたものはシンプルである、というただひとつの真実。</p>
+                <p>EASY INC. は「イージー」を事業の中心に置く会社です。私たちが信じるのは、本当に優れたものはシンプルである、というただひとつの真実。</p>
                 <p>プロダクト、コミュニケーション、組織のあり方まで——あらゆるものを「簡単」にするための問いを立て続けます。難しいことを難しいまま渡すのは、まだ仕事が終わっていないということ。</p>
               </>
             ) : (
               <>
-                <p>EASY.INC puts "easy" at the center of everything we do. We believe one simple truth: anything truly great is simple.</p>
+                <p>EASY INC. puts "easy" at the center of everything we do. We believe one simple truth: anything truly great is simple.</p>
                 <p>From products to communication to how organizations are run — we keep asking how to make everything easier. Handing someone something difficult, as-is, just means the job isn't finished yet.</p>
               </>
             )}

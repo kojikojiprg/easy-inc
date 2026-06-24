@@ -47,13 +47,13 @@ export default function Careers() {
     <>
       <div className="page-hero">
         <div>
-          <p className="page-eyebrow fade-in">Careers at EASY.INC</p>
+          <p className="page-eyebrow fade-in">Careers at EASY INC.</p>
           <h1 className="page-title fade-in">{t(<>Hiring,<br /><em>made easy.</em></>, <>採用、<br /><em>イージー。</em></>)}</h1>
         </div>
         <div className="hero-right fade-in">
           <p>{t("We're looking for teammates right now. There's nothing hard about it. If you've read this page all the way to here, you already meet our hiring requirements.", '私たちは今、仲間を探しています。難しいことは何もありません。このページを最後まで読めた方は、すでに採用要件を満たしています。')}</p>
           <p style={{marginTop:'1.2rem',fontStyle:'italic',opacity:0.35,fontSize:'0.85rem'}}>
-            "Easy come, easy go. But our team stays." — {t('EASY.INC HR', 'EASY.INC HR部')}
+            "Easy come, easy go. But our team stays." — {t('EASY INC. HR', 'EASY INC. HR部')}
           </p>
         </div>
       </div>
@@ -111,7 +111,7 @@ export default function Careers() {
       <div className="wrap">
         <div className="section-block">
           <p className="section-label fade-in">Culture</p>
-          <h2 className="section-heading fade-in">{t('Working at EASY.INC', 'EASY.INC で働くということ')}</h2>
+          <h2 className="section-heading fade-in">{t('Working at EASY INC.', 'EASY INC. で働くということ')}</h2>
           <div className="culture-grid">
             {culture[lang].map(({ icon, title, desc, quote }) => (
               <div className="culture-card fade-in" key={title}>

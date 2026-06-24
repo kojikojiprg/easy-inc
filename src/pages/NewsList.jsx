@@ -20,7 +20,7 @@ export default function NewsList() {
           Latest <em>Updates.</em>
         </h1>
         <p className="page-hero-desc">
-          {t("The latest from EASY.INC. Read it easily. We don't write long articles, because that wouldn't be easy.", 'EASY.INCの最新情報。イージーにお読みください。長い記事は書きません。なぜならイージーではないからです。')}
+          {t("The latest from EASY INC.. Read it easily. We don't write long articles, because that wouldn't be easy.", 'EASY INC.の最新情報。イージーにお読みください。長い記事は書きません。なぜならイージーではないからです。')}
         </p>
       </section>
 
