@@ -63,9 +63,9 @@ export default function About() {
           <table className="info-table fade-in">
             <tbody>
               {(lang === 'ja' ? [
-                ['会社名','イージー.inc（EASY.INC）'],['設立','2024年12月1日'],['代表者','代表取締役 山田 イージー'],['所在地','〒100-0001 東京都千代田区イージー通り1-2-3'],['資本金','1,000万円'],['事業内容','イージー事業全般（Easy Strategy / Easy Design / Easy Technology / Easy Growth）'],['取引銀行','イージー銀行 東京支店'],['コーポレートサイト','https://easy-inc.jp'],
+                ['会社名','イージー.inc（EASY.INC）'],['設立','2024年12月1日'],['代表者','代表取締役 山田 イージー'],['所在地','〒100-0001 東京都千代田区イージー通り1-2-3'],['資本金','1,000万円'],['事業内容','イージー事業全般（Easy Strategy / Easy Design / Easy Technology / Easy Growth）'],['取引銀行','イージー銀行 東京支店'],['コーポレートサイト','https://kojikojiprg.github.io/easy-inc/'],
               ] : [
-                ['Company Name','EASY.INC'],['Founded','December 1, 2024'],['Representative','Easy Yamada, Representative Director'],['Address','1-2-3 Easy-dori, Chiyoda-ku, Tokyo 100-0001, Japan'],['Capital','¥10,000,000'],['Business','The Easy business, in general (Easy Strategy / Easy Design / Easy Technology / Easy Growth)'],['Bank','Easy Bank, Tokyo Branch'],['Website','https://easy-inc.jp'],
+                ['Company Name','EASY.INC'],['Founded','December 1, 2024'],['Representative','Easy Yamada, Representative Director'],['Address','1-2-3 Easy-dori, Chiyoda-ku, Tokyo 100-0001, Japan'],['Capital','¥10,000,000'],['Business','The Easy business, in general (Easy Strategy / Easy Design / Easy Technology / Easy Growth)'],['Bank','Easy Bank, Tokyo Branch'],['Website','https://kojikojiprg.github.io/easy-inc/'],
               ]).map(([k,v]) => (
                 <tr key={k}><th>{k}</th><td>{v}</td></tr>
               ))}
