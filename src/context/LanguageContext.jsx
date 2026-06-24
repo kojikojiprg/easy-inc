@@ -4,7 +4,11 @@ const LanguageContext = createContext(null)
 const STORAGE_KEY = 'easy-inc-lang'
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState(() => localStorage.getItem(STORAGE_KEY) || 'en')
+  const [lang, setLang] = useState(() => {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (saved) return saved
+    return navigator.language.startsWith('ja') ? 'ja' : 'en'
+  })
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, lang)
